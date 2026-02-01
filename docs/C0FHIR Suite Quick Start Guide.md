@@ -1,4 +1,3 @@
-# VistA-FHIR-Server
 This Quick Start README provides the essential commands and steps to deploy, verify, and use the C0FHIR Suite.
 ---
 # Quick Start Guide: C0FHIR Suite v1.2

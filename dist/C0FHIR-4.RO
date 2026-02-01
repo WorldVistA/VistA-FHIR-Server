@@ -1,0 +1,120 @@
+ALL ENCOUNTERS
+GT.M 30-JAN-2026 06:13:01
+C0FHIRGF
+C0FHIRGF ;VAMC/JS-FHIR FULL ENCOUNTER BUNDLE ; 19-JAN-2026
+ ;;1.0;C0FHIR PROJECT;;Jan 19, 2026;Build 1
+ Q
+GENFULL(RESULT,DFN,ENCPTR) ;RPC: C0FHIR GET FULL BUNDLE
+ N BNDL,JSON,TARGET,ERR,CNT,ID,VTYPE,LOINC,RXNORM,VDT,IMMIEN,POV,VISIT,ENCID,GLB,PRCIEN
+ N LRDFN,LBDT,LRI,LRIDT,TESTIEN
+ S CNT=0,GLB=$NA(^TMP("C0FHIRGF",$J)) K @GLB,RESULT
+ ; 1. Bundle Header
+ S BNDL("resourceType")="Bundle",BNDL("type")="collection"
+ ;
+ ; --- SECTION 1: PATIENT DEMOGRAPHICS (File #2: PATIENT) ---
+ K TARGET,ERR
+ D GETS^DIQ(2,DFN_",",".01;.02;.03;.09;.63","IE","TARGET","ERR")
+ I $D(ERR) D LOGERR("Patient Lookup",.ERR,.BNDL,.CNT) G EXIT
+ S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Patient"
+ S BNDL("entry",CNT,"resource","id")=DFN
+ S BNDL("entry",CNT,"resource","name",1,"text")=$G(TARGET(2,DFN_",",.01,"E")) ;NAME
+ S BNDL("entry",CNT,"resource","gender")=$S($G(TARGET(2,DFN_",",.02,"I"))="M":"male",1:"female") ;SEX
+ S BNDL("entry",CNT,"resource","birthDate")=$$ISO8601^C0FHIRUTL($G(TARGET(2,DFN_",",.03,"I"))) ;DOB
+ S LRDFN=$G(TARGET(2,DFN_",",.63,"I")) ;LRDFN (Pointer to File #63)
+ ;
+ ; --- SECTION 2: ENCOUNTER (File #409.68: OUTPATIENT ENCOUNTER) ---
+ S ENCID="ENC-"_ENCPTR
+ K TARGET,ERR
+ D GETS^DIQ(409.68,ENCPTR_",",".01;.04;.05","IE","TARGET","ERR")
+ I $D(ERR) D LOGERR("Encounter Lookup",.ERR,.BNDL,.CNT) G EXIT
+ S VISIT=$G(TARGET(409.68,ENCPTR_",",.05,"I")) ;VISIT (Pointer to File #9000010)
+ S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Encounter",BNDL("entry",CNT,"resource","id")=ENCID
+ S BNDL("entry",CNT,"resource","status")="finished"
+ S BNDL("entry",CNT,"resource","location",1,"location","display")=$G(TARGET(409.68,ENCPTR_",",.04,"E")) ;CLINIC
+ S BNDL("entry",CNT,"resource","subject","reference")="Patient/"_DFN
+ ;
+ ; --- SECTION 3: VISTA LABS (File #63: LAB DATA) ---
+ I LRDFN,VISIT D
+ . S LBDT=$$GET1^DIQ(9000010,VISIT_",",.01,"I") Q:'LBDT  ;VISIT DATE/TIME
+ . S LRIDT=9999999-LBDT,LRI=LRIDT
+ . F  S LRI=$O(^LR(LRDFN,"CH",LRI)) Q:'LRI!(LRI>(LRIDT_".9999"))  D
+ .. S TESTIEN=1 F  S TESTIEN=$O(^LR(LRDFN,"CH",LRI,TESTIEN)) Q:'TESTIEN  D
+ ... N DATA,RESULT,UNIT,TESTNM,LABERR
+ ... S DATA=$G(^LR(LRDFN,"CH",LRI,TESTIEN))
+ ... S RESULT=$P(DATA,"^",1) ;LAB RESULT
+ ... S UNIT=$P($P(DATA,"^",2),"!",7) ;UNITS (extracted from piece 2)
+ ... S TESTNM=$$GET1^DIQ(60,TESTIEN_",",.01,"","","LABERR") ;File #60: LABORATORY TEST (.01:NAME)
+ ... I $D(LABERR) Q
+ ... S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Observation"
+ ... S BNDL("entry",CNT,"resource","category",1,"coding",1,"code")="laboratory"
+ ... S BNDL("entry",CNT,"resource","code","text")=TESTNM
+ ... S BNDL("entry",CNT,"resource","valueQuantity","value")=RESULT
+ ... S BNDL("entry",CNT,"resource","valueQuantity","unit")=UNIT
+ ... S BNDL("entry",CNT,"resource","effectiveDateTime")=$$ISO8601^C0FHIRUTL(9999999-LRI)
+ ... S BNDL("entry",CNT,"resource","encounter","reference")="Encounter/"_ENCID
+ ;
+EXIT ; Finalize and encode to Global Array
+ S BNDL("total")=CNT
+ D ENCODE^XLFJSON("BNDL",GLB)
+ M RESULT=@GLB
+ K @GLB
+ Q
+ ;
+LOGERR(MSG,ERR,BNDL,CNT) ; Log FileMan errors as FHIR OperationOutcome
+ S CNT=CNT+1
+ S BNDL("entry",CNT,"resource","resourceType")="OperationOutcome"
+ S BNDL("entry",CNT,"resource","issue",1,"severity")="error"
+ S BNDL("entry",CNT,"resource","issue",1,"diagnostics")="VistA FileMan Error in "_MSG_": "_$G(ERR("DIERR",1,"TEXT",1))
+ Q
+
+C0FHIRTS
+C0FHIRTS ;VAMC/JS-FHIR SUITE TESTER ; 24-JAN-2026
+ ;;1.0;C0FHIR PROJECT;;Jan 24, 2026;Build 1
+ Q
+EN ; Main entry point for interactive testing
+ N DFN,ENCPTR,RES,DIR,X,Y,DTOUT,DUOUT,DIRUT,DIROUT
+ ;
+ W !!,"--- C0FHIR Suite Interactive Tester ---",!
+ ;
+ ; 1. Prompt for Patient (File #2: PATIENT)
+ S DIR(0)="PO^2:AEMQ"
+ S DIR("A")="Select Patient"
+ D ^DIR K DIR
+ I $D(DIRUT) W !,"Test Cancelled." Q
+ S DFN=+Y
+ ;
+ ; 2. Prompt for Encounter (File #409.68: OUTPATIENT ENCOUNTER)
+ ; Filter: Only show encounters belonging to the selected DFN
+ S DIR(0)="PO^409.68:AEMQ"
+ S DIR("A")="Select Encounter for "_$P(Y,U,2)
+ S DIR("S")="I $P(^(0),U,2)=DFN"
+ D ^DIR K DIR
+ I $D(DIRUT) W !,"Test Cancelled." Q
+ S ENCPTR=+Y
+ ;
+ W !!,"Generating FHIR Bundle for DFN: "_DFN_" / Encounter: "_ENCPTR_"..."
+ ;
+ ; 3. Execute the Aggregator
+ D GENFULL^C0FHIRGF(.RES,DFN,ENCPTR)
+ ;
+ ; 4. Validate and Inspect Results
+ I '$D(RES) W !,"FAIL: No results returned. Check error trap (^%ZTER)." Q
+ ;
+ W !,"SUCCESS: JSON Bundle Created."
+ D VERIFY ; Run routine dependency check
+ ;
+ ; 5. Display the first few lines of JSON
+ W !!,"Preview of JSON Output:",!
+ N I S I="" F  S I=$O(RES(I)) Q:I=""!(I>10)  W !,RES(I)
+ W !!,"--- End of Test ---",!
+ Q
+ ;
+VERIFY ; Internal check for necessary routines
+ N R
+ W !,"Checking Namespace Dependencies:"
+ F R="C0FHIRGF","C0FHIRPT","C0FHIRLM","C0FHIRIM","C0FHIRVM","C0FHIRMX","C0FHIRPM","C0FHIRRX","C0FHIRNOTE","C0FHIRUTL" D
+ . X "I $L($T(^"_R_")) W !,"" [OK]  ""_R E  W !,"" [!!]  MISSING: ""_R"
+ Q
+
+
+

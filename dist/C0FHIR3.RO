@@ -1,0 +1,383 @@
+THIRD VERSION OF C0FHIR FROM THE MONDAY 1/19/2026 CALL
+GT.M 20-JAN-2026 02:48:51
+C0FHIRGF
+C0FHIRGF ;VAMC/JS-FHIR FULL ENCOUNTER BUNDLE ; 19-JAN-2026
+ ;;1.0;C0FHIR PROJECT;;Jan 19, 2026;Build 1
+ Q
+GENFULL(RESULT,DFN,ENCPTR) ;RPC: C0FHIR GET FULL BUNDLE
+ N BNDL,JSON,TARGET,ERR,CNT,ID,VTYPE,LOINC,RXNORM,VDT,IMMIEN,POV,VISIT,ENCID,GLB,PRCIEN
+ N LRDFN,LBDT,LRI,LRIDT,TESTIEN
+ S CNT=0,GLB=$NA(^TMP("C0FHIRGF",$J)) K @GLB,RESULT
+ ; 1. Bundle Header
+ S BNDL("resourceType")="Bundle",BNDL("type")="collection"
+ ;
+ ; --- SECTION 1: PATIENT DEMOGRAPHICS (File #2: PATIENT) ---
+ K TARGET,ERR
+ D GETS^DIQ(2,DFN_",",".01;.02;.03;.09;.63","IE","TARGET","ERR")
+ I $D(ERR) D LOGERR("Patient Lookup",.ERR,.BNDL,.CNT) G EXIT
+ S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Patient"
+ S BNDL("entry",CNT,"resource","id")=DFN
+ S BNDL("entry",CNT,"resource","name",1,"text")=$G(TARGET(2,DFN_",",.01,"E")) ;NAME
+ S BNDL("entry",CNT,"resource","gender")=$S($G(TARGET(2,DFN_",",.02,"I"))="M":"male",1:"female") ;SEX
+ S BNDL("entry",CNT,"resource","birthDate")=$$ISO8601^C0FHIRUTL($G(TARGET(2,DFN_",",.03,"I"))) ;DOB
+ S LRDFN=$G(TARGET(2,DFN_",",.63,"I")) ;LRDFN (Pointer to File #63)
+ ;
+ ; --- SECTION 2: ENCOUNTER (File #409.68: OUTPATIENT ENCOUNTER) ---
+ S ENCID="ENC-"_ENCPTR
+ K TARGET,ERR
+ D GETS^DIQ(409.68,ENCPTR_",",".01;.04;.05","IE","TARGET","ERR")
+ I $D(ERR) D LOGERR("Encounter Lookup",.ERR,.BNDL,.CNT) G EXIT
+ S VISIT=$G(TARGET(409.68,ENCPTR_",",.05,"I")) ;VISIT (Pointer to File #9000010)
+ S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Encounter",BNDL("entry",CNT,"resource","id")=ENCID
+ S BNDL("entry",CNT,"resource","status")="finished"
+ S BNDL("entry",CNT,"resource","location",1,"location","display")=$G(TARGET(409.68,ENCPTR_",",.04,"E")) ;CLINIC
+ S BNDL("entry",CNT,"resource","subject","reference")="Patient/"_DFN
+ ;
+ ; --- SECTION 3: VISTA LABS (File #63: LAB DATA) ---
+ I LRDFN,VISIT D
+ . S LBDT=$$GET1^DIQ(9000010,VISIT_",",.01,"I") Q:'LBDT  ;VISIT DATE/TIME
+ . S LRIDT=9999999-LBDT,LRI=LRIDT
+ . F  S LRI=$O(^LR(LRDFN,"CH",LRI)) Q:'LRI!(LRI>(LRIDT_".9999"))  D
+ .. S TESTIEN=1 F  S TESTIEN=$O(^LR(LRDFN,"CH",LRI,TESTIEN)) Q:'TESTIEN  D
+ ... N DATA,RESULT,UNIT,TESTNM,LABERR
+ ... S DATA=$G(^LR(LRDFN,"CH",LRI,TESTIEN))
+ ... S RESULT=$P(DATA,"^",1) ;LAB RESULT
+ ... S UNIT=$P($P(DATA,"^",2),"!",7) ;UNITS (extracted from piece 2)
+ ... S TESTNM=$$GET1^DIQ(60,TESTIEN_",",.01,"","","LABERR") ;File #60: LABORATORY TEST (.01:NAME)
+ ... I $D(LABERR) Q
+ ... S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Observation"
+ ... S BNDL("entry",CNT,"resource","category",1,"coding",1,"code")="laboratory"
+ ... S BNDL("entry",CNT,"resource","code","text")=TESTNM
+ ... S BNDL("entry",CNT,"resource","valueQuantity","value")=RESULT
+ ... S BNDL("entry",CNT,"resource","valueQuantity","unit")=UNIT
+ ... S BNDL("entry",CNT,"resource","effectiveDateTime")=$$ISO8601^C0FHIRUTL(9999999-LRI)
+ ... S BNDL("entry",CNT,"resource","encounter","reference")="Encounter/"_ENCID
+ ;
+EXIT ; Finalize and encode to Global Array
+ S BNDL("total")=CNT
+ D ENCODE^XLFJSON("BNDL",GLB)
+ M RESULT=@GLB
+ K @GLB
+ Q
+ ;
+LOGERR(MSG,ERR,BNDL,CNT) ; Log FileMan errors as FHIR OperationOutcome
+ S CNT=CNT+1
+ S BNDL("entry",CNT,"resource","resourceType")="OperationOutcome"
+ S BNDL("entry",CNT,"resource","issue",1,"severity")="error"
+ S BNDL("entry",CNT,"resource","issue",1,"diagnostics")="VistA FileMan Error in "_MSG_": "_$G(ERR("DIERR",1,"TEXT",1))
+ Q
+
+C0FHIRGF2
+C0FHIRGF ;VAMC/JS-FHIR MASTER AGGREGATOR ; 19-JAN-2026
+ ;;1.0;C0FHIR PROJECT;;Jan 19, 2026;Build 1
+ Q
+GENFULL(RESULT,DFN,ENCPTR) ;RPC: C0FHIR GET FULL BUNDLE
+ N BNDL,CNT,GLB,LRDFN,ENCID,VDT,VISIT,TARGET,ERR
+ S CNT=0,GLB=$NA(^TMP("C0FHIRGF",$J)) K @GLB,RESULT
+ ;
+ ; 1. Initialize Bundle
+ S BNDL("resourceType")="Bundle",BNDL("type")="collection"
+ ;
+ ; 2. Get Patient & Lab Pointer (Module: PT)
+ S LRDFN=$$GETPT^C0FHIRPT(.BNDL,.CNT,DFN)
+ ;
+ ; 3. Get Encounter Context (File #409.68: OUTPATIENT ENCOUNTER)
+ S ENCID="ENC-"_ENCPTR
+ K TARGET,ERR D GETS^DIQ(409.68,ENCPTR_",",".01;.05","IE","TARGET","ERR")
+ I $D(ERR) D LOGERR^C0FHIRGF("Encounter Lookup",.ERR,.BNDL,.CNT) G EXIT
+ S VDT=$G(TARGET(409.68,ENCPTR_",",.01,"I"))
+ S VISIT=$G(TARGET(409.68,ENCPTR_",",.05,"I"))
+ ; Add Encounter Resource to Bundle
+ S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Encounter"
+ S BNDL("entry",CNT,"resource","id")=ENCID
+ S BNDL("entry",CNT,"resource","subject","reference")="Patient/"_DFN
+ ;
+ ; 4. Call Clinical Modules (The "Rest of Them")
+ D GETLAB^C0FHIRLM(.BNDL,.CNT,LRDFN,VISIT,ENCID) ; Lab Module
+ D GETIMM^C0FHIRIM(.BNDL,.CNT,ENCPTR,ENCID)     ; Immunization Module
+ D GETVIT^C0FHIRVM(.BNDL,.CNT,DFN,VDT,ENCID)    ; Vitals Module
+ D GETMEDS^C0FHIRMX(.BNDL,.CNT,DFN,ENCID)       ; Meds Module
+ D GETPRC^C0FHIRPM(.BNDL,.CNT,ENCPTR,ENCID)     ; Procedures Module
+ ;
+EXIT ; Wrap up
+ S BNDL("total")=CNT
+ D ENCODE^XLFJSON("BNDL",GLB)
+ M RESULT=@GLB
+ K @GLB
+ Q
+
+C0FHIRIM
+C0FHIRIM ;VAMC/JS-FHIR IMMUNIZATION MAPPER ; 19-JAN-2026
+ ;;1.0;C0FHIR PROJECT;;Jan 19, 2026;Build 1
+ Q
+GETIMM(BNDL,CNT,ENCPTR,ENCID) ;Pull Immunizations for an Encounter
+ ; File #9000010.11: V IMMUNIZATION -> .01:VACCINE (Ptr #9999999.14); 1201:EVENT D/T
+ N IMMIEN,TARGET,ERR
+ S IMMIEN=0 F  S IMMIEN=$O(^AUPNVIMM("AD",ENCPTR,IMMIEN)) Q:'IMMIEN  D
+ . K TARGET,ERR
+ . D GETS^DIQ(9000010.11,IMMIEN_",",".01;1201","IE","TARGET","ERR")
+ . Q:$D(ERR)
+ . S CNT=CNT+1
+ . S BNDL("entry",CNT,"resource","resourceType")="Immunization"
+ . S BNDL("entry",CNT,"resource","status")="completed"
+ . S BNDL("entry",CNT,"resource","vaccineCode","text")=$G(TARGET(9000010.11,IMMIEN_",",.01,"E"))
+ . S BNDL("entry",CNT,"resource","occurrenceDateTime")=$$ISO8601^C0FHIRUTL($G(TARGET(9000010.11,IMMIEN_",",1201,"I")))
+ . S BNDL("entry",CNT,"resource","encounter","reference")="Encounter/"_ENCID
+ Q
+
+C0FHIRIMM
+C0FHIRIMM ;FHIR Immunization Mapper ; 19-JAN-2026
+ Q
+GETIMM(RESULT,DFN,ENCPTR) ;RPC: C0FHIR GET IMMUNIZATIONS
+ N IMMIEN,CNT,DATA,BNDL,VAC,CVX,STATUS,REFIEN
+ S CNT=0 K RESULT
+ S IMMIEN=0 F  S IMMIEN=$O(^AUPNVIMM("AD",ENCPTR,IMMIEN)) Q:'IMMIEN  D
+ .K DATA D GETS^DIQ(9000010.11,IMMIEN_",",".01;.07;1201","IE","DATA")
+ .S CNT=CNT+1
+ .S STATUS=$S($G(DATA(9000010.11,IMMIEN_",",.07,"I"))=1:"not-done",1:"completed")
+ .S BNDL("entry",CNT,"resource","resourceType")="Immunization"
+ .S BNDL("entry",CNT,"resource","status")=STATUS
+ .S VAC=$G(DATA(9000010.11,IMMIEN_",",.01,"I"))
+ .S CVX=$$GET1^DIQ(9999999.14,VAC_",",.03)
+ .S BNDL("entry",CNT,"resource","vaccineCode","coding",1,"system")="http://hl7.org/fhir/sid/cvx"
+ .S BNDL("entry",CNT,"resource","vaccineCode","coding",1,"code")=CVX
+ .S BNDL("entry",CNT,"resource","occurrenceDateTime")=$$ISO8601^C0FHIRUTL($G(DATA(9000010.11,IMMIEN_",",1201,"I")))
+ S REFIEN=0 F  S REFIEN=$O(^AUPNPREF("AC",DFN,REFIEN)) Q:'REFIEN  D
+ .Q:$$GET1^DIQ(9000022,REFIEN_",",.01)'="IMMUNIZATION"
+ .S CNT=CNT+1
+ .S BNDL("entry",CNT,"resource","resourceType")="Immunization"
+ .S BNDL("entry",CNT,"resource","status")="not-done"
+ .S BNDL("entry",CNT,"resource","statusReason","text")="Refused: "_$$GET1^DIQ(9000022,REFIEN_",",.07)
+ D ENCODE^XLFJSON("BNDL","RESULT")
+ Q
+
+C0FHIRLAB
+C0FHIRLAB ;FHIR Lab Results Mapper ; 19-JAN-2026
+ Q
+GETLABS(RESULT,DFN,ENCPTR) ;RPC: C0FHIR GET LABS
+ N LABIEN,CNT,DATA,BNDL
+ S CNT=0 K RESULT
+ S LABIEN=0 F  S LABIEN=$O(^AUPNVLAB("AD",ENCPTR,LABIEN)) Q:'LABIEN  D
+ .K DATA D GETS^DIQ(9000010.09,LABIEN_",",".01;.04;.05;.06;1201","IE","DATA")
+ .S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Observation"
+ .S BNDL("entry",CNT,"resource","code","text")=$G(DATA(9000010.09,LABIEN_",",.01,"E"))
+ .S BNDL("entry",CNT,"resource","valueQuantity","value")=$G(DATA(9000010.09,LABIEN_",",.04,"E"))
+ .S BNDL("entry",CNT,"resource","effectiveDateTime")=$$ISO8601^C0FHIRUTL($G(DATA(9000010.09,LABIEN_",",1201,"I")))
+ D ENCODE^XLFJSON("BNDL","RESULT")
+ Q
+
+C0FHIRLM
+C0FHIRLM ;VAMC/JS-FHIR LAB RESULTS MAPPER ; 19-JAN-2026
+ ;;1.0;C0FHIR PROJECT;;Jan 19, 2026;Build 1
+ Q
+GETLAB(BNDL,CNT,LRDFN,VISIT,ENCID) ;Pull Chemistry Labs from VistA File #63
+ ; LRDFN: Pointer to File #63; VISIT: Pointer to File #9000010
+ Q:'LRDFN!'VISIT
+ N LBDT,LRI,LRIDT,TESTIEN,DATA,RESULT,UNIT,TESTNM,LABERR
+ ; 1. Get Visit Date (File #9000010: VISIT -> Field .01: VISIT/ADMIT DATE&TIME)
+ S LBDT=$$GET1^DIQ(9000010,VISIT_",",.01,"I") Q:'LBDT
+ ; 2. Setup Inverse Date Lookup for ^LR(LRDFN,"CH")
+ S LRIDT=9999999-LBDT
+ S LRI=LRIDT F  S LRI=$O(^LR(LRDFN,"CH",LRI)) Q:'LRI!(LRI>(LRIDT_".9999"))  D
+ . S TESTIEN=1 F  S TESTIEN=$O(^LR(LRDFN,"CH",LRI,TESTIEN)) Q:'TESTIEN  D
+ .. S DATA=$G(^LR(LRDFN,"CH",LRI,TESTIEN))
+ .. S RESULT=$P(DATA,"^",1) ; Field: Result
+ .. S UNIT=$P($P(DATA,"^",2),"!",7) ; Field: Units (VA Standard piece)
+ .. ; 3. Resolve Test Name (File #60: LABORATORY TEST -> Field .01: NAME)
+ .. K TESTNM,LABERR
+ .. S TESTNM=$$GET1^DIQ(60,TESTIEN_",",.01,"","","LABERR")
+ .. Q:$D(LABERR)!(TESTNM="")
+ .. ; 4. Build FHIR Observation Resource
+ .. S CNT=CNT+1
+ .. S BNDL("entry",CNT,"resource","resourceType")="Observation"
+ .. S BNDL("entry",CNT,"resource","category",1,"coding",1,"code")="laboratory"
+ .. S BNDL("entry",CNT,"resource","code","text")=TESTNM
+ .. S BNDL("entry",CNT,"resource","valueQuantity","value")=RESULT
+ .. S BNDL("entry",CNT,"resource","valueQuantity","unit")=UNIT
+ .. S BNDL("entry",CNT,"resource","effectiveDateTime")=$$ISO8601^C0FHIRUTL(9999999-LRI)
+ .. S BNDL("entry",CNT,"resource","encounter","reference")="Encounter/"_ENCID
+ Q
+
+C0FHIRMED
+C0FHIRMED ;FHIR Medication Mapper ; 19-JAN-2026
+ Q
+GETMEDS(RESULT,DFN) ;RPC: C0FHIR GET MEDS
+ N RXIEN,CNT,DATA,BNDL,STAT
+ S CNT=0 K RESULT
+ S RXIEN=0 F  S RXIEN=$O(^PSRX("B",DFN,RXIEN)) Q:'RXIEN  D
+ .K DATA D GETS^DIQ(52,RXIEN_",",".01;6;10;100","IE","DATA")
+ .S CNT=CNT+1
+ .S BNDL("entry",CNT,"resource","resourceType")="MedicationRequest"
+ .S BNDL("entry",CNT,"resource","intent")="order"
+ .S STAT=$G(DATA(52,RXIEN_",",100,"I"))
+ .S BNDL("entry",CNT,"resource","status")=$S(STAT=0:"active",STAT=11:"completed",1:"on-hold")
+ .S BNDL("entry",CNT,"resource","medicationCodeableConcept","text")=$G(DATA(52,RXIEN_",",6,"E"))
+ .S BNDL("entry",CNT,"resource","dosageInstruction",1,"text")=$G(DATA(52,RXIEN_",",10,"E"))
+ D ENCODE^XLFJSON("BNDL","RESULT")
+ Q
+
+C0FHIRMX
+C0FHIRMX ;VAMC/JS-FHIR MEDICATION MAPPER ; 19-JAN-2026
+ ;;1.0;C0FHIR PROJECT;;Jan 19, 2026;Build 1
+ Q
+GETMEDS(BNDL,CNT,DFN,ENCID) ;Pull Active Meds for Patient
+ ; File #52: PRESCRIPTION -> 6:DRUG; 100:STATUS
+ N ID,TARGET,ERR,RXN
+ S ID=0 F  S ID=$O(^PSRX("B",DFN,ID)) Q:'ID  D
+ . K TARGET,ERR
+ . D GETS^DIQ(52,ID_",","6;100","IE","TARGET","ERR")
+ . Q:$D(ERR)
+ . S CNT=CNT+1
+ . S BNDL("entry",CNT,"resource","resourceType")="MedicationStatement"
+ . S BNDL("entry",CNT,"resource","status")="active"
+ . S BNDL("entry",CNT,"resource","medicationCodeableConcept","text")=$G(TARGET(52,ID_",",6,"E"))
+ . ; Lookup RxNorm via Helper
+ . S RXN=$$GETRX^C0FHIRRX(ID)
+ . I RXN'="" D
+ .. S BNDL("entry",CNT,"resource","medicationCodeableConcept","coding",1,"system")="http://www.nlm.nih.gov/research/pim/rxnorm"
+ .. S BNDL("entry",CNT,"resource","medicationCodeableConcept","coding",1,"code")=RXN
+ . S BNDL("entry",CNT,"resource","encounter","reference")="Encounter/"_ENCID
+ Q
+
+C0FHIRNOTE
+C0FHIRNOTE ;VAMC/JS-FHIR TIU NOTE EXTRACTOR ; 19-JAN-2026
+ ;;1.0;C0FHIR PROJECT;;Jan 19, 2026;Build 1
+ Q
+GETNOTES(RESULT,DFN,ENCPTR) ;RPC: C0FHIR GET NOTES
+ ; File #8925: TIU DOCUMENT -> .01:DOCUMENT TYPE; .05:STATUS
+ N TIUIEN,CNT,BNDL,STAT,ERR
+ S CNT=0 K RESULT
+ S TIUIEN=0 F  S TIUIEN=$O(^TIU(8925,"V",ENCPTR,TIUIEN)) Q:'TIUIEN  D
+ . S STAT=$$GET1^DIQ(8925,TIUIEN_",",.05,"I","","ERR") Q:STAT<7
+ . S CNT=CNT+1
+ . S BNDL("entry",CNT,"resource","resourceType")="DocumentReference"
+ . S BNDL("entry",CNT,"resource","type","text")=$$GET1^DIQ(8925,TIUIEN_",",.01,"","","ERR")
+ . D GENWP(TIUIEN,.BNDL,CNT)
+ D ENCODE^XLFJSON("BNDL","RESULT")
+ Q
+ ;
+GENWP(TIUIEN,BNDL,CNT) ;Extract WP Text (File #8925: TIU DOCUMENT -> Field 2: REPORT TEXT)
+ N TEXT,FULLTXT,I,ERR
+ K TEXT D GET1^DIQ(8925,TIUIEN_",",2,"","TEXT","ERR")
+ S FULLTXT="",I=0
+ F  S I=$O(TEXT(I)) Q:'I  S FULLTXT=FULLTXT_TEXT(I)_$C(13,10)
+ S BNDL("entry",CNT,"resource","content",1,"attachment","data")=$$BASE64^C0FHIRUTL(.FULLTXT)
+ Q
+
+C0FHIRPM
+C0FHIRPM ;VAMC/JS-FHIR PROCEDURE MAPPER ; 19-JAN-2026
+ ;;1.0;C0FHIR PROJECT;;Jan 19, 2026;Build 1
+ Q
+GETPRC(BNDL,CNT,ENCPTR,ENCID) ;Pull Procedures
+ ; File #9000010.18: V PROCEDURE -> .01:PROCEDURE (CPT); 1201:EVENT D/T
+ N PRCIEN,TARGET,ERR
+ S PRCIEN=0 F  S PRCIEN=$O(^AUPNVPRC("AD",ENCPTR,PRCIEN)) Q:'PRCIEN  D
+ . K TARGET,ERR D GETS^DIQ(9000010.18,PRCIEN_",",".01;1201","IE","TARGET","ERR")
+ . Q:$D(ERR)
+ . S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Procedure"
+ . S BNDL("entry",CNT,"resource","code","text")=$G(TARGET(9000010.18,PRCIEN_",",.01,"E"))
+ . S BNDL("entry",CNT,"resource","performedDateTime")=$$ISO8601^C0FHIRUTL($G(TARGET(9000010.18,PRCIEN_",",1201,"I")))
+ . S BNDL("entry",CNT,"resource","encounter","reference")="Encounter/"_ENCID
+ Q
+
+C0FHIRPROC
+C0FHIRGF ;FHIR Full Bundle Aggregator ; 19-JAN-2026
+ Q
+GENFULL(RESULT,DFN,ENCPTR) ;RPC: Returns a complete patient encounter bundle
+ N BNDL,JSON,TARGET,ERR,CNT,ID,VTYPE,LOINC,RXNORM,VDT,IMMIEN,POV,VISIT,ENCID,LABIEN,GLB,PRCIEN
+ S CNT=0,GLB=$NA(^TMP("C0FHIRGF",$J)) K @GLB,RESULT
+ ; 1. Bundle Header
+ S BNDL("resourceType")="Bundle",BNDL("type")="collection"
+ ;
+ ; [Section 1-5: Patient, Encounter, Labs, Imms, Vitals as defined previously]
+ ;
+ ; --- SECTION 6: PROCEDURES (V PROCEDURE) ---
+ S PRCIEN=0 F  S PRCIEN=$O(^AUPNVPRC("AD",ENCPTR,PRCIEN)) Q:'PRCIEN  D
+ .K TARGET D GETS^DIQ(9000010.18,PRCIEN_",",".01;.04;1201","IE","TARGET")
+ .S CNT=CNT+1
+ .S BNDL("entry",CNT,"resource","resourceType")="Procedure"
+ .S BNDL("entry",CNT,"resource","status")="completed"
+ .S BNDL("entry",CNT,"resource","code","text")=$G(TARGET(9000010.18,PRCIEN_",",.01,"E"))
+ .; Map CPT/HCPCS code if the .01 points to the CPT File
+ .N CPT S CPT=$G(TARGET(9000010.18,PRCIEN_",",.01,"I"))
+ .I CPT D
+ ..S BNDL("entry",CNT,"resource","code","coding",1,"system")="http://www.ama-assn.org/go/cpt"
+ ..S BNDL("entry",CNT,"resource","code","coding",1,"code")=$$GET1^DIQ(81,CPT_",",.01)
+ .S BNDL("entry",CNT,"resource","performedDateTime")=$$ISO8601^C0FHIRUTL($G(TARGET(9000010.18,PRCIEN_",",1201,"I")))
+ .S BNDL("entry",CNT,"resource","subject","reference")="Patient/"_DFN
+ .S BNDL("entry",CNT,"resource","encounter","reference")="Encounter/"_ENCID
+ ;
+ S BNDL("total")=CNT
+ D ENCODE^XLFJSON("BNDL",GLB)
+ M RESULT=@GLB
+ K @GLB
+ Q
+
+C0FHIRPT
+C0FHIRPT ;VAMC/JS-FHIR PATIENT UTILITY ; 19-JAN-2026
+ ;;1.0;C0FHIR PROJECT;;Jan 19, 2026;Build 1
+ Q
+GETPT(BNDL,CNT,DFN) ;Extract Patient Demographics
+ ; File #2: PATIENT -> .01:NAME; .02:SEX; .03:DOB; .09:SSN; .63:LRDFN
+ N TARGET,ERR
+ K TARGET,ERR
+ D GETS^DIQ(2,DFN_",",".01;.02;.03;.09;.63","IE","TARGET","ERR")
+ ;I $D(ERR) Q 0
+ S CNT=CNT+1
+ S BNDL("entry",CNT,"resource","resourceType")="Patient"
+ S BNDL("entry",CNT,"resource","id")=DFN
+ S BNDL("entry",CNT,"resource","name",1,"text")=$G(TARGET(2,DFN_",",.01,"E"))
+ S BNDL("entry",CNT,"resource","gender")=$S($G(TARGET(2,DFN_",",.02,"I"))="M":"male",1:"female")
+ S BNDL("entry",CNT,"resource","birthDate")=$$ISO8601^C0FHIRUTL($G(TARGET(2,DFN_",",.03,"I")))
+ Q $G(TARGET(2,DFN_",",.63,"I")) ; Return LRDFN for Lab use
+
+C0FHIRRX
+C0FHIRRX ;FHIR RxNorm Lookup Utility ; 19-JAN-2026
+ Q
+GETRX(RXIEN) ;Extrapolate RxNorm from Prescription IEN
+ N DRUG,NDF,PROD,RXN
+ S DRUG=$$GET1^DIQ(52,RXIEN_",",6,"I") Q:DRUG="" ""
+ ; Get NDF pointer from Drug File (#50)
+ S NDF=$$GET1^DIQ(50,DRUG_",",20,"I") Q:NDF="" ""
+ S PROD=$$GET1^DIQ(50,DRUG_",",22,"I") Q:PROD="" ""
+ ; Field 99.9 in File 50.68 is the standard RxNorm Code
+ S RXN=$$GET1^DIQ(50.68,PROD_",",99.9)
+ Q RXN
+
+C0FHIRUTL
+C0FHIRUTL ;VAMC/JS-FHIR UTILITY HELPERS ; 19-JAN-2026
+ ;;1.0;C0FHIR PROJECT;;Jan 19, 2026;Build 1
+ Q
+ISO8601(FDT) ;Convert FileMan Date to ISO 8601 String
+ Q:FDT="" ""
+ N ISO S ISO=$$FMTHL7^XLFDT(FDT)
+ Q $E(ISO,1,4)_"-"_$E(ISO,5,6)_"-"_$E(ISO,7,8)_"T"_$E(ISO,9,10)_":"_$E(ISO,11,12)_":"_$E(ISO,13,14)_"Z"
+ ;
+BASE64(STR) ;Convert String to Base64 (Requires XLFUTL)
+ Q $$B64ENCD^XLFUTL(.STR)
+
+C0FHIRVM
+C0FHIRVM ;VAMC/JS-FHIR VITALS MAPPER ; 19-JAN-2026
+ ;;1.0;C0FHIR PROJECT;;Jan 19, 2026;Build 1
+ Q
+GETVIT(BNDL,CNT,DFN,VDT,ENCID) ;Pull Vitals by Date/Time
+ ; File #120.5: GMRV VITALS/MEASUREMENTS -> .03:VITAL TYPE; 1.2:RATE; 1201:DATE
+ N ID,TARGET,ERR,VTYPE,LOINC
+ S ID=0 F  S ID=$O(^GMR(120.5,"B",VDT,ID)) Q:'ID  D
+ . K TARGET,ERR
+ . D GETS^DIQ(120.5,ID_",",".02;.03;1.2;1201","IE","TARGET","ERR")
+ . Q:$G(TARGET(120.5,ID_",",.02,"I"))'=DFN  ; Ensure vital belongs to this patient
+ . S VTYPE=$G(TARGET(120.5,ID_",",.03,"E"))
+ . S LOINC=$S(VTYPE="BLOOD PRESSURE":"8480-6",VTYPE="HEIGHT":"8302-2",VTYPE="WEIGHT":"29463-7",VTYPE="PULSE":"8867-4",VTYPE="TEMPERATURE":"8310-5",1:"")
+ . S CNT=CNT+1
+ . S BNDL("entry",CNT,"resource","resourceType")="Observation"
+ . S BNDL("entry",CNT,"resource","category",1,"coding",1,"code")="vital-signs"
+ . I LOINC'="" S BNDL("entry",CNT,"resource","code","coding",1,"code")=LOINC,BNDL("entry",CNT,"resource","code","coding",1,"system")="http://loinc.org"
+ . S BNDL("entry",CNT,"resource","code","text")=VTYPE
+ . S BNDL("entry",CNT,"resource","valueQuantity","value")=$G(TARGET(120.5,ID_",",1.2,"E"))
+ . S BNDL("entry",CNT,"resource","effectiveDateTime")=$$ISO8601^C0FHIRUTL($G(TARGET(120.5,ID_",",1201,"I")))
+ . S BNDL("entry",CNT,"resource","encounter","reference")="Encounter/"_ENCID
+ Q
+
+
+
