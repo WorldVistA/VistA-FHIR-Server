@@ -4,6 +4,7 @@ C0FHIRTS ;VAMC/JS-FHIR SUITE TESTER ; 03-FEB-2026
 EN ; Main entry point
  N DFN,DIC,Y,ENCPTR,RTN,I,SDT,EDT
  S (SDT,EDT)="" ; Initialize to prevent Undefined Variable error
+ S EDT=$$NOW^XLFDT
  ;
  W !!,"--- C0FHIR Suite Tester ---",!
  ; 1. Select Patient
