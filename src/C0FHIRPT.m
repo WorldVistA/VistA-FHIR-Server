@@ -1,14 +1,22 @@
-C0FHIRPT ;VAMC/JS-FHIR PATIENT UTILITY ; 30-JAN-2026
- ;;1.1;C0FHIR PROJECT;;Jan 30, 2026;Build 2
+C0FHIRPT ;VAMC/JS-FHIR PATIENT RESOURCE ; 07-FEB-2026
+ ;;1.2;C0FHIR PROJECT;;Feb 7, 2026;Build 2
  Q
-GETPT(BNDL,CNT,DFN) ;Extract Patient Demographics (File #2: PATIENT)
- N TARGET,ERR
- D GETS^DIQ(2,DFN_",",".01;.02;.03;.09;.115;.63","IE","TARGET","ERR")
- I $D(ERR) Q 0
- S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Patient"
- S BNDL("entry",CNT,"resource","id")=DFN
- S BNDL("entry",CNT,"resource","name",1,"text")=$G(TARGET(2,DFN_",",.01,"E"))
- S BNDL("entry",CNT,"resource","gender")=$S($G(TARGET(2,DFN_",",.02,"I"))="M":"male",1:"female")
- S BNDL("entry",CNT,"resource","birthDate")=$$ISO8601^C0FHIRUTL($G(TARGET(2,DFN_",",.03,"I")))
- S BNDL("entry",CNT,"resource","address",1,"state")=$G(TARGET(2,DFN_",",.115,"E"))
- Q $G(TARGET(2,DFN_",",.63,"I")) ; Return LRDFN
+GET(DFN,BNDL,CNT) ; Get Patient Data
+ N VADM,VAPA,ERR,RES,I
+ D DEM^VADPT
+ D ADD^VADPT
+ ; I $D(ERR) Q 0 ; Commented out per local diff for debugging
+ S CNT=CNT+1
+ S BNDL("entry",CNT,"fullUrl")="Patient/"_DFN
+ S RES=$NA(BNDL("entry",CNT,"resource"))
+ S @RES@("resourceType")="Patient"
+ S @RES@("id")=DFN
+ S @RES@("name",1,"family")=$P(VADM(1),",",1)
+ S @RES@("name",1,"given",1)=$P(VADM(1),",",2)
+ S @RES@("gender")=$S($P(VADM(5),U,1)="M":"male",1:"female")
+ S @RES@("birthDate")=$$ISO8601^C0FHIRUTL($P(VADM(3),U,1))
+ S @RES@("address",1,"line",1)=VAPA(1)
+ S @RES@("address",1,"city")=VAPA(4)
+ S @RES@("address",1,"state")=$P(VAPA(5),U,2)
+ S @RES@("address",1,"postalCode")=VAPA(6)
+ Q

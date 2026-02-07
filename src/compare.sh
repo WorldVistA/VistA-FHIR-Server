@@ -1,0 +1,1 @@
+for i in *.m ; do echo "$i" ;diff -sdb "$i" /home/osehra/p/"$i" ; done >/tmp/gpl$(date +"%Y%m%d%H%M").txt ; less /tmp/gpl$(date +"%Y%m%d%H%M").txt
