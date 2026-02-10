@@ -1,11 +1,18 @@
 C0FHIRPT ;VAMC/JS-FHIR PATIENT RESOURCE ; 09-FEB-2026
  ;;1.2;C0FHIR PROJECT;;Feb 9, 2026;Build 2
  Q
-GETPT(DFN,BNDL,CNT) ; Get Patient Data - Tag restored to GETPT
- N VADM,VAPA,ERR,RES,I
+GETPT(BNDL,CNT,DFN) ; Get Patient Data and return LRDFN
+ ; BNDL: Passed by reference (JSON object)
+ ; CNT:  Passed by reference (Entry counter)
+ ; DFN:  Patient IEN
+ ; RETURNS: LRDFN (from File #2, Field #63)
+ ;
+ N VADM,VAPA,ERR,RES,I,LRDFN
  D DEM^VADPT
  D ADD^VADPT
- ; I $D(ERR) Q 0 ; Commented out per local diff for debugging
+ ; I $D(ERR) Q 0 ; Commented out per local diff
+ ;
+ ; 1. Populate JSON Bundle
  S CNT=CNT+1
  S BNDL("entry",CNT,"fullUrl")="Patient/"_DFN
  S RES=$NA(BNDL("entry",CNT,"resource"))
@@ -19,4 +26,7 @@ GETPT(DFN,BNDL,CNT) ; Get Patient Data - Tag restored to GETPT
  S @RES@("address",1,"city")=VAPA(4)
  S @RES@("address",1,"state")=$P(VAPA(5),U,2)
  S @RES@("address",1,"postalCode")=VAPA(6)
- Q
+ ;
+ ; 2. Retrieve and return LRDFN for Lab modules
+ S LRDFN=$G(^DPT(DFN,"LR"))
+ Q LRDFN
