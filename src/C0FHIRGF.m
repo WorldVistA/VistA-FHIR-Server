@@ -9,6 +9,7 @@ GENFULL(RESULT,DFN,ENCPTR,SDT,EDT) ;RPC: C0FHIR GET FULL BUNDLE
  ; 2. Get Patient Demographics (Module: PT)
  S LRDFN=$$GETPT^C0FHIRPT(.BNDL,.CNT,DFN)
  ; 3. Determine Mode: Single Encounter vs Date Range
+ I $G(EDT)="" S EDT=$$NOW^XLFDT ; Ceiling fix
  I +ENCPTR D
  . D PROC(ENCPTR,.BNDL,.CNT,DFN,LRDFN)
  E  D
