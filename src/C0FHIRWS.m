@@ -44,7 +44,7 @@ SEARCH(VAL,GLB) ; Generate HTML Search Results
  n filter,ary,zi
  s filter("root")="DPT"
  s filter("search")=VAL
- s filter("format")d="array"
+ s filter("format")="array"
  d WSPTLKUP^KBAIPTLK(.ary,.filter)
  s zi=""
  i $d(ary) d  ;
