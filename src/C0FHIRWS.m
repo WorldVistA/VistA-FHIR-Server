@@ -41,10 +41,21 @@ SEARCH(VAL,GLB) ; Generate HTML Search Results
  S @GLB@(3)="</head><body><h2>Patient Results for: "_VAL_"</h2>"
  S LN=3
  ;
- S DFN=0 F  S DFN=$O(^DPT("B",VAL,DFN)) Q:'DFN  D
- . D DEM^VADPT
- . S LN=LN+1
- . S @GLB@(LN)="<a class='pat' href='?dfn="_DFN_"'><b>"_VADM(1)_"</b><br>SSN: "_$P(VADM(2),U,2)_" | DOB: "_$P(VADM(3),U,2)_"</a>"
+ n filter,ary,zi]
+ s filter("root")="DPT"
+ s filter("search")=VAL
+ s filter("format")d="array"
+ d WSPTLKUP^KBAIPTLK(.ary,.filter)
+ s zi=""
+ i $d(ary) d  ;
+ . d ^ZTER
+ ;
+ ;S DFN=0 F  S DFN=$O(^DPT("B",VAL,DFN)) Q:'DFN  D
+ ;. D DEM^VADPT
+ ;. S LN=LN+1
+ ;. S @GLB@(LN)="<a class='pat' href='?dfn="_DFN_"'><b>"_VADM(1)_"</b><br>SSN: "_$P(VADM(2),U,2)_" | DOB: "_$P(VADM(3),U,2)_"</a>"
+ ;S @GLB@(LN)="<a class='pat' href='?dfn="_DFN_"'><b>"_VADM(1)_"</b><br>SSN: "_$P(VADM(2),U,2)_" | DOB: "_$P(VADM(3),U,2)_"</a>"
+
  ;
  I LN=3 S @GLB@(4)="<p>No patients found matching '"_VAL_"'.</p>" S LN=4
  ;
