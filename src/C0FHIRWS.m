@@ -21,6 +21,7 @@ WEB(RTN,FILTER) ; Entry point for Web Service calls
  . S FILTER("type")="text/html"
  . D SEARCH(NAME,GLB)
  . M RTN=@GLB K @GLB
+ . S HTTPRSP("mime")="text/html"
  ;
  ; Mode 2: Missing Identifiers
  I DFN="" D  Q

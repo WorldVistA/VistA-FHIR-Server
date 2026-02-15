@@ -26,7 +26,7 @@ PROC(IE,BNDL,CNT,DFN,LRDFN) ; Process clinical data for one encounter
  N VDT,VISIT,ENCID,TARGET,ERR
  S ENCID="ENC-"_IE
  K TARGET,ERR D GETS^DIQ(409.68,IE_",",".01;.05","IE","TARGET","ERR")
- I $D(ERR) Q
+ ;I $D(ERR) Q
  S VDT=$G(TARGET(409.68,IE_",",.01,"I")),VISIT=$G(TARGET(409.68,IE_",",.05,"I"))
  S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Encounter"
  S BNDL("entry",CNT,"resource","id")=ENCID
