@@ -41,7 +41,7 @@ SEARCH(VAL,GLB) ; Generate HTML Search Results
  S @GLB@(3)="</head><body><h2>Patient Results for: "_VAL_"</h2>"
  S LN=3
  ;
- n filter,ary,zi]
+ n filter,ary,zi
  s filter("root")="DPT"
  s filter("search")=VAL
  s filter("format")d="array"
