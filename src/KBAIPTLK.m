@@ -19,7 +19,7 @@ WSPTLOOK(rtn,filter) ; patient lookup - calls HMPPTRPC
 WSPTLKUP(rtn,filter) ; patient lookup from patient-lookup cache
  ;
  n root
- i %g(filter("root"))["DPT" d  ;
+ i $g(filter("root"))["DPT" d  ;
  . s root=$na(^DPT("B"))
  e  s root=$$setroot^%wd("patient-lookup")
  n search s search=$g(filter("search"))
