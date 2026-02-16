@@ -1,0 +1,2136 @@
+KIDS Distribution saved on Feb 16, 2026@20:38:26
+SECOND BUILD WITH ENTITY CODE
+**KIDS**:C0FHIR FHIR SERVER 1.3^
+
+**INSTALL NAME**
+C0FHIR FHIR SERVER 1.3
+"BLD",10729,0)
+C0FHIR FHIR SERVER 1.3^C0FHIR^0^3260216^n
+"BLD",10729,4,0)
+^9.64PA^^
+"BLD",10729,6.3)
+6
+"BLD",10729,"ABPKG")
+n
+"BLD",10729,"INIT")
+
+"BLD",10729,"KRN",0)
+^9.67PA^779.2^20
+"BLD",10729,"KRN",.4,0)
+.4
+"BLD",10729,"KRN",.401,0)
+.401
+"BLD",10729,"KRN",.402,0)
+.402
+"BLD",10729,"KRN",.403,0)
+.403
+"BLD",10729,"KRN",.5,0)
+.5
+"BLD",10729,"KRN",.84,0)
+.84
+"BLD",10729,"KRN",3.6,0)
+3.6
+"BLD",10729,"KRN",3.8,0)
+3.8
+"BLD",10729,"KRN",9.2,0)
+9.2
+"BLD",10729,"KRN",9.8,0)
+9.8
+"BLD",10729,"KRN",9.8,"NM",0)
+^9.68A^28^25
+"BLD",10729,"KRN",9.8,"NM",1,0)
+C0FHIRCH^^0^B3211064
+"BLD",10729,"KRN",9.8,"NM",2,0)
+C0FHIRGF^^0^B4206240
+"BLD",10729,"KRN",9.8,"NM",3,0)
+C0FHIRGF2^^0^B3708508
+"BLD",10729,"KRN",9.8,"NM",4,0)
+C0FHIRIM^^0^B2001648
+"BLD",10729,"KRN",9.8,"NM",8,0)
+C0FHIRNOTE^^0^B3434002
+"BLD",10729,"KRN",9.8,"NM",9,0)
+C0FHIRPI^^0^B819345
+"BLD",10729,"KRN",9.8,"NM",10,0)
+C0FHIRPM^^0^B1908862
+"BLD",10729,"KRN",9.8,"NM",11,0)
+C0FHIRPT^^0^B1812778
+"BLD",10729,"KRN",9.8,"NM",12,0)
+C0FHIRRX^^0^B374651
+"BLD",10729,"KRN",9.8,"NM",13,0)
+C0FHIRSET^^0^B8040885
+"BLD",10729,"KRN",9.8,"NM",14,0)
+C0FHIRTS^^0^B2894226
+"BLD",10729,"KRN",9.8,"NM",15,0)
+C0FHIRUN^^0^B2114459
+"BLD",10729,"KRN",9.8,"NM",16,0)
+C0FHIRUT^^0^B3002628
+"BLD",10729,"KRN",9.8,"NM",17,0)
+C0FHIRUTL^^0^B417388
+"BLD",10729,"KRN",9.8,"NM",18,0)
+C0FHIRVM^^0^B2878137
+"BLD",10729,"KRN",9.8,"NM",19,0)
+C0FHIRWS^^0^B7257197
+"BLD",10729,"KRN",9.8,"NM",20,0)
+C0FHIRL1^^0^B1693969
+"BLD",10729,"KRN",9.8,"NM",21,0)
+C0FHIRL2^^0^B2290517
+"BLD",10729,"KRN",9.8,"NM",22,0)
+C0FHIRL3^^0^B3464258
+"BLD",10729,"KRN",9.8,"NM",23,0)
+C0FHIRLA^^0^B3336650
+"BLD",10729,"KRN",9.8,"NM",24,0)
+C0FHIRLD^^0^B2854212
+"BLD",10729,"KRN",9.8,"NM",25,0)
+C0FHIRTG^^0^B3682988
+"BLD",10729,"KRN",9.8,"NM",26,0)
+C0FHIRVR^^0^B2602672
+"BLD",10729,"KRN",9.8,"NM",27,0)
+C0FHIRVV^^0^B4138451
+"BLD",10729,"KRN",9.8,"NM",28,0)
+KBAIPTLK^^0^B11900641
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRCH",1)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRGF",2)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRGF2",3)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRIM",4)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRL1",20)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRL2",21)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRL3",22)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRLA",23)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRLD",24)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRNOTE",8)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRPI",9)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRPM",10)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRPT",11)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRRX",12)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRSET",13)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRTG",25)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRTS",14)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRUN",15)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRUT",16)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRUTL",17)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRVM",18)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRVR",26)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRVV",27)
+
+"BLD",10729,"KRN",9.8,"NM","B","C0FHIRWS",19)
+
+"BLD",10729,"KRN",9.8,"NM","B","KBAIPTLK",28)
+
+"BLD",10729,"KRN",19,0)
+19
+"BLD",10729,"KRN",19,"NM",0)
+^9.68A^1^1
+"BLD",10729,"KRN",19,"NM",1,0)
+C0FHIR CONTEXT^^0
+"BLD",10729,"KRN",19,"NM","B","C0FHIR CONTEXT",1)
+
+"BLD",10729,"KRN",19.1,0)
+19.1
+"BLD",10729,"KRN",101,0)
+101
+"BLD",10729,"KRN",409.61,0)
+409.61
+"BLD",10729,"KRN",771,0)
+771
+"BLD",10729,"KRN",779.2,0)
+779.2
+"BLD",10729,"KRN",870,0)
+870
+"BLD",10729,"KRN",8989.51,0)
+8989.51
+"BLD",10729,"KRN",8989.52,0)
+8989.52
+"BLD",10729,"KRN",8994,0)
+8994
+"BLD",10729,"KRN",8994,"NM",0)
+^9.68A^1^1
+"BLD",10729,"KRN",8994,"NM",1,0)
+C0FHIR GET FULL BUNDLE^^0
+"BLD",10729,"KRN",8994,"NM","B","C0FHIR GET FULL BUNDLE",1)
+
+"BLD",10729,"KRN","B",.4,.4)
+
+"BLD",10729,"KRN","B",.401,.401)
+
+"BLD",10729,"KRN","B",.402,.402)
+
+"BLD",10729,"KRN","B",.403,.403)
+
+"BLD",10729,"KRN","B",.5,.5)
+
+"BLD",10729,"KRN","B",.84,.84)
+
+"BLD",10729,"KRN","B",3.6,3.6)
+
+"BLD",10729,"KRN","B",3.8,3.8)
+
+"BLD",10729,"KRN","B",9.2,9.2)
+
+"BLD",10729,"KRN","B",9.8,9.8)
+
+"BLD",10729,"KRN","B",19,19)
+
+"BLD",10729,"KRN","B",19.1,19.1)
+
+"BLD",10729,"KRN","B",101,101)
+
+"BLD",10729,"KRN","B",409.61,409.61)
+
+"BLD",10729,"KRN","B",771,771)
+
+"BLD",10729,"KRN","B",779.2,779.2)
+
+"BLD",10729,"KRN","B",870,870)
+
+"BLD",10729,"KRN","B",8989.51,8989.51)
+
+"BLD",10729,"KRN","B",8989.52,8989.52)
+
+"BLD",10729,"KRN","B",8994,8994)
+
+"BLD",10729,"PRE")
+
+"BLD",10729,"QUES",0)
+^9.62^^
+"BLD",10729,"REQB",0)
+^9.611^^
+"KRN",19,11858,-1)
+0^1
+"KRN",19,11858,0)
+C0FHIR CONTEXT^Enables FHIR Dashboard data extraction.^^^^^^^^^^
+"KRN",19,11858,"U")
+ENABLES FHIR DASHBOARD DATA EX
+"KRN",8994,3811,-1)
+0^1
+"KRN",8994,3811,0)
+C0FHIR GET FULL BUNDLE^GENFULL^C0FHIRGF^3^P^0^^0^1^^1
+"KRN",8994,3811,2,0)
+^8994.02A^4^4
+"KRN",8994,3811,2,1,0)
+DFN^1^^1^1
+"KRN",8994,3811,2,1,1,0)
+^^1^1^3260210^
+"KRN",8994,3811,2,1,1,1,0)
+PATIENT DFN
+"KRN",8994,3811,2,2,0)
+ENCPTR^1^^0^2
+"KRN",8994,3811,2,2,1,0)
+^^1^1^3260210^
+"KRN",8994,3811,2,2,1,1,0)
+ENCOUNTER PTR
+"KRN",8994,3811,2,3,0)
+SDT^1^^0^3
+"KRN",8994,3811,2,3,1,0)
+^^1^1^3260210^
+"KRN",8994,3811,2,3,1,1,0)
+START DATE AND TIME TIMSON DT
+"KRN",8994,3811,2,4,0)
+EDT^1^^0^4
+"KRN",8994,3811,2,4,1,0)
+^8994.021^1^1^3260210^^
+"KRN",8994,3811,2,4,1,1,0)
+END DATE AND TIME
+"KRN",8994,3811,2,"B","DFN",1)
+
+"KRN",8994,3811,2,"B","EDT",4)
+
+"KRN",8994,3811,2,"B","ENCPTR",2)
+
+"KRN",8994,3811,2,"B","SDT",3)
+
+"KRN",8994,3811,2,"PARAMSEQ",1,1)
+
+"KRN",8994,3811,2,"PARAMSEQ",2,2)
+
+"KRN",8994,3811,2,"PARAMSEQ",3,3)
+
+"KRN",8994,3811,2,"PARAMSEQ",4,4)
+
+"MBREQ")
+0
+"ORD",16,8994)
+8994;16;1;;;;RPCE1^XPDIA1;;;RPCDEL^XPDIA1
+"ORD",16,8994,0)
+REMOTE PROCEDURE
+"ORD",18,19)
+19;18;;;OPT^XPDTA;OPTF1^XPDIA;OPTE1^XPDIA;OPTF2^XPDIA;;OPTDEL^XPDIA
+"ORD",18,19,0)
+OPTION
+"PKG",235,-1)
+1^1
+"PKG",235,0)
+C0FHIR^C0F^VISTA FHIR SERVER
+"PKG",235,22,0)
+^9.49I^1^1
+"PKG",235,22,1,0)
+1.3^3260216
+"PKG",235,"VERSION")
+1.3
+"QUES","XPF1",0)
+Y
+"QUES","XPF1","??")
+^D REP^XPDH
+"QUES","XPF1","A")
+Shall I write over your |FLAG| File
+"QUES","XPF1","B")
+YES
+"QUES","XPF1","M")
+D XPF1^XPDIQ
+"QUES","XPF2",0)
+Y
+"QUES","XPF2","??")
+^D DTA^XPDH
+"QUES","XPF2","A")
+Want my data |FLAG| yours
+"QUES","XPF2","B")
+YES
+"QUES","XPF2","M")
+D XPF2^XPDIQ
+"QUES","XPI1",0)
+YO
+"QUES","XPI1","??")
+^D INHIBIT^XPDH
+"QUES","XPI1","A")
+Want KIDS to INHIBIT LOGONs during the install
+"QUES","XPI1","B")
+NO
+"QUES","XPI1","M")
+D XPI1^XPDIQ
+"QUES","XPM1",0)
+PO^VA(200,:EM
+"QUES","XPM1","??")
+^D MG^XPDH
+"QUES","XPM1","A")
+Enter the Coordinator for Mail Group '|FLAG|'
+"QUES","XPM1","B")
+
+"QUES","XPM1","M")
+D XPM1^XPDIQ
+"QUES","XPO1",0)
+Y
+"QUES","XPO1","??")
+^D MENU^XPDH
+"QUES","XPO1","A")
+Want KIDS to Rebuild Menu Trees Upon Completion of Install
+"QUES","XPO1","B")
+NO
+"QUES","XPO1","M")
+D XPO1^XPDIQ
+"QUES","XPZ1",0)
+Y
+"QUES","XPZ1","??")
+^D OPT^XPDH
+"QUES","XPZ1","A")
+Want to DISABLE Scheduled Options, Menu Options, and Protocols
+"QUES","XPZ1","B")
+NO
+"QUES","XPZ1","M")
+D XPZ1^XPDIQ
+"QUES","XPZ2",0)
+Y
+"QUES","XPZ2","??")
+^D RTN^XPDH
+"QUES","XPZ2","A")
+Want to MOVE routines to other CPUs
+"QUES","XPZ2","B")
+NO
+"QUES","XPZ2","M")
+D XPZ2^XPDIQ
+"RTN")
+25
+"RTN","C0FHIRCH")
+0^1^B3211064
+"RTN","C0FHIRCH",1,0)
+C0FHIRCH ;VAMC/JS-FHIR SUITE ENVIRONMENT CHECK ; 15-FEB-2026
+"RTN","C0FHIRCH",2,0)
+ ;;1.2;C0FHIR PROJECT;;Feb 15, 2026;Build 6
+"RTN","C0FHIRCH",3,0)
+ Q
+"RTN","C0FHIRCH",4,0)
+EN ; Entry point for KIDS environment check
+"RTN","C0FHIRCH",5,0)
+ N FAIL S FAIL=0
+"RTN","C0FHIRCH",6,0)
+ D MES^XPDUTL("  Starting Environment Check for C0FHIR Suite Build 2...")
+"RTN","C0FHIRCH",7,0)
+ ;
+"RTN","C0FHIRCH",8,0)
+ ; 1. Check for Data Discovery Engine (DDE) Global
+"RTN","C0FHIRCH",9,0)
+ I $D(^DDE)=0 D
+"RTN","C0FHIRCH",10,0)
+ . D BMES^XPDUTL("  [FAIL] Data Discovery Engine (^DDE) is not present.")
+"RTN","C0FHIRCH",11,0)
+ . D MES^XPDUTL("         Please ensure the VPR/DDE package is installed first.")
+"RTN","C0FHIRCH",12,0)
+ . S FAIL=1
+"RTN","C0FHIRCH",13,0)
+ ;
+"RTN","C0FHIRCH",14,0)
+ ; 2. Check for Web Service File (#18.12)
+"RTN","C0FHIRCH",15,0)
+ I $G(^DIC(18.12,0))="" D
+"RTN","C0FHIRCH",16,0)
+ . D BMES^XPDUTL("  [FAIL] Web Service file (#18.12) is missing or corrupted.")
+"RTN","C0FHIRCH",17,0)
+ . D MES^XPDUTL("         Kernel Web Services must be active on this system.")
+"RTN","C0FHIRCH",18,0)
+ . S FAIL=1
+"RTN","C0FHIRCH",19,0)
+ ;
+"RTN","C0FHIRCH",20,0)
+ ; 3. Verify Required Versions
+"RTN","C0FHIRCH",21,0)
+ I $$VERSION^XPDUTL("XU")<8.0 D
+"RTN","C0FHIRCH",22,0)
+ . D BMES^XPDUTL("  [FAIL] Kernel version 8.0 or higher is required.")
+"RTN","C0FHIRCH",23,0)
+ . S FAIL=1
+"RTN","C0FHIRCH",24,0)
+ ;
+"RTN","C0FHIRCH",25,0)
+ ; Final Result
+"RTN","C0FHIRCH",26,0)
+ I FAIL D
+"RTN","C0FHIRCH",27,0)
+ . S XPDQUIT=2 ; Stop the install but keep the transport global
+"RTN","C0FHIRCH",28,0)
+ . D BMES^XPDUTL("  INSTALL ABORTED: System does not meet minimum requirements.")
+"RTN","C0FHIRCH",29,0)
+ E  D
+"RTN","C0FHIRCH",30,0)
+ . D BMES^XPDUTL("  SUCCESS: System ready for C0FHIR v1.2.")
+"RTN","C0FHIRCH",31,0)
+ Q
+"RTN","C0FHIRGF")
+0^2^B4206240
+"RTN","C0FHIRGF",1,0)
+C0FHIRGF ;VAMC/JS-FHIR MASTER AGGREGATOR ; 30-JAN-2026
+"RTN","C0FHIRGF",2,0)
+ ;;1.1;C0FHIR PROJECT;;Jan 30, 2026;Build 6
+"RTN","C0FHIRGF",3,0)
+ Q
+"RTN","C0FHIRGF",4,0)
+GENFULL(RESULT,DFN,ENCPTR,SDT,EDT) ;RPC: C0FHIR GET FULL BUNDLE
+"RTN","C0FHIRGF",5,0)
+ N BNDL,CNT,GLB,LRDFN,ENCID,VISIT,CURRENC,EDTM,CDT,TARGET,ERR
+"RTN","C0FHIRGF",6,0)
+ S CNT=0,GLB=$NA(^TMP("C0FHIRGF",$J)) K @GLB,RESULT
+"RTN","C0FHIRGF",7,0)
+ ; 1. Initialize Bundle Header
+"RTN","C0FHIRGF",8,0)
+ S BNDL("resourceType")="Bundle",BNDL("type")="collection"
+"RTN","C0FHIRGF",9,0)
+ ; 2. Get Patient Demographics (Module: PT)
+"RTN","C0FHIRGF",10,0)
+ S LRDFN=$$GETPT^C0FHIRPT(.BNDL,.CNT,DFN)
+"RTN","C0FHIRGF",11,0)
+ ; 3. Determine Mode: Single Encounter vs Date Range
+"RTN","C0FHIRGF",12,0)
+ I $G(EDT)="" S EDT=$$NOW^XLFDT ; Ceiling fix
+"RTN","C0FHIRGF",13,0)
+ I +ENCPTR D
+"RTN","C0FHIRGF",14,0)
+ . D PROC(ENCPTR,.BNDL,.CNT,DFN,LRDFN)
+"RTN","C0FHIRGF",15,0)
+ E  D
+"RTN","C0FHIRGF",16,0)
+ . S SDT=$G(SDT,0),EDT=$G(EDT,9999999),EDTM=EDT_".9999"
+"RTN","C0FHIRGF",17,0)
+ . S CDT=SDT-.000001
+"RTN","C0FHIRGF",18,0)
+ . F  S CDT=$O(^SCE("ADFN",DFN,CDT)) Q:'CDT!(CDT>EDTM)  D
+"RTN","C0FHIRGF",19,0)
+ .. S CURRENC=0 F  S CURRENC=$O(^SCE("ADFN",DFN,CDT,CURRENC)) Q:'CURRENC  D
+"RTN","C0FHIRGF",20,0)
+ ... D PROC(CURRENC,.BNDL,.CNT,DFN,LRDFN)
+"RTN","C0FHIRGF",21,0)
+EXIT S BNDL("total")=CNT
+"RTN","C0FHIRGF",22,0)
+ D ENCODE^XLFJSON("BNDL",GLB)
+"RTN","C0FHIRGF",23,0)
+ M RESULT=@GLB K @GLB
+"RTN","C0FHIRGF",24,0)
+ Q
+"RTN","C0FHIRGF",25,0)
+PROC(IE,BNDL,CNT,DFN,LRDFN) ; Process clinical data for one encounter
+"RTN","C0FHIRGF",26,0)
+ N VDT,VISIT,ENCID,TARGET,ERR
+"RTN","C0FHIRGF",27,0)
+ S ENCID="ENC-"_IE
+"RTN","C0FHIRGF",28,0)
+ K TARGET,ERR D GETS^DIQ(409.68,IE_",",".01;.05","IE","TARGET","ERR")
+"RTN","C0FHIRGF",29,0)
+ ;I $D(ERR) Q
+"RTN","C0FHIRGF",30,0)
+ S VDT=$G(TARGET(409.68,IE_",",.01,"I")),VISIT=$G(TARGET(409.68,IE_",",.05,"I"))
+"RTN","C0FHIRGF",31,0)
+ S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Encounter"
+"RTN","C0FHIRGF",32,0)
+ S BNDL("entry",CNT,"resource","id")=ENCID
+"RTN","C0FHIRGF",33,0)
+ S BNDL("entry",CNT,"resource","subject","reference")="Patient/"_DFN
+"RTN","C0FHIRGF",34,0)
+ D GETLAB^C0FHIRLM(.BNDL,.CNT,LRDFN,VISIT,ENCID)
+"RTN","C0FHIRGF",35,0)
+ D GETIMM^C0FHIRIM(.BNDL,.CNT,IE,ENCID)
+"RTN","C0FHIRGF",36,0)
+ D GETVIT^C0FHIRVM(.BNDL,.CNT,DFN,VDT,ENCID)
+"RTN","C0FHIRGF",37,0)
+ D GETMEDS^C0FHIRMX(.BNDL,.CNT,DFN,ENCID)
+"RTN","C0FHIRGF",38,0)
+ D GETPRC^C0FHIRPM(.BNDL,.CNT,IE,ENCID)
+"RTN","C0FHIRGF",39,0)
+ Q
+"RTN","C0FHIRGF2")
+0^3^B3708508
+"RTN","C0FHIRGF2",1,0)
+C0FHIRGF ;VAMC/JS-FHIR MASTER AGGREGATOR ; 19-JAN-2026
+"RTN","C0FHIRGF2",2,0)
+ ;;1.0;C0FHIR PROJECT;;Jan 19, 2026;Build 6
+"RTN","C0FHIRGF2",3,0)
+ Q
+"RTN","C0FHIRGF2",4,0)
+GENFULL(RESULT,DFN,ENCPTR) ;RPC: C0FHIR GET FULL BUNDLE
+"RTN","C0FHIRGF2",5,0)
+ N BNDL,CNT,GLB,LRDFN,ENCID,VDT,VISIT,TARGET,ERR
+"RTN","C0FHIRGF2",6,0)
+ S CNT=0,GLB=$NA(^TMP("C0FHIRGF",$J)) K @GLB,RESULT
+"RTN","C0FHIRGF2",7,0)
+ ;
+"RTN","C0FHIRGF2",8,0)
+ ; 1. Initialize Bundle
+"RTN","C0FHIRGF2",9,0)
+ S BNDL("resourceType")="Bundle",BNDL("type")="collection"
+"RTN","C0FHIRGF2",10,0)
+ ;
+"RTN","C0FHIRGF2",11,0)
+ ; 2. Get Patient & Lab Pointer (Module: PT)
+"RTN","C0FHIRGF2",12,0)
+ S LRDFN=$$GETPT^C0FHIRPT(.BNDL,.CNT,DFN)
+"RTN","C0FHIRGF2",13,0)
+ ;
+"RTN","C0FHIRGF2",14,0)
+ ; 3. Get Encounter Context (File #409.68: OUTPATIENT ENCOUNTER)
+"RTN","C0FHIRGF2",15,0)
+ S ENCID="ENC-"_ENCPTR
+"RTN","C0FHIRGF2",16,0)
+ K TARGET,ERR D GETS^DIQ(409.68,ENCPTR_",",".01;.05","IE","TARGET","ERR")
+"RTN","C0FHIRGF2",17,0)
+ I $D(ERR) D LOGERR^C0FHIRGF("Encounter Lookup",.ERR,.BNDL,.CNT) G EXIT
+"RTN","C0FHIRGF2",18,0)
+ S VDT=$G(TARGET(409.68,ENCPTR_",",.01,"I"))
+"RTN","C0FHIRGF2",19,0)
+ S VISIT=$G(TARGET(409.68,ENCPTR_",",.05,"I"))
+"RTN","C0FHIRGF2",20,0)
+ ; Add Encounter Resource to Bundle
+"RTN","C0FHIRGF2",21,0)
+ S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Encounter"
+"RTN","C0FHIRGF2",22,0)
+ S BNDL("entry",CNT,"resource","id")=ENCID
+"RTN","C0FHIRGF2",23,0)
+ S BNDL("entry",CNT,"resource","subject","reference")="Patient/"_DFN
+"RTN","C0FHIRGF2",24,0)
+ ;
+"RTN","C0FHIRGF2",25,0)
+ ; 4. Call Clinical Modules (The "Rest of Them")
+"RTN","C0FHIRGF2",26,0)
+ D GETLAB^C0FHIRLM(.BNDL,.CNT,LRDFN,VISIT,ENCID) ; Lab Module
+"RTN","C0FHIRGF2",27,0)
+ D GETIMM^C0FHIRIM(.BNDL,.CNT,ENCPTR,ENCID)     ; Immunization Module
+"RTN","C0FHIRGF2",28,0)
+ D GETVIT^C0FHIRVM(.BNDL,.CNT,DFN,VDT,ENCID)    ; Vitals Module
+"RTN","C0FHIRGF2",29,0)
+ D GETMEDS^C0FHIRMX(.BNDL,.CNT,DFN,ENCID)       ; Meds Module
+"RTN","C0FHIRGF2",30,0)
+ D GETPRC^C0FHIRPM(.BNDL,.CNT,ENCPTR,ENCID)     ; Procedures Module
+"RTN","C0FHIRGF2",31,0)
+ ;
+"RTN","C0FHIRGF2",32,0)
+EXIT ; Wrap up
+"RTN","C0FHIRGF2",33,0)
+ S BNDL("total")=CNT
+"RTN","C0FHIRGF2",34,0)
+ D ENCODE^XLFJSON("BNDL",GLB)
+"RTN","C0FHIRGF2",35,0)
+ M RESULT=@GLB
+"RTN","C0FHIRGF2",36,0)
+ K @GLB
+"RTN","C0FHIRGF2",37,0)
+ Q
+"RTN","C0FHIRIM")
+0^4^B2001648
+"RTN","C0FHIRIM",1,0)
+C0FHIRIM ;VAMC/JS-FHIR IMMUNIZATION MAPPER ; 30-JAN-2026
+"RTN","C0FHIRIM",2,0)
+ ;;1.1;C0FHIR PROJECT;;Jan 30, 2026;Build 6
+"RTN","C0FHIRIM",3,0)
+ Q
+"RTN","C0FHIRIM",4,0)
+GETIMM(BNDL,CNT,ENCPTR,ENCID) ;File #9000010.11 (V IMMUNIZATION)
+"RTN","C0FHIRIM",5,0)
+ N IMMIEN,TARGET,ERR
+"RTN","C0FHIRIM",6,0)
+ S IMMIEN=0 F  S IMMIEN=$O(^AUPNVIMM("AD",ENCPTR,IMMIEN)) Q:'IMMIEN  D
+"RTN","C0FHIRIM",7,0)
+ . K TARGET,ERR D GETS^DIQ(9000010.11,IMMIEN_",",".01;1201","IE","TARGET","ERR")
+"RTN","C0FHIRIM",8,0)
+ . Q:$D(ERR)
+"RTN","C0FHIRIM",9,0)
+ . S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Immunization"
+"RTN","C0FHIRIM",10,0)
+ . S BNDL("entry",CNT,"resource","vaccineCode","text")=$G(TARGET(9000010.11,IMMIEN_",",.01,"E"))
+"RTN","C0FHIRIM",11,0)
+ . S BNDL("entry",CNT,"resource","occurrenceDateTime")=$$ISO8601^C0FHIRUTL($G(TARGET(9000010.11,IMMIEN_",",1201,"I")))
+"RTN","C0FHIRIM",12,0)
+ . S BNDL("entry",CNT,"resource","encounter","reference")="Encounter/"_ENCID
+"RTN","C0FHIRIM",13,0)
+ Q
+"RTN","C0FHIRL1")
+0^20^B1693969
+"RTN","C0FHIRL1",1,0)
+C0FHIRL1 ;VAMC/JS-FHIR ENTITY LOADER CLINICAL ; 15-FEB-2026
+"RTN","C0FHIRL1",2,0)
+ ;;1.2;C0FHIR PROJECT;;Feb 15, 2026;Build 6
+"RTN","C0FHIRL1",3,0)
+ Q
+"RTN","C0FHIRL1",4,0)
+EN ;
+"RTN","C0FHIRL1",5,0)
+ N FDA,IEN
+"RTN","C0FHIRL1",6,0)
+ ; --- Entity #41: VPR VITAL MEASUREMENT ---
+"RTN","C0FHIRL1",7,0)
+ S FDA(1.1,"+1,",.01)="VPR VITAL MEASUREMENT"
+"RTN","C0FHIRL1",8,0)
+ S FDA(1.1,"+1,",.02)=120.5
+"RTN","C0FHIRL1",9,0)
+ S FDA(1.1,"+1,",.04)="Observation"
+"RTN","C0FHIRL1",10,0)
+ S FDA(1.1,"+1,",1)="FHIR"
+"RTN","C0FHIRL1",11,0)
+ D UPDATE^DIE("","FDA","IEN")
+"RTN","C0FHIRL1",12,0)
+ I $G(IEN(1)) D
+"RTN","C0FHIRL1",13,0)
+ . K FDA S FDA(1.11,"+2,"_IEN(1)_",",.01)="ObservationTime"
+"RTN","C0FHIRL1",14,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",.02)=7
+"RTN","C0FHIRL1",15,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",1.1)="S VALUE=$P($G(VPRGMV),U) S:VALUE="""" DDEOUT=1"
+"RTN","C0FHIRL1",16,0)
+ . D UPDATE^DIE("","FDA")
+"RTN","C0FHIRL1",17,0)
+ ;
+"RTN","C0FHIRL1",18,0)
+ ; --- Entity #29: VPR VISIT ---
+"RTN","C0FHIRL1",19,0)
+ K FDA,IEN S FDA(1.1,"+1,",.01)="VPR VISIT"
+"RTN","C0FHIRL1",20,0)
+ S FDA(1.1,"+1,",.02)=9000010
+"RTN","C0FHIRL1",21,0)
+ S FDA(1.1,"+1,",.04)="Encounter"
+"RTN","C0FHIRL1",22,0)
+ S FDA(1.1,"+1,",1)="FHIR"
+"RTN","C0FHIRL1",23,0)
+ D UPDATE^DIE("","FDA","IEN")
+"RTN","C0FHIRL1",24,0)
+ I $G(IEN(1)) D
+"RTN","C0FHIRL1",25,0)
+ . K FDA S FDA(1.11,"+2,"_IEN(1)_",",.01)="EncounterNumber"
+"RTN","C0FHIRL1",26,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",.02)=3
+"RTN","C0FHIRL1",27,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",.03)="ID"
+"RTN","C0FHIRL1",28,0)
+ . D UPDATE^DIE("","FDA")
+"RTN","C0FHIRL1",29,0)
+ Q
+"RTN","C0FHIRL2")
+0^21^B2290517
+"RTN","C0FHIRL2",1,0)
+C0FHIRL2 ;VAMC/JS-FHIR ENTITY LOADER PHARMACY & LAB ; 15-FEB-2026
+"RTN","C0FHIRL2",2,0)
+ ;;1.2;C0FHIR PROJECT;;Feb 15, 2026;Build 6
+"RTN","C0FHIRL2",3,0)
+ Q
+"RTN","C0FHIRL2",4,0)
+EN ; Entry point called by Master Loader
+"RTN","C0FHIRL2",5,0)
+ N FDA,IEN,ERR
+"RTN","C0FHIRL2",6,0)
+ ;
+"RTN","C0FHIRL2",7,0)
+ ; --- Entity #56: VPR MEDICATION ---
+"RTN","C0FHIRL2",8,0)
+ S FDA(1.1,"+1,",.01)="VPR MEDICATION"
+"RTN","C0FHIRL2",9,0)
+ S FDA(1.1,"+1,",.02)=100 ; File #100 (Orders)
+"RTN","C0FHIRL2",10,0)
+ S FDA(1.1,"+1,",.04)="Medication"
+"RTN","C0FHIRL2",11,0)
+ S FDA(1.1,"+1,",1)="FHIR"
+"RTN","C0FHIRL2",12,0)
+ D UPDATE^DIE("","FDA","IEN")
+"RTN","C0FHIRL2",13,0)
+ I $G(IEN(1)) D
+"RTN","C0FHIRL2",14,0)
+ . K FDA S FDA(1.11,"+2,"_IEN(1)_",",.01)="Status"
+"RTN","C0FHIRL2",15,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",.02)=15
+"RTN","C0FHIRL2",16,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",1.2)="N X S X=VALUE,VALUE=$S(X=""dc"":""D"",X=""canc"":""C"",1:""IP"")"
+"RTN","C0FHIRL2",17,0)
+ . D UPDATE^DIE("","FDA")
+"RTN","C0FHIRL2",18,0)
+ ;
+"RTN","C0FHIRL2",19,0)
+ ; --- Entity #13: VPR LAB ORDER ---
+"RTN","C0FHIRL2",20,0)
+ K FDA,IEN S FDA(1.1,"+1,",.01)="VPR LAB ORDER"
+"RTN","C0FHIRL2",21,0)
+ S FDA(1.1,"+1,",.02)=100
+"RTN","C0FHIRL2",22,0)
+ S FDA(1.1,"+1,",.04)="LabOrder"
+"RTN","C0FHIRL2",23,0)
+ S FDA(1.1,"+1,",1)="FHIR"
+"RTN","C0FHIRL2",24,0)
+ ; Complex "Get Entry Action" logic from your report
+"RTN","C0FHIRL2",25,0)
+ S FDA(1.1,IEN(1)_",",1.1)="S:'DFN&ID DFN=+$P($G(^OR(100,ID,0)),U,2) S LRDFN=+$G(^DPT(DFN,""LR""))"
+"RTN","C0FHIRL2",26,0)
+ D UPDATE^DIE("","FDA","IEN")
+"RTN","C0FHIRL2",27,0)
+ ;
+"RTN","C0FHIRL2",28,0)
+ ; --- Entity #17: VPR LRCH RESULT ---
+"RTN","C0FHIRL2",29,0)
+ K FDA,IEN S FDA(1.1,"+1,",.01)="VPR LRCH RESULT"
+"RTN","C0FHIRL2",30,0)
+ S FDA(1.1,"+1,",.02)=63.04 ; Chemistry sub-file
+"RTN","C0FHIRL2",31,0)
+ S FDA(1.1,"+1,",.04)="Result"
+"RTN","C0FHIRL2",32,0)
+ S FDA(1.1,"+1,",1)="FHIR"
+"RTN","C0FHIRL2",33,0)
+ D UPDATE^DIE("","FDA","IEN")
+"RTN","C0FHIRL2",34,0)
+ Q
+"RTN","C0FHIRL3")
+0^22^B3464258
+"RTN","C0FHIRL3",1,0)
+C0FHIRL3 ;VAMC/JS-FHIR ENTITY LOADER SAFETY & HISTORY ; 15-FEB-2026
+"RTN","C0FHIRL3",2,0)
+ ;;1.2;C0FHIR PROJECT;;Feb 15, 2026;Build 6
+"RTN","C0FHIRL3",3,0)
+ Q
+"RTN","C0FHIRL3",4,0)
+EN ; Entry point called by Master Loader
+"RTN","C0FHIRL3",5,0)
+ N FDA,IEN,ERR
+"RTN","C0FHIRL3",6,0)
+ ;
+"RTN","C0FHIRL3",7,0)
+ ; --- Entity #31: VPR ALLERGY ---
+"RTN","C0FHIRL3",8,0)
+ S FDA(1.1,"+1,",.01)="VPR ALLERGY"
+"RTN","C0FHIRL3",9,0)
+ S FDA(1.1,"+1,",.02)=120.8 ; PATIENT ALLERGIES file
+"RTN","C0FHIRL3",10,0)
+ S FDA(1.1,"+1,",.04)="Allergy"
+"RTN","C0FHIRL3",11,0)
+ S FDA(1.1,"+1,",1)="FHIR"
+"RTN","C0FHIRL3",12,0)
+ ; Use the "Get ID Action" from your report to setup GMRA variables
+"RTN","C0FHIRL3",13,0)
+ S FDA(1.1,"+1,",1.1)="D ALG1^VPRSDAL(DIEN)"
+"RTN","C0FHIRL3",14,0)
+ D UPDATE^DIE("","FDA","IEN")
+"RTN","C0FHIRL3",15,0)
+ I $G(IEN(1)) D
+"RTN","C0FHIRL3",16,0)
+ . K FDA S FDA(1.11,"+2,"_IEN(1)_",",.01)="Certainty"
+"RTN","C0FHIRL3",17,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",.02)=8
+"RTN","C0FHIRL3",18,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",.03)="ENTITY"
+"RTN","C0FHIRL3",19,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",1.2)="S VALUE=$S(VALUE:""Confirmed"",1:"""")"
+"RTN","C0FHIRL3",20,0)
+ . D UPDATE^DIE("","FDA")
+"RTN","C0FHIRL3",21,0)
+ ;
+"RTN","C0FHIRL3",22,0)
+ ; --- Entity #11: VPR PROBLEM ---
+"RTN","C0FHIRL3",23,0)
+ K FDA,IEN S FDA(1.1,"+1,",.01)="VPR PROBLEM"
+"RTN","C0FHIRL3",24,0)
+ S FDA(1.1,"+1,",.02)=9000011 ; PROBLEM file
+"RTN","C0FHIRL3",25,0)
+ S FDA(1.1,"+1,",.04)="Problem"
+"RTN","C0FHIRL3",26,0)
+ S FDA(1.1,"+1,",1)="FHIR"
+"RTN","C0FHIRL3",27,0)
+ ; Output Transform to map VistA status (A/I) to SNOMED codes
+"RTN","C0FHIRL3",28,0)
+ D UPDATE^DIE("","FDA","IEN")
+"RTN","C0FHIRL3",29,0)
+ I $G(IEN(1)) D
+"RTN","C0FHIRL3",30,0)
+ . K FDA S FDA(1.11,"+2,"_IEN(1)_",",.01)="Status"
+"RTN","C0FHIRL3",31,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",.02)=9
+"RTN","C0FHIRL3",32,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",1.2)="S VALUE=$S(VALUE=""A"":""55561003^Active^SNOMED CT"",VALUE=""I"":""73425007^Inactive^SNOMED CT"",1:"""")"
+"RTN","C0FHIRL3",33,0)
+ . D UPDATE^DIE("","FDA")
+"RTN","C0FHIRL3",34,0)
+ ;
+"RTN","C0FHIRL3",35,0)
+ ; --- Entity #11: VPR VACCINATION ---
+"RTN","C0FHIRL3",36,0)
+ K FDA,IEN S FDA(1.1,"+1,",.01)="VPR VACCINATION"
+"RTN","C0FHIRL3",37,0)
+ S FDA(1.1,"+1,",.02)=9000010.11 ; V IMMUNIZATION file
+"RTN","C0FHIRL3",38,0)
+ S FDA(1.1,"+1,",.04)="Vaccination"
+"RTN","C0FHIRL3",39,0)
+ S FDA(1.1,"+1,",1)="FHIR"
+"RTN","C0FHIRL3",40,0)
+ D UPDATE^DIE("","FDA","IEN")
+"RTN","C0FHIRL3",41,0)
+ Q
+"RTN","C0FHIRLA")
+0^23^B3336650
+"RTN","C0FHIRLA",1,0)
+C0FHIRLA ;VAMC/JS-LAB TEST LOINC AUDITOR ; 15-FEB-2026
+"RTN","C0FHIRLA",2,0)
+ ;;1.2;C0FHIR PROJECT;;Feb 15, 2026;Build 6
+"RTN","C0FHIRLA",3,0)
+ Q
+"RTN","C0FHIRLA",4,0)
+EN ; Main entry point
+"RTN","C0FHIRLA",5,0)
+ N TST,TNAME,LOINC,Lptr,TOTAL,MISS,CNT S (TOTAL,MISS,CNT)=0
+"RTN","C0FHIRLA",6,0)
+ W !!,"--- C0FHIR Lab-to-LOINC Mapping Audit ---",!
+"RTN","C0FHIRLA",7,0)
+ W !,"Checking active Chemistry tests for missing LOINC codes...",!
+"RTN","C0FHIRLA",8,0)
+ W !,"Test Name",?35,"Status",?50,"LOINC Code",!
+"RTN","C0FHIRLA",9,0)
+ W "------------------------------------------------------------",!
+"RTN","C0FHIRLA",10,0)
+ ;
+"RTN","C0FHIRLA",11,0)
+ ; Loop through File #60
+"RTN","C0FHIRLA",12,0)
+ S TST=0 F  S TST=$O(^LAB(60,TST)) Q:'TST  D
+"RTN","C0FHIRLA",13,0)
+ . S TNAME=$$GET1^DIQ(60,TST_",",.01)
+"RTN","C0FHIRLA",14,0)
+ . ; Filter: Only check Chemistry tests (Type = CH)
+"RTN","C0FHIRLA",15,0)
+ . I $$GET1^DIQ(60,TST_",",4)'="CH" Q
+"RTN","C0FHIRLA",16,0)
+ . ; Filter: Skip inactive tests
+"RTN","C0FHIRLA",17,0)
+ . I $$GET1^DIQ(60,TST_",",132)'="" Q
+"RTN","C0FHIRLA",18,0)
+ . ;
+"RTN","C0FHIRLA",19,0)
+ . S TOTAL=TOTAL+1
+"RTN","C0FHIRLA",20,0)
+ . S Lptr=$$GET1^DIQ(60,TST_",",95.3,"I")
+"RTN","C0FHIRLA",21,0)
+ . S LOINC=$S(Lptr:$$GET1^DIQ(95.3,Lptr_",",.01),1:"MISSING")
+"RTN","C0FHIRLA",22,0)
+ . ;
+"RTN","C0FHIRLA",23,0)
+ . I LOINC="MISSING" S MISS=MISS+1
+"RTN","C0FHIRLA",24,0)
+ . ; Display the first 20 or all missing
+"RTN","C0FHIRLA",25,0)
+ . I CNT<20!(LOINC="MISSING") D
+"RTN","C0FHIRLA",26,0)
+ .. S CNT=CNT+1
+"RTN","C0FHIRLA",27,0)
+ .. W !,TNAME,?35,$S(LOINC="MISSING":"[!!]",1:"[OK]"),?50,LOINC
+"RTN","C0FHIRLA",28,0)
+ ;
+"RTN","C0FHIRLA",29,0)
+ W !!,"--- Audit Summary ---"
+"RTN","C0FHIRLA",30,0)
+ W !,"Total Active CH Tests: "_TOTAL
+"RTN","C0FHIRLA",31,0)
+ W !,"Tests Missing LOINC:   "_MISS
+"RTN","C0FHIRLA",32,0)
+ W !,"Mapping Coverage:      "_$J((TOTAL-MISS)/TOTAL*100,0,1)_"%",!
+"RTN","C0FHIRLA",33,0)
+ I MISS>0 W !,"Note: Tests marked [!!] will appear as 'VistA-ID' in FHIR bundles.",!
+"RTN","C0FHIRLA",34,0)
+ Q
+"RTN","C0FHIRLD")
+0^24^B2854212
+"RTN","C0FHIRLD",1,0)
+C0FHIRLD ;VAMC/JS-FHIR ENTITY LOADER MASTER ; 15-FEB-2026
+"RTN","C0FHIRLD",2,0)
+ ;;1.2;C0FHIR PROJECT;;Feb 15, 2026;Build 6
+"RTN","C0FHIRLD",3,0)
+ Q
+"RTN","C0FHIRLD",4,0)
+EN ; Main Entry Point
+"RTN","C0FHIRLD",5,0)
+ D CLEAN
+"RTN","C0FHIRLD",6,0)
+ W !!,"Loading Administrative Entities (FHIR Model)..."
+"RTN","C0FHIRLD",7,0)
+ D ADMIN
+"RTN","C0FHIRLD",8,0)
+ W !,"Loading Clinical Entities..."
+"RTN","C0FHIRLD",9,0)
+ D EN^C0FHIRL1
+"RTN","C0FHIRLD",10,0)
+ W !!,"Entity Load Complete. Run D EN^C0FHIRVV to validate.",!
+"RTN","C0FHIRLD",11,0)
+ Q
+"RTN","C0FHIRLD",12,0)
+ ;
+"RTN","C0FHIRLD",13,0)
+ADMIN ; Load Administrative Resources (Patient, Facility)
+"RTN","C0FHIRLD",14,0)
+ N FDA,IEN,ERR,MSG
+"RTN","C0FHIRLD",15,0)
+ ; --- Entity #1: VPR PATIENT ID ---
+"RTN","C0FHIRLD",16,0)
+ S FDA(1.1,"+1,",.01)="VPR PATIENT ID"
+"RTN","C0FHIRLD",17,0)
+ S FDA(1.1,"+1,",.02)=2 ; File #2
+"RTN","C0FHIRLD",18,0)
+ S FDA(1.1,"+1,",.04)="PatientID"
+"RTN","C0FHIRLD",19,0)
+ S FDA(1.1,"+1,",1)="FHIR" ; Updated Data Model
+"RTN","C0FHIRLD",20,0)
+ D UPDATE^DIE("","FDA","IEN")
+"RTN","C0FHIRLD",21,0)
+ I $G(IEN(1)) D
+"RTN","C0FHIRLD",22,0)
+ . K FDA S FDA(1.11,"+2,"_IEN(1)_",",.01)="SSN"
+"RTN","C0FHIRLD",23,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",.02)=1
+"RTN","C0FHIRLD",24,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",.03)="ENTITY"
+"RTN","C0FHIRLD",25,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",.04)=2
+"RTN","C0FHIRLD",26,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",.05)=.09
+"RTN","C0FHIRLD",27,0)
+ . S FDA(1.11,"+2,"_IEN(1)_",",1.2)="S VALUE=VALUE_""^SSN^^SSA"""
+"RTN","C0FHIRLD",28,0)
+ . D UPDATE^DIE("","FDA")
+"RTN","C0FHIRLD",29,0)
+ ;
+"RTN","C0FHIRLD",30,0)
+ ; --- Entity #7: VPR FACILITY ---
+"RTN","C0FHIRLD",31,0)
+ K FDA,IEN S FDA(1.1,"+1,",.01)="VPR FACILITY"
+"RTN","C0FHIRLD",32,0)
+ S FDA(1.1,"+1,",.02)=4 ; File #4
+"RTN","C0FHIRLD",33,0)
+ S FDA(1.1,"+1,",.04)="Organization"
+"RTN","C0FHIRLD",34,0)
+ S FDA(1.1,"+1,",1)="FHIR"
+"RTN","C0FHIRLD",35,0)
+ D UPDATE^DIE("","FDA","IEN")
+"RTN","C0FHIRLD",36,0)
+ Q
+"RTN","C0FHIRLD",37,0)
+ ;
+"RTN","C0FHIRLD",38,0)
+CLEAN ; Clear namespaces to prevent duplicates
+"RTN","C0FHIRLD",39,0)
+ N DIK,DA,NAME
+"RTN","C0FHIRLD",40,0)
+ S NAME="VPR " F  S NAME=$O(^DDE("B",NAME)) Q:NAME=""!(NAME'["VPR ")  D
+"RTN","C0FHIRLD",41,0)
+ . S DA=0 F  S DA=$O(^DDE("B",NAME,DA)) Q:'DA  D
+"RTN","C0FHIRLD",42,0)
+ .. S DIK="^DDE(" D ^DIK
+"RTN","C0FHIRLD",43,0)
+ Q
+"RTN","C0FHIRNOTE")
+0^8^B3434002
+"RTN","C0FHIRNOTE",1,0)
+C0FHIRNOTE ;VAMC/JS-FHIR TIU NOTE EXTRACTOR ; 30-JAN-2026
+"RTN","C0FHIRNOTE",2,0)
+ ;;1.1;C0FHIR PROJECT;;Jan 30, 2026;Build 6
+"RTN","C0FHIRNOTE",3,0)
+ Q
+"RTN","C0FHIRNOTE",4,0)
+GETNOTES(BNDL,CNT,ENCPTR,ENCID) ; Pull Notes for an Encounter
+"RTN","C0FHIRNOTE",5,0)
+ ; File #8925: TIU DOCUMENT -> .01:DOC TYPE; .05:STATUS; 2:REPORT TEXT
+"RTN","C0FHIRNOTE",6,0)
+ N TIUIEN,STAT,ERR,TEXTNM
+"RTN","C0FHIRNOTE",7,0)
+ S TIUIEN=0 F  S TIUIEN=$O(^TIU(8925,"V",ENCPTR,TIUIEN)) Q:'TIUIEN  D
+"RTN","C0FHIRNOTE",8,0)
+ . S STAT=$$GET1^DIQ(8925,TIUIEN_",",.05,"I") Q:STAT<7  ; Skip if not completed/signed
+"RTN","C0FHIRNOTE",9,0)
+ . S TEXTNM=$$GET1^DIQ(8925,TIUIEN_",",.01,"E")
+"RTN","C0FHIRNOTE",10,0)
+ . S CNT=CNT+1
+"RTN","C0FHIRNOTE",11,0)
+ . S BNDL("entry",CNT,"resource","resourceType")="DocumentReference"
+"RTN","C0FHIRNOTE",12,0)
+ . S BNDL("entry",CNT,"resource","status")="current"
+"RTN","C0FHIRNOTE",13,0)
+ . S BNDL("entry",CNT,"resource","type","text")=TEXTNM
+"RTN","C0FHIRNOTE",14,0)
+ . S BNDL("entry",CNT,"resource","context","encounter",1,"reference")="Encounter/"_ENCID
+"RTN","C0FHIRNOTE",15,0)
+ . D GENWP(TIUIEN,.BNDL,CNT)
+"RTN","C0FHIRNOTE",16,0)
+ Q
+"RTN","C0FHIRNOTE",17,0)
+ ;
+"RTN","C0FHIRNOTE",18,0)
+GENWP(TIUIEN,BNDL,CNT) ; Extract WP Text and Base64 Encode
+"RTN","C0FHIRNOTE",19,0)
+ N TEXT,FULLTXT,I,ERR
+"RTN","C0FHIRNOTE",20,0)
+ K TEXT D GET1^DIQ(8925,TIUIEN_",",2,"","TEXT","ERR") ; Field 2 is REPORT TEXT
+"RTN","C0FHIRNOTE",21,0)
+ S FULLTXT="",I=0
+"RTN","C0FHIRNOTE",22,0)
+ F  S I=$O(TEXT(I)) Q:'I  S FULLTXT=FULLTXT_TEXT(I)_$C(13,10)
+"RTN","C0FHIRNOTE",23,0)
+ ; Attachment data must be Base64 per FHIR spec
+"RTN","C0FHIRNOTE",24,0)
+ S BNDL("entry",CNT,"resource","content",1,"attachment","contentType")="text/plain"
+"RTN","C0FHIRNOTE",25,0)
+ S BNDL("entry",CNT,"resource","content",1,"attachment","data")=$$BASE64^C0FHIRUTL(.FULLTXT)
+"RTN","C0FHIRNOTE",26,0)
+ Q
+"RTN","C0FHIRPI")
+0^9^B819345
+"RTN","C0FHIRPI",1,0)
+C0FHIRPI ;VAMC/JS-FHIR SUITE KIDS POST-INSTALL ; 30-JAN-2026
+"RTN","C0FHIRPI",2,0)
+ ;;1.2;C0FHIR PROJECT;;Jan 30, 2026;Build 6
+"RTN","C0FHIRPI",3,0)
+ Q
+"RTN","C0FHIRPI",4,0)
+POST ; Entry point called by KIDS
+"RTN","C0FHIRPI",5,0)
+ D BMES^XPDUTL("  Starting Post-Install Configuration for C0FHIR...")
+"RTN","C0FHIRPI",6,0)
+ ;
+"RTN","C0FHIRPI",7,0)
+ ; 1. Standard VistA Environment Setup (RPCs and Options)
+"RTN","C0FHIRPI",8,0)
+ D EN^C0FHIRSET
+"RTN","C0FHIRPI",9,0)
+ ;
+"RTN","C0FHIRPI",10,0)
+ ; 2. Register Web Service Endpoint
+"RTN","C0FHIRPI",11,0)
+ D BMES^XPDUTL("  Registering fhir Web Service endpoint...")
+"RTN","C0FHIRPI",12,0)
+ D addService^%webutils("GET","fhir","WEB^C0FHIRWS")
+"RTN","C0FHIRPI",13,0)
+ ;
+"RTN","C0FHIRPI",14,0)
+ D BMES^XPDUTL("  Post-Install Configuration Complete.")
+"RTN","C0FHIRPI",15,0)
+ Q
+"RTN","C0FHIRPM")
+0^10^B1908862
+"RTN","C0FHIRPM",1,0)
+C0FHIRPM ;VAMC/JS-FHIR PROCEDURE MAPPER ; 30-JAN-2026
+"RTN","C0FHIRPM",2,0)
+ ;;1.1;C0FHIR PROJECT;;Jan 30, 2026;Build 6
+"RTN","C0FHIRPM",3,0)
+ Q
+"RTN","C0FHIRPM",4,0)
+GETPRC(BNDL,CNT,ENCPTR,ENCID) ;File #9000010.18 (V PROCEDURE)
+"RTN","C0FHIRPM",5,0)
+ N PRCIEN,TARGET,ERR
+"RTN","C0FHIRPM",6,0)
+ S PRCIEN=0 F  S PRCIEN=$O(^AUPNVPRC("AD",ENCPTR,PRCIEN)) Q:'PRCIEN  D
+"RTN","C0FHIRPM",7,0)
+ . K TARGET,ERR D GETS^DIQ(9000010.18,PRCIEN_",",".01;1201","IE","TARGET","ERR")
+"RTN","C0FHIRPM",8,0)
+ . Q:$D(ERR)
+"RTN","C0FHIRPM",9,0)
+ . S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Procedure"
+"RTN","C0FHIRPM",10,0)
+ . S BNDL("entry",CNT,"resource","code","text")=$G(TARGET(9000010.18,PRCIEN_",",.01,"E"))
+"RTN","C0FHIRPM",11,0)
+ . S BNDL("entry",CNT,"resource","performedDateTime")=$$ISO8601^C0FHIRUTL($G(TARGET(9000010.18,PRCIEN_",",1201,"I")))
+"RTN","C0FHIRPM",12,0)
+ . S BNDL("entry",CNT,"resource","encounter","reference")="Encounter/"_ENCID
+"RTN","C0FHIRPM",13,0)
+ Q
+"RTN","C0FHIRPT")
+0^11^B1812778
+"RTN","C0FHIRPT",1,0)
+C0FHIRPT ;VAMC/JS-FHIR PATIENT RESOURCE ; 09-FEB-2026
+"RTN","C0FHIRPT",2,0)
+ ;;1.2;C0FHIR PROJECT;;Feb 9, 2026;Build 6
+"RTN","C0FHIRPT",3,0)
+ Q
+"RTN","C0FHIRPT",4,0)
+GETPT(BNDL,CNT,DFN) ; Get Patient Data and return LRDFN
+"RTN","C0FHIRPT",5,0)
+ ; BNDL: Passed by reference (JSON object)
+"RTN","C0FHIRPT",6,0)
+ ; CNT:  Passed by reference (Entry counter)
+"RTN","C0FHIRPT",7,0)
+ ; DFN:  Patient IEN
+"RTN","C0FHIRPT",8,0)
+ ; RETURNS: LRDFN (from File #2, Field #63)
+"RTN","C0FHIRPT",9,0)
+ ;
+"RTN","C0FHIRPT",10,0)
+ N VADM,VAPA,ERR,RES,I,LRDFN
+"RTN","C0FHIRPT",11,0)
+ D DEM^VADPT
+"RTN","C0FHIRPT",12,0)
+ D ADD^VADPT
+"RTN","C0FHIRPT",13,0)
+ ; I $D(ERR) Q 0 ; Commented out per local diff
+"RTN","C0FHIRPT",14,0)
+ ;
+"RTN","C0FHIRPT",15,0)
+ ; 1. Populate JSON Bundle
+"RTN","C0FHIRPT",16,0)
+ S CNT=CNT+1
+"RTN","C0FHIRPT",17,0)
+ S BNDL("entry",CNT,"fullUrl")="Patient/"_DFN
+"RTN","C0FHIRPT",18,0)
+ S RES=$NA(BNDL("entry",CNT,"resource"))
+"RTN","C0FHIRPT",19,0)
+ S @RES@("resourceType")="Patient"
+"RTN","C0FHIRPT",20,0)
+ S @RES@("id")=DFN
+"RTN","C0FHIRPT",21,0)
+ S @RES@("name",1,"family")=$P(VADM(1),",",1)
+"RTN","C0FHIRPT",22,0)
+ S @RES@("name",1,"given",1)=$P(VADM(1),",",2)
+"RTN","C0FHIRPT",23,0)
+ S @RES@("gender")=$S($P(VADM(5),U,1)="M":"male",1:"female")
+"RTN","C0FHIRPT",24,0)
+ S @RES@("birthDate")=$$ISO8601^C0FHIRUTL($P(VADM(3),U,1))
+"RTN","C0FHIRPT",25,0)
+ S @RES@("address",1,"line",1)=VAPA(1)
+"RTN","C0FHIRPT",26,0)
+ S @RES@("address",1,"city")=VAPA(4)
+"RTN","C0FHIRPT",27,0)
+ S @RES@("address",1,"state")=$P(VAPA(5),U,2)
+"RTN","C0FHIRPT",28,0)
+ S @RES@("address",1,"postalCode")=VAPA(6)
+"RTN","C0FHIRPT",29,0)
+ ;
+"RTN","C0FHIRPT",30,0)
+ ; 2. Retrieve and return LRDFN for Lab modules
+"RTN","C0FHIRPT",31,0)
+ S LRDFN=$G(^DPT(DFN,"LR"))
+"RTN","C0FHIRPT",32,0)
+ Q LRDFN
+"RTN","C0FHIRRX")
+0^12^B374651
+"RTN","C0FHIRRX",1,0)
+C0FHIRRX ;VAMC/JS-FHIR RXNORM LOOKUP UTILITY ; 30-JAN-2026
+"RTN","C0FHIRRX",2,0)
+ ;;1.1;C0FHIR PROJECT;;Jan 30, 2026;Build 6
+"RTN","C0FHIRRX",3,0)
+ Q
+"RTN","C0FHIRRX",4,0)
+GETRX(RXIEN) ;Traverse Files #52 -> #50 -> #50.68
+"RTN","C0FHIRRX",5,0)
+ N DRUG,PROD,RXN,ERR
+"RTN","C0FHIRRX",6,0)
+ S DRUG=$$GET1^DIQ(52,RXIEN_",",6,"I","","ERR") Q:DRUG="" ""
+"RTN","C0FHIRRX",7,0)
+ S PROD=$$GET1^DIQ(50,DRUG_",",22,"I","","ERR") Q:PROD="" ""
+"RTN","C0FHIRRX",8,0)
+ S RXN=$$GET1^DIQ(50.68,PROD_",",99.9,"","","ERR")
+"RTN","C0FHIRRX",9,0)
+ Q RXN
+"RTN","C0FHIRSET")
+0^13^B8040885
+"RTN","C0FHIRSET",1,0)
+C0FHIRSET ;VAMC/JS-FHIR SUITE ENVIRONMENT SETUP ; 30-JAN-2026
+"RTN","C0FHIRSET",2,0)
+ ;;1.1;C0FHIR PROJECT;;Jan 30, 2026;Build 6
+"RTN","C0FHIRSET",3,0)
+ Q
+"RTN","C0FHIRSET",4,0)
+EN ; Main entry point
+"RTN","C0FHIRSET",5,0)
+ W !!,"--- C0FHIR Environment Setup (v1.1) ---",!
+"RTN","C0FHIRSET",6,0)
+ D RPC,OPT
+"RTN","C0FHIRSET",7,0)
+ W !!,"Setup complete. RPC and Context Option are now self-documenting.",!
+"RTN","C0FHIRSET",8,0)
+ Q
+"RTN","C0FHIRSET",9,0)
+ ;
+"RTN","C0FHIRSET",10,0)
+RPC ; Register/Update RPC in File #8994
+"RTN","C0FHIRSET",11,0)
+ N FDA,IEN,ERR,NAME,RPCP,DESC
+"RTN","C0FHIRSET",12,0)
+ S NAME="C0FHIR GET FULL BUNDLE"
+"RTN","C0FHIRSET",13,0)
+ W !,"Registering/Updating RPC: "_NAME_"..."
+"RTN","C0FHIRSET",14,0)
+ S IEN=$O(^DIC(8994,"B",NAME,0))
+"RTN","C0FHIRSET",15,0)
+ S IEN=$S(IEN:IEN_",",1:"+1,")
+"RTN","C0FHIRSET",16,0)
+ S FDA(8994,IEN,.01)=NAME
+"RTN","C0FHIRSET",17,0)
+ S FDA(8994,IEN,.02)="GENFULL",FDA(8994,IEN,.03)="C0FHIRGF"
+"RTN","C0FHIRSET",18,0)
+ S FDA(8994,IEN,.04)=2,FDA(8994,IEN,.07)=1
+"RTN","C0FHIRSET",19,0)
+ D UPDATE^DIE("","FDA","IEN","ERR")
+"RTN","C0FHIRSET",20,0)
+ S RPCP=$S($G(IEN(1)):IEN(1),1:+IEN)
+"RTN","C0FHIRSET",21,0)
+ ;
+"RTN","C0FHIRSET",22,0)
+ ; Add Usage Guide to RPC Description Field (#10)
+"RTN","C0FHIRSET",23,0)
+ K DESC
+"RTN","C0FHIRSET",24,0)
+ S DESC(1)="USAGE GUIDE for C0FHIR ENCOUNTER DASHBOARD"
+"RTN","C0FHIRSET",25,0)
+ S DESC(2)="----------------------------------------"
+"RTN","C0FHIRSET",26,0)
+ S DESC(3)="INPUTS:"
+"RTN","C0FHIRSET",27,0)
+ S DESC(4)="  1. DFN (Req): Internal Patient IEN from File #2."
+"RTN","C0FHIRSET",28,0)
+ S DESC(5)="  2. ENCPTR (Opt): Internal Encounter IEN from File #409.68."
+"RTN","C0FHIRSET",29,0)
+ S DESC(6)="  3. SDT (Opt): Start Date (FileMan format). Defaults to 0."
+"RTN","C0FHIRSET",30,0)
+ S DESC(7)="  4. EDT (Opt): End Date (FileMan format). Defaults to T."
+"RTN","C0FHIRSET",31,0)
+ S DESC(8)=" "
+"RTN","C0FHIRSET",32,0)
+ S DESC(9)="OUTPUT:"
+"RTN","C0FHIRSET",33,0)
+ S DESC(10)="  Returns a FHIR R4 Bundle (Collection) as a Global Array."
+"RTN","C0FHIRSET",34,0)
+ S DESC(11)="  Includes: Patient, Encounter, Labs, Vitals, Meds, and Notes."
+"RTN","C0FHIRSET",35,0)
+ D WP^DIE(8994,RPCP_",",10,"","DESC")
+"RTN","C0FHIRSET",36,0)
+ ;
+"RTN","C0FHIRSET",37,0)
+ ; Re-sync Parameters
+"RTN","C0FHIRSET",38,0)
+ K ^DIC(8994,RPCP,2)
+"RTN","C0FHIRSET",39,0)
+ D PARAM(RPCP,1,"DFN",1),PARAM(RPCP,2,"ENCPTR",0)
+"RTN","C0FHIRSET",40,0)
+ D PARAM(RPCP,3,"SDT",0),PARAM(RPCP,4,"EDT",0)
+"RTN","C0FHIRSET",41,0)
+ W " Success."
+"RTN","C0FHIRSET",42,0)
+ Q
+"RTN","C0FHIRSET",43,0)
+ ;
+"RTN","C0FHIRSET",44,0)
+PARAM(RPC,SEQ,PNAME,REQ) ; Add Parameters
+"RTN","C0FHIRSET",45,0)
+ N PFDA S PFDA(8994.02,"+2,"_RPC_",",.01)=PNAME,PFDA(8994.02,"+2,"_RPC_",",.02)=SEQ
+"RTN","C0FHIRSET",46,0)
+ S PFDA(8994.02,"+2,"_RPC_",",.03)=1,PFDA(8994.02,"+2,"_RPC_",",.04)=REQ
+"RTN","C0FHIRSET",47,0)
+ D UPDATE^DIE("","PFDA")
+"RTN","C0FHIRSET",48,0)
+ Q
+"RTN","C0FHIRSET",49,0)
+ ;
+"RTN","C0FHIRSET",50,0)
+OPT ; Create/Update Context Option (#19)
+"RTN","C0FHIRSET",51,0)
+ N FDA,NAME,OPTIEN,DESC
+"RTN","C0FHIRSET",52,0)
+ S NAME="C0FHIR CONTEXT"
+"RTN","C0FHIRSET",53,0)
+ W !,"Updating Context Option: "_NAME_"..."
+"RTN","C0FHIRSET",54,0)
+ S OPTIEN=$O(^DIC(19,"B",NAME,0))
+"RTN","C0FHIRSET",55,0)
+ S IEN=$S(OPTIEN:OPTIEN_",",1:"+1,")
+"RTN","C0FHIRSET",56,0)
+ S FDA(19,IEN,.01)=NAME,FDA(19,IEN,.04)="B"
+"RTN","C0FHIRSET",57,0)
+ S FDA(19,IEN,1)="Enables FHIR Dashboard data extraction."
+"RTN","C0FHIRSET",58,0)
+ D UPDATE^DIE("","FDA","IEN")
+"RTN","C0FHIRSET",59,0)
+ S OPTIEN=$S($G(IEN(1)):IEN(1),1:+OPTIEN)
+"RTN","C0FHIRSET",60,0)
+ ; Attach RPC to Option
+"RTN","C0FHIRSET",61,0)
+ I '$D(^DIC(19,OPTIEN,10,"B",$O(^DIC(8994,"B","C0FHIR GET FULL BUNDLE",0)))) D
+"RTN","C0FHIRSET",62,0)
+ . K FDA S FDA(19.05,"+2,"_OPTIEN_",",.01)="C0FHIR GET FULL BUNDLE"
+"RTN","C0FHIRSET",63,0)
+ . D UPDATE^DIE("","FDA")
+"RTN","C0FHIRSET",64,0)
+ W " Success."
+"RTN","C0FHIRSET",65,0)
+ Q
+"RTN","C0FHIRTG")
+0^25^B3682988
+"RTN","C0FHIRTG",1,0)
+C0FHIRTG ;VAMC/JS-FHIR TROUBLESHOOTING GUIDE ; 15-FEB-2026
+"RTN","C0FHIRTG",2,0)
+ ;;1.2;C0FHIR PROJECT;;Feb 15, 2026;Build 6
+"RTN","C0FHIRTG",3,0)
+ Q
+"RTN","C0FHIRTG",4,0)
+EN ; Main entry point
+"RTN","C0FHIRTG",5,0)
+ N DFN,MSG
+"RTN","C0FHIRTG",6,0)
+ W !!,"--- C0FHIR Build 2 Diagnostic Tool ---",!
+"RTN","C0FHIRTG",7,0)
+ R "Enter Patient DFN to test: ",DFN:DTIME E  Q
+"RTN","C0FHIRTG",8,0)
+ I '$D(^DPT(+DFN,0)) W !,"[ERR] Invalid DFN." Q
+"RTN","C0FHIRTG",9,0)
+ ;
+"RTN","C0FHIRTG",10,0)
+ D CHKLAB(DFN)
+"RTN","C0FHIRTG",11,0)
+ D CHKVIT(DFN)
+"RTN","C0FHIRTG",12,0)
+ D CHKMED(DFN)
+"RTN","C0FHIRTG",13,0)
+ W !!,"Diagnostics complete.",!
+"RTN","C0FHIRTG",14,0)
+ Q
+"RTN","C0FHIRTG",15,0)
+ ;
+"RTN","C0FHIRTG",16,0)
+CHKLAB(DFN) ; Check Lab Data integrity
+"RTN","C0FHIRTG",17,0)
+ N LRDFN S LRDFN=$G(^DPT(DFN,"LR"))
+"RTN","C0FHIRTG",18,0)
+ W !,"Checking Lab... "
+"RTN","C0FHIRTG",19,0)
+ I 'LRDFN W "[FAIL] No LRDFN in File #2. Lab data will NOT export." Q
+"RTN","C0FHIRTG",20,0)
+ I '$D(^LR(LRDFN)) W "[FAIL] LRDFN exists but ^LR global node is missing." Q
+"RTN","C0FHIRTG",21,0)
+ W "[OK] Lab gateway established."
+"RTN","C0FHIRTG",22,0)
+ Q
+"RTN","C0FHIRTG",23,0)
+ ;
+"RTN","C0FHIRTG",24,0)
+CHKVIT(DFN) ; Check Vitals "AA" Index
+"RTN","C0FHIRTG",25,0)
+ W !,"Checking Vitals... "
+"RTN","C0FHIRTG",26,0)
+ I '$O(^GMR(120.5,"AA",DFN,0)) D
+"RTN","C0FHIRTG",27,0)
+ . W "[WARN] No Vitals found in 'AA' index for this patient."
+"RTN","C0FHIRTG",28,0)
+ . I $D(^GMR(120.5,"C",DFN)) W !,"  -> DATA EXISTS in 'C' index. System needs RE-INDEXING."
+"RTN","C0FHIRTG",29,0)
+ E  W "[OK] Vitals index active."
+"RTN","C0FHIRTG",30,0)
+ Q
+"RTN","C0FHIRTG",31,0)
+ ;
+"RTN","C0FHIRTG",32,0)
+CHKMED(DFN) ; Check Medication Pointers
+"RTN","C0FHIRTG",33,0)
+ N ORPK,IFN,CNT S (CNT,IFN)=0
+"RTN","C0FHIRTG",34,0)
+ W !,"Checking Meds... "
+"RTN","C0FHIRTG",35,0)
+ F  S IFN=$O(^OR(100,"AC",DFN,IFN)) Q:'IFN  D
+"RTN","C0FHIRTG",36,0)
+ . S ORPK=$P($G(^OR(100,IFN,4)),U)
+"RTN","C0FHIRTG",37,0)
+ . I ORPK'="",ORPK["R",'$D(^PSRX(+ORPK)) S CNT=CNT+1
+"RTN","C0FHIRTG",38,0)
+ I CNT>0 W "[FAIL] found "_CNT_" broken links from Order (#100) to Rx (#52)."
+"RTN","C0FHIRTG",39,0)
+ E  W "[OK] Medication links verified."
+"RTN","C0FHIRTG",40,0)
+ Q
+"RTN","C0FHIRTS")
+0^14^B2894226
+"RTN","C0FHIRTS",1,0)
+C0FHIRTS ;VAMC/JS-FHIR SUITE TESTER ; 07-FEB-2026
+"RTN","C0FHIRTS",2,0)
+ ;;1.2;C0FHIR PROJECT;;Feb 7, 2026;Build 6
+"RTN","C0FHIRTS",3,0)
+ Q
+"RTN","C0FHIRTS",4,0)
+EN ; Main entry point
+"RTN","C0FHIRTS",5,0)
+ N DFN,DIC,Y,ENCPTR,RTN,I,SDT,EDT,DIR,MODE,FILTER
+"RTN","C0FHIRTS",6,0)
+ S (SDT,EDT)=""
+"RTN","C0FHIRTS",7,0)
+ ;
+"RTN","C0FHIRTS",8,0)
+ W !!,"--- C0FHIR Suite Tester v1.3 ---",!
+"RTN","C0FHIRTS",9,0)
+ S DIR(0)="S^1:JSON Extraction (by DFN);2:HTML Search Preview (by Name)"
+"RTN","C0FHIRTS",10,0)
+ S DIR("A")="Select Test Mode",DIR("B")="1"
+"RTN","C0FHIRTS",11,0)
+ D ^DIR Q:$D(DIRUT)  S MODE=Y
+"RTN","C0FHIRTS",12,0)
+ ;
+"RTN","C0FHIRTS",13,0)
+ I MODE=1 D  G EXIT
+"RTN","C0FHIRTS",14,0)
+ . ; Mode 1: Standard FHIR Extraction
+"RTN","C0FHIRTS",15,0)
+ . S DIC="^DPT(",DIC(0)="AEMQ",DIC("A")="Select Patient: "
+"RTN","C0FHIRTS",16,0)
+ . D ^DIC Q:Y<0  S DFN=+Y
+"RTN","C0FHIRTS",17,0)
+ . S DIC="^SCE(",DIC(0)="AEMQ",DIC("A")="Select Encounter (Optional): "
+"RTN","C0FHIRTS",18,0)
+ . S DIC("S")="I $P(^(0),U,2)=DFN"
+"RTN","C0FHIRTS",19,0)
+ . D ^DIC S ENCPTR=$S(Y>0:+Y,1:"")
+"RTN","C0FHIRTS",20,0)
+ . W !!,"Generating FHIR Bundle..."
+"RTN","C0FHIRTS",21,0)
+ . D GENFULL^C0FHIRGF(.RTN,DFN,ENCPTR,SDT,EDT)
+"RTN","C0FHIRTS",22,0)
+ . D DISP(.RTN)
+"RTN","C0FHIRTS",23,0)
+ ;
+"RTN","C0FHIRTS",24,0)
+ I MODE=2 D  G EXIT
+"RTN","C0FHIRTS",25,0)
+ . ; Mode 2: HTML Discovery Search
+"RTN","C0FHIRTS",26,0)
+ . R !,"Enter Patient Name for Search: ",NAME:DTIME Q:NAME=""
+"RTN","C0FHIRTS",27,0)
+ . S FILTER("name")=NAME
+"RTN","C0FHIRTS",28,0)
+ . W !!,"Generating HTML Discovery Page..."
+"RTN","C0FHIRTS",29,0)
+ . D WEB^C0FHIRWS(.RTN,.FILTER)
+"RTN","C0FHIRTS",30,0)
+ . D DISP(.RTN)
+"RTN","C0FHIRTS",31,0)
+ ;
+"RTN","C0FHIRTS",32,0)
+EXIT Q
+"RTN","C0FHIRTS",33,0)
+ ;
+"RTN","C0FHIRTS",34,0)
+DISP(ARY) ; Display first 20 lines of output
+"RTN","C0FHIRTS",35,0)
+ W !!,"--- Output Preview ---",!
+"RTN","C0FHIRTS",36,0)
+ N J S J="" F  S J=$O(ARY(J)) Q:J=""!(J>20)  D
+"RTN","C0FHIRTS",37,0)
+ . W ARY(J),!
+"RTN","C0FHIRTS",38,0)
+ W !,"... [Output Truncated] ...",!
+"RTN","C0FHIRTS",39,0)
+ Q
+"RTN","C0FHIRUN")
+0^15^B2114459
+"RTN","C0FHIRUN",1,0)
+C0FHIRUN ;VAMC/JS-FHIR SUITE DECOMMISSION/UNINSTALL ; 30-JAN-2026
+"RTN","C0FHIRUN",2,0)
+ ;;1.2;C0FHIR PROJECT;;Jan 30, 2026;Build 6
+"RTN","C0FHIRUN",3,0)
+ Q
+"RTN","C0FHIRUN",4,0)
+EN ; Main entry point for uninstallation
+"RTN","C0FHIRUN",5,0)
+ N DIR,X,Y,DTOUT,DUOUT,DIRUT,DIROUT
+"RTN","C0FHIRUN",6,0)
+ W !!,"--- C0FHIR Suite Uninstaller ---",!
+"RTN","C0FHIRUN",7,0)
+ W "This will remove the RPC, Context Option, and Web Service registration.",!
+"RTN","C0FHIRUN",8,0)
+ S DIR(0)="Y",DIR("A")="Are you sure you want to proceed",DIR("B")="NO"
+"RTN","C0FHIRUN",9,0)
+ D ^DIR Q:'Y
+"RTN","C0FHIRUN",10,0)
+ ;
+"RTN","C0FHIRUN",11,0)
+ ; 1. Remove Web Service
+"RTN","C0FHIRUN",12,0)
+ W !,"Deregistering 'fhir' web service..."
+"RTN","C0FHIRUN",13,0)
+ D deleteService^%webutils("GET","fhir")
+"RTN","C0FHIRUN",14,0)
+ ;
+"RTN","C0FHIRUN",15,0)
+ ; 2. Clean FileMan entries
+"RTN","C0FHIRUN",16,0)
+ D CLNRPC
+"RTN","C0FHIRUN",17,0)
+ D CLNOPT
+"RTN","C0FHIRUN",18,0)
+ ;
+"RTN","C0FHIRUN",19,0)
+ W !!,"Decommissioning complete.",!
+"RTN","C0FHIRUN",20,0)
+ Q
+"RTN","C0FHIRUN",21,0)
+ ;
+"RTN","C0FHIRUN",22,0)
+CLNRPC ; Remove the Remote Procedure
+"RTN","C0FHIRUN",23,0)
+ N NAME,IEN,FDA,ERR
+"RTN","C0FHIRUN",24,0)
+ S NAME="C0FHIR GET FULL BUNDLE"
+"RTN","C0FHIRUN",25,0)
+ S IEN=$O(^DIC(8994,"B",NAME,0))
+"RTN","C0FHIRUN",26,0)
+ I IEN D
+"RTN","C0FHIRUN",27,0)
+ . W !,"Deleting RPC: "_NAME_"..."
+"RTN","C0FHIRUN",28,0)
+ . S FDA(8994,IEN_",",.01)="@"
+"RTN","C0FHIRUN",29,0)
+ . D FILE^DIE("E","FDA","ERR")
+"RTN","C0FHIRUN",30,0)
+ Q
+"RTN","C0FHIRUN",31,0)
+ ;
+"RTN","C0FHIRUN",32,0)
+CLNOPT ; Remove the Context Option
+"RTN","C0FHIRUN",33,0)
+ N NAME,IEN,FDA,ERR
+"RTN","C0FHIRUN",34,0)
+ S NAME="C0FHIR CONTEXT"
+"RTN","C0FHIRUN",35,0)
+ S IEN=$O(^DIC(19,"B",NAME,0))
+"RTN","C0FHIRUN",36,0)
+ I IEN D
+"RTN","C0FHIRUN",37,0)
+ . W !,"Deleting Option: "_NAME_"..."
+"RTN","C0FHIRUN",38,0)
+ . S FDA(19,IEN_",",.01)="@"
+"RTN","C0FHIRUN",39,0)
+ . D FILE^DIE("E","FDA","ERR")
+"RTN","C0FHIRUN",40,0)
+ Q
+"RTN","C0FHIRUT")
+0^16^B3002628
+"RTN","C0FHIRUT",1,0)
+C0FHIRUT ;VAMC/JS-FHIR SUITE M-UNIT TESTS ; 30-JAN-2026
+"RTN","C0FHIRUT",2,0)
+ ;;1.2;C0FHIR PROJECT;;Jan 30, 2026;Build 6
+"RTN","C0FHIRUT",3,0)
+ ;
+"RTN","C0FHIRUT",4,0)
+EN ; Run all tests
+"RTN","C0FHIRUT",5,0)
+ D EN^XTMUNIT("C0FHIRUT")
+"RTN","C0FHIRUT",6,0)
+ Q
+"RTN","C0FHIRUT",7,0)
+ ;
+"RTN","C0FHIRUT",8,0)
+SETUP ; Create Mock Data before EACH test
+"RTN","C0FHIRUT",9,0)
+ ; We use a high IEN (999999) to avoid colliding with real patients
+"RTN","C0FHIRUT",10,0)
+ S ^DPT(999999,0)="TESTPATIENT,MUNIT^M^2800101^^^999001111"
+"RTN","C0FHIRUT",11,0)
+ S ^DPT(999999,.11)="123 Unit Test Way^^^Gaithersburg^MD^20877"
+"RTN","C0FHIRUT",12,0)
+ Q
+"RTN","C0FHIRUT",13,0)
+ ;
+"RTN","C0FHIRUT",14,0)
+TEARDOWN ; Clean up Mock Data after EACH test
+"RTN","C0FHIRUT",15,0)
+ K ^DPT(999999)
+"RTN","C0FHIRUT",16,0)
+ Q
+"RTN","C0FHIRUT",17,0)
+ ;
+"RTN","C0FHIRUT",18,0)
+UTDATE ; Test Case: ISO8601 Date Conversion
+"RTN","C0FHIRUT",19,0)
+ N ISO S ISO=$$ISO8601^C0FHIRUTL(3260130.1230)
+"RTN","C0FHIRUT",20,0)
+ D CHKEQ^XTMUNIT(ISO,"2026-01-30T12:30:00Z","Date conversion failed")
+"RTN","C0FHIRUT",21,0)
+ Q
+"RTN","C0FHIRUT",22,0)
+ ;
+"RTN","C0FHIRUT",23,0)
+UTBNDL ; Test Case: FHIR Bundle with Mock Patient
+"RTN","C0FHIRUT",24,0)
+ N RES,DFN S DFN=999999
+"RTN","C0FHIRUT",25,0)
+ D GENFULL^C0FHIRGF(.RES,DFN,"","","")
+"RTN","C0FHIRUT",26,0)
+ ; Check that the aggregator found our mock patient
+"RTN","C0FHIRUT",27,0)
+ D CHKTF^XTMUNIT($D(RES)>0,"Aggregator failed to find mock patient")
+"RTN","C0FHIRUT",28,0)
+ D CHKTF^XTMUNIT(RES(1)["TESTPATIENT","JSON did not contain mock patient name")
+"RTN","C0FHIRUT",29,0)
+ Q
+"RTN","C0FHIRUT",30,0)
+ ;
+"RTN","C0FHIRUT",31,0)
+UTSRCH ; Test Case: Name Search for Mock Patient
+"RTN","C0FHIRUT",32,0)
+ N FILTER,RTN,TYPE
+"RTN","C0FHIRUT",33,0)
+ S FILTER("name")="TESTPATIENT"
+"RTN","C0FHIRUT",34,0)
+ D WEB^C0FHIRWS(.RTN,.TYPE,.FILTER)
+"RTN","C0FHIRUT",35,0)
+ D CHKEQ^XTMUNIT(TYPE,"text/html","Search mode should return HTML")
+"RTN","C0FHIRUT",36,0)
+ D CHKTF^XTMUNIT(RTN(2)["TESTPATIENT","Search result did not find mock patient")
+"RTN","C0FHIRUT",37,0)
+ Q
+"RTN","C0FHIRUTL")
+0^17^B417388
+"RTN","C0FHIRUTL",1,0)
+C0FHIRUTL ;VAMC/JS-FHIR UTILITY HELPERS ; 30-JAN-2026
+"RTN","C0FHIRUTL",2,0)
+ ;;1.1;C0FHIR PROJECT;;Jan 30, 2026;Build 6
+"RTN","C0FHIRUTL",3,0)
+ Q
+"RTN","C0FHIRUTL",4,0)
+ISO8601(FDT) ;FileMan to ISO Date
+"RTN","C0FHIRUTL",5,0)
+ Q:FDT="" ""
+"RTN","C0FHIRUTL",6,0)
+ N ISO S ISO=$$FMTHL7^XLFDT(FDT)
+"RTN","C0FHIRUTL",7,0)
+ Q $E(ISO,1,4)_"-"_$E(ISO,5,6)_"-"_$E(ISO,7,8)_"T"_$E(ISO,9,10)_":"_$E(ISO,11,12)_":"_$E(ISO,13,14)_"Z"
+"RTN","C0FHIRVM")
+0^18^B2878137
+"RTN","C0FHIRVM",1,0)
+C0FHIRVM ;VAMC/JS-FHIR VITALS MAPPER ; 30-JAN-2026
+"RTN","C0FHIRVM",2,0)
+ ;;1.1;C0FHIR PROJECT;;Jan 30, 2026;Build 6
+"RTN","C0FHIRVM",3,0)
+ Q
+"RTN","C0FHIRVM",4,0)
+GETVIT(BNDL,CNT,DFN,VDT,ENCID) ;File #120.5 (GMRV VITALS/MEASUREMENTS)
+"RTN","C0FHIRVM",5,0)
+ N ID,TARGET,ERR,VTYPE,LOINC
+"RTN","C0FHIRVM",6,0)
+ S ID=0 F  S ID=$O(^GMR(120.5,"B",VDT,ID)) Q:'ID  D
+"RTN","C0FHIRVM",7,0)
+ . K TARGET,ERR D GETS^DIQ(120.5,ID_",",".02;.03;1.2;1201","IE","TARGET","ERR")
+"RTN","C0FHIRVM",8,0)
+ . Q:$G(TARGET(120.5,ID_",",.02,"I"))'=DFN
+"RTN","C0FHIRVM",9,0)
+ . S VTYPE=$G(TARGET(120.5,ID_",",.03,"E"))
+"RTN","C0FHIRVM",10,0)
+ . S LOINC=$S(VTYPE="BLOOD PRESSURE":"8480-6",VTYPE="HEIGHT":"8302-2",VTYPE="WEIGHT":"29463-7",1:"")
+"RTN","C0FHIRVM",11,0)
+ . S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Observation"
+"RTN","C0FHIRVM",12,0)
+ . S BNDL("entry",CNT,"resource","category",1,"coding",1,"code")="vital-signs"
+"RTN","C0FHIRVM",13,0)
+ . S BNDL("entry",CNT,"resource","code","text")=VTYPE
+"RTN","C0FHIRVM",14,0)
+ . S BNDL("entry",CNT,"resource","valueQuantity","value")=$G(TARGET(120.5,ID_",",1.2,"E"))
+"RTN","C0FHIRVM",15,0)
+ . S BNDL("entry",CNT,"resource","effectiveDateTime")=$$ISO8601^C0FHIRUTL($G(TARGET(120.5,ID_",",1201,"I")))
+"RTN","C0FHIRVM",16,0)
+ . S BNDL("entry",CNT,"resource","encounter","reference")="Encounter/"_ENCID
+"RTN","C0FHIRVM",17,0)
+ Q
+"RTN","C0FHIRVR")
+0^26^B2602672
+"RTN","C0FHIRVR",1,0)
+C0FHIRVR ;VAMC/JS-FHIR ENTITY AUDIT REPORT ; 15-FEB-2026
+"RTN","C0FHIRVR",2,0)
+ ;;1.2;C0FHIR PROJECT;;Feb 15, 2026;Build 6
+"RTN","C0FHIRVR",3,0)
+ Q
+"RTN","C0FHIRVR",4,0)
+EN ; Main entry point
+"RTN","C0FHIRVR",5,0)
+ N EIEN,ENAME,DFILE,DMODEL,DNAME,CNT,FCNT,SCNT
+"RTN","C0FHIRVR",6,0)
+ S (CNT,FCNT,SCNT)=0
+"RTN","C0FHIRVR",7,0)
+ W !!,"--- C0FHIR Entity Registry Audit Report ---",!
+"RTN","C0FHIRVR",8,0)
+ W !,"ID",?6,"Entity Name",?35,"File",?45,"Model",?55,"Display Name"
+"RTN","C0FHIRVR",9,0)
+ W !,"--------------------------------------------------------------------------------",!
+"RTN","C0FHIRVR",10,0)
+ ;
+"RTN","C0FHIRVR",11,0)
+ S ENAME="VPR" ; Start with VPR namespace established in Build 2
+"RTN","C0FHIRVR",12,0)
+ F  S ENAME=$O(^DDE("B",ENAME)) Q:ENAME=""!(ENAME'["VPR")  D
+"RTN","C0FHIRVR",13,0)
+ . S EIEN=0 F  S EIEN=$O(^DDE("B",ENAME,EIEN)) Q:'EIEN  D
+"RTN","C0FHIRVR",14,0)
+ .. S CNT=CNT+1
+"RTN","C0FHIRVR",15,0)
+ .. S DFILE=$$GET1^DIQ(1.1,EIEN_",",.02)
+"RTN","C0FHIRVR",16,0)
+ .. S DMODEL=$$GET1^DIQ(1.1,EIEN_",",1)
+"RTN","C0FHIRVR",17,0)
+ .. S DNAME=$$GET1^DIQ(1.1,EIEN_",",.04)
+"RTN","C0FHIRVR",18,0)
+ .. ;
+"RTN","C0FHIRVR",19,0)
+ .. I DMODEL="FHIR" S FCNT=FCNT+1
+"RTN","C0FHIRVR",20,0)
+ .. E  S SCNT=SCNT+1
+"RTN","C0FHIRVR",21,0)
+ .. ;
+"RTN","C0FHIRVR",22,0)
+ .. W !,EIEN,?6,$E(ENAME,1,28),?35,DFILE,?45,DMODEL,?55,$E(DNAME,1,24)
+"RTN","C0FHIRVR",23,0)
+ ;
+"RTN","C0FHIRVR",24,0)
+ W !!,"--- Audit Summary ---"
+"RTN","C0FHIRVR",25,0)
+ W !,"Total VPR Entities:    "_CNT
+"RTN","C0FHIRVR",26,0)
+ W !,"FHIR Model Updated:    "_FCNT
+"RTN","C0FHIRVR",27,0)
+ W !,"Legacy/SDA Model:      "_SCNT
+"RTN","C0FHIRVR",28,0)
+ W !,"Registry Integrity:    "_$S(SCNT=0:"100% (READY)",1:"INCOMPLETE")
+"RTN","C0FHIRVR",29,0)
+ W !!,"End of Report.",!
+"RTN","C0FHIRVR",30,0)
+ Q
+"RTN","C0FHIRVV")
+0^27^B4138451
+"RTN","C0FHIRVV",1,0)
+C0FHIRVV ;VAMC/JS-FHIR ENTITY FILE VALIDATOR ; 15-FEB-2026
+"RTN","C0FHIRVV",2,0)
+ ;;1.2;C0FHIR PROJECT;;Feb 15, 2026;Build 6
+"RTN","C0FHIRVV",3,0)
+ Q
+"RTN","C0FHIRVV",4,0)
+EN ; Main entry point
+"RTN","C0FHIRVV",5,0)
+ N EIEN,ENAME,DFILE,DNAME,GVAL,I,ERR S ERR=0
+"RTN","C0FHIRVV",6,0)
+ W !!,"--- C0FHIR Entity File (#1.1) Validator ---",!
+"RTN","C0FHIRVV",7,0)
+ W !,"Checking critical mappings against Build 2 manifest...",!
+"RTN","C0FHIRVV",8,0)
+ ;
+"RTN","C0FHIRVV",9,0)
+ ; Check specific core entities by Name
+"RTN","C0FHIRVV",10,0)
+ F ENAME="VPR PATIENT","VPR VISIT","VPR MEDICATION","VPR VITAL MEASUREMENT" D
+"RTN","C0FHIRVV",11,0)
+ . S EIEN=$O(^DDE("B",ENAME,0))
+"RTN","C0FHIRVV",12,0)
+ . I 'EIEN W !,"[FAIL] Entity '"_ENAME_"' is MISSING from File #1.1" S ERR=ERR+1 Q
+"RTN","C0FHIRVV",13,0)
+ . ;
+"RTN","C0FHIRVV",14,0)
+ . ; 1. Check Default File Number
+"RTN","C0FHIRVV",15,0)
+ . S DFILE=$$GET1^DIQ(1.1,EIEN_",",.02)
+"RTN","C0FHIRVV",16,0)
+ . W !,"Checking "_ENAME_"..."
+"RTN","C0FHIRVV",17,0)
+ . I ENAME="VPR PATIENT",DFILE'=2 W !,"  [ERR] File should be 2, found "_DFILE S ERR=ERR+1
+"RTN","C0FHIRVV",18,0)
+ . I ENAME="VPR VISIT",DFILE'=9000010 W !,"  [ERR] File should be 9000010, found "_DFILE S ERR=ERR+1
+"RTN","C0FHIRVV",19,0)
+ . ;
+"RTN","C0FHIRVV",20,0)
+ . ; 2. Check Display Name
+"RTN","C0FHIRVV",21,0)
+ . S DNAME=$$GET1^DIQ(1.1,EIEN_",",.04)
+"RTN","C0FHIRVV",22,0)
+ . I ENAME="VPR MEDICATION",DNAME'="Medication" W !,"  [ERR] Display Name mismatch: "_DNAME S ERR=ERR+1
+"RTN","C0FHIRVV",23,0)
+ . ;
+"RTN","C0FHIRVV",24,0)
+ . ; 3. Check for presence of 'GET ACTION' in Items
+"RTN","C0FHIRVV",25,0)
+ . I '$O(^DDE(EIEN,10,0)) W !,"  [WARN] No items defined for "_ENAME S ERR=ERR+1
+"RTN","C0FHIRVV",26,0)
+ ;
+"RTN","C0FHIRVV",27,0)
+ I ERR=0 W !!,"--- VALIDATION SUCCESS: All core entities aligned with Build 2 ---",!
+"RTN","C0FHIRVV",28,0)
+ E  W !!,"--- VALIDATION FAILED: "_ERR_" discrepancies found ---",!
+"RTN","C0FHIRVV",29,0)
+ Q
+"RTN","C0FHIRWS")
+0^19^B7257197
+"RTN","C0FHIRWS",1,0)
+C0FHIRWS ;VAMC/JS-FHIR WEB SERVICE ENTRY POINT ; 07-FEB-2026
+"RTN","C0FHIRWS",2,0)
+ ;;1.2;C0FHIR PROJECT;;Feb 7, 2026;Build 6
+"RTN","C0FHIRWS",3,0)
+ Q
+"RTN","C0FHIRWS",4,0)
+WEB(RTN,FILTER) ; Entry point for Web Service calls
+"RTN","C0FHIRWS",5,0)
+ ; RTN:    Output Global Array (passed by reference)
+"RTN","C0FHIRWS",6,0)
+ ; FILTER: Input/Output Array (passed by reference)
+"RTN","C0FHIRWS",7,0)
+ ;
+"RTN","C0FHIRWS",8,0)
+ N DFN,NAME,ENCPTR,SDT,EDT,CNT,GLB
+"RTN","C0FHIRWS",9,0)
+ K RTN S FILTER("type")="application/json" ; Default Mime-Type
+"RTN","C0FHIRWS",10,0)
+ S GLB=$NA(^TMP("C0FHIRWS",$J)) K @GLB
+"RTN","C0FHIRWS",11,0)
+ ;
+"RTN","C0FHIRWS",12,0)
+ S DFN=$G(FILTER("dfn"))
+"RTN","C0FHIRWS",13,0)
+ S NAME=$G(FILTER("name"))
+"RTN","C0FHIRWS",14,0)
+ S ENCPTR=$G(FILTER("encounter"))
+"RTN","C0FHIRWS",15,0)
+ S SDT=$G(FILTER("sdt"))
+"RTN","C0FHIRWS",16,0)
+ S EDT=$G(FILTER("edt"))
+"RTN","C0FHIRWS",17,0)
+ I EDT="" S EDT=$$NOW^XLFDT ; Ceiling fix
+"RTN","C0FHIRWS",18,0)
+ ;
+"RTN","C0FHIRWS",19,0)
+ ; Mode 1: Search by Name (HTML)
+"RTN","C0FHIRWS",20,0)
+ I DFN="",NAME'="" D  Q
+"RTN","C0FHIRWS",21,0)
+ . S FILTER("type")="text/html"
+"RTN","C0FHIRWS",22,0)
+ . D SEARCH(NAME,GLB)
+"RTN","C0FHIRWS",23,0)
+ . M RTN=@GLB K @GLB
+"RTN","C0FHIRWS",24,0)
+ . S HTTPRSP("mime")="text/html"
+"RTN","C0FHIRWS",25,0)
+ ;
+"RTN","C0FHIRWS",26,0)
+ ; Mode 2: Missing Identifiers
+"RTN","C0FHIRWS",27,0)
+ I DFN="" D  Q
+"RTN","C0FHIRWS",28,0)
+ . N ERRBNDL S CNT=0
+"RTN","C0FHIRWS",29,0)
+ . S ERRBNDL("resourceType")="Bundle",ERRBNDL("type")="collection"
+"RTN","C0FHIRWS",30,0)
+ . D LOGERR^C0FHIRGF("Web Service Request",.ERRBNDL,.CNT,"Missing DFN or Name")
+"RTN","C0FHIRWS",31,0)
+ . D ENCODE^XLFJSON("ERRBNDL","RTN")
+"RTN","C0FHIRWS",32,0)
+ ;
+"RTN","C0FHIRWS",33,0)
+ ; Mode 3: Core FHIR Aggregator (JSON)
+"RTN","C0FHIRWS",34,0)
+ D GENFULL^C0FHIRGF(.RTN,DFN,ENCPTR,SDT,EDT)
+"RTN","C0FHIRWS",35,0)
+ Q
+"RTN","C0FHIRWS",36,0)
+ ;
+"RTN","C0FHIRWS",37,0)
+SEARCH(VAL,GLB) ; Generate HTML Search Results
+"RTN","C0FHIRWS",38,0)
+ N DFN,VADM,LN,CNT S CNT=0
+"RTN","C0FHIRWS",39,0)
+ S @GLB@(1)="<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'>"
+"RTN","C0FHIRWS",40,0)
+ S @GLB@(2)="<style>body{font-family:sans-serif;padding:20px;} .pat{display:block;padding:15px;margin-bottom:10px;background:#f0f0f0;text-decoration:none;color:#333;border-radius:5px;}</style>"
+"RTN","C0FHIRWS",41,0)
+ S @GLB@(3)="</head><body><h2>Patient Results for: "_VAL_"</h2>"
+"RTN","C0FHIRWS",42,0)
+ S LN=3
+"RTN","C0FHIRWS",43,0)
+ ;
+"RTN","C0FHIRWS",44,0)
+ n filter,ary,zi
+"RTN","C0FHIRWS",45,0)
+ s filter("root")="DPT"
+"RTN","C0FHIRWS",46,0)
+ s filter("search")=VAL
+"RTN","C0FHIRWS",47,0)
+ s filter("format")="array"
+"RTN","C0FHIRWS",48,0)
+ d WSPTLKUP^KBAIPTLK(.ary,.filter)
+"RTN","C0FHIRWS",49,0)
+ s zi=""
+"RTN","C0FHIRWS",50,0)
+ i $d(ary) d  ;
+"RTN","C0FHIRWS",51,0)
+ . d ^ZTER
+"RTN","C0FHIRWS",52,0)
+ ;
+"RTN","C0FHIRWS",53,0)
+ ;S DFN=0 F  S DFN=$O(^DPT("B",VAL,DFN)) Q:'DFN  D
+"RTN","C0FHIRWS",54,0)
+ ;. D DEM^VADPT
+"RTN","C0FHIRWS",55,0)
+ ;. S LN=LN+1
+"RTN","C0FHIRWS",56,0)
+ ;. S @GLB@(LN)="<a class='pat' href='?dfn="_DFN_"'><b>"_VADM(1)_"</b><br>SSN: "_$P(VADM(2),U,2)_" | DOB: "_$P(VADM(3),U,2)_"</a>"
+"RTN","C0FHIRWS",57,0)
+ ;S @GLB@(LN)="<a class='pat' href='?dfn="_DFN_"'><b>"_VADM(1)_"</b><br>SSN: "_$P(VADM(2),U,2)_" | DOB: "_$P(VADM(3),U,2)_"</a>"
+"RTN","C0FHIRWS",58,0)
+ 
+"RTN","C0FHIRWS",59,0)
+ ;
+"RTN","C0FHIRWS",60,0)
+ I LN=3 S @GLB@(4)="<p>No patients found matching '"_VAL_"'.</p>" S LN=4
+"RTN","C0FHIRWS",61,0)
+ ;
+"RTN","C0FHIRWS",62,0)
+ S @GLB@(LN+1)="</body></html>"
+"RTN","C0FHIRWS",63,0)
+ Q
+"RTN","KBAIPTLK")
+0^28^B11900641
+"RTN","KBAIPTLK",1,0)
+KBAIPTLK ;ven/gpl - SAMI patient lookup routines ;Dec 17, 2019@09:44
+"RTN","KBAIPTLK",2,0)
+ ;;18.0;SAMI;;;Build 6
+"RTN","KBAIPTLK",3,0)
+ ;
+"RTN","KBAIPTLK",4,0)
+ ;@license: see routine SAMIUL
+"RTN","KBAIPTLK",5,0)
+ ;
+"RTN","KBAIPTLK",6,0)
+ ; Authored by George P. Lilly 2018
+"RTN","KBAIPTLK",7,0)
+ ; Updated by gpl 2026 to support lookup from DPT
+"RTN","KBAIPTLK",8,0)
+ ;
+"RTN","KBAIPTLK",9,0)
+ Q
+"RTN","KBAIPTLK",10,0)
+WSPTLOOK(rtn,filter) ; patient lookup - calls HMPPTRPC
+"RTN","KBAIPTLK",11,0)
+ ;
+"RTN","KBAIPTLK",12,0)
+ n search s search=$g(filter("search"))
+"RTN","KBAIPTLK",13,0)
+ n rslt
+"RTN","KBAIPTLK",14,0)
+ d SELECT^HMPPTRPC(.rslt,"NAME",search)
+"RTN","KBAIPTLK",15,0)
+ i $d(rslt) d  ;
+"RTN","KBAIPTLK",16,0)
+ . D ENCODE^VPRJSON("rslt","rtn")
+"RTN","KBAIPTLK",17,0)
+ q
+"RTN","KBAIPTLK",18,0)
+ ;
+"RTN","KBAIPTLK",19,0)
+WSPTLKUP(rtn,filter) ; patient lookup from patient-lookup cache
+"RTN","KBAIPTLK",20,0)
+ ;
+"RTN","KBAIPTLK",21,0)
+ n root
+"RTN","KBAIPTLK",22,0)
+ i $g(filter("root"))["DPT" d  ;
+"RTN","KBAIPTLK",23,0)
+ . s root=$na(^DPT("B"))
+"RTN","KBAIPTLK",24,0)
+ e  s root=$$setroot^%wd("patient-lookup")
+"RTN","KBAIPTLK",25,0)
+ n search s search=$g(filter("search"))
+"RTN","KBAIPTLK",26,0)
+ n limit s limit=$g(filter("limit"))
+"RTN","KBAIPTLK",27,0)
+ n site s site=$g(filter("site"))
+"RTN","KBAIPTLK",28,0)
+ ;m ^gpl("ptlkup")=filter ;
+"RTN","KBAIPTLK",29,0)
+ ;q:site=""
+"RTN","KBAIPTLK",30,0)
+ i limit="" s limit=1000
+"RTN","KBAIPTLK",31,0)
+ s search=$$UPCASE^XLFMSMT(search)
+"RTN","KBAIPTLK",32,0)
+ n rslt
+"RTN","KBAIPTLK",33,0)
+ n cnt s cnt=0
+"RTN","KBAIPTLK",34,0)
+ n gn s gn=$na(@root@("name"))
+"RTN","KBAIPTLK",35,0)
+ n p1,p2
+"RTN","KBAIPTLK",36,0)
+ s p1=$p(search,",",1)
+"RTN","KBAIPTLK",37,0)
+ s p2=$p(search,",",2)
+"RTN","KBAIPTLK",38,0)
+ i $l(search)=5 i +$e(search,2,5)>0 d  q  ; using last5
+"RTN","KBAIPTLK",39,0)
+ . n gn2 s gn2=$na(@root@("last5"))
+"RTN","KBAIPTLK",40,0)
+ . n ii s ii=""
+"RTN","KBAIPTLK",41,0)
+ . f  s ii=$o(@gn2@(search,ii)) q:ii=""  q:cnt=limit  d  ;
+"RTN","KBAIPTLK",42,0)
+ . . i $g(@root@(ii,"siteid"))'=site q
+"RTN","KBAIPTLK",43,0)
+ . . s cnt=cnt+1
+"RTN","KBAIPTLK",44,0)
+ . . s rslt(cnt,ii)=""
+"RTN","KBAIPTLK",45,0)
+ . i cnt>0 d  ;
+"RTN","KBAIPTLK",46,0)
+ . . d BUILDRTN(.rtn,.rslt,$g(filter("format")))
+"RTN","KBAIPTLK",47,0)
+ ; 
+"RTN","KBAIPTLK",48,0)
+ n have s have=""
+"RTN","KBAIPTLK",49,0)
+ n q1 s q1=$na(@gn@(p1))
+"RTN","KBAIPTLK",50,0)
+ n q1x s q1x=$e(q1,1,$l(q1)-2) ; removes the ")
+"RTN","KBAIPTLK",51,0)
+ n qx s qx=q1
+"RTN","KBAIPTLK",52,0)
+ f  s qx=$q(@qx) q:$p(qx,q1x,2)=""  q:cnt=limit  d  ;
+"RTN","KBAIPTLK",53,0)
+ . n exit s exit=0
+"RTN","KBAIPTLK",54,0)
+ . i p2'="" d  ;
+"RTN","KBAIPTLK",55,0)
+ . . i p2'=$e($p(qx,",",5),1,$l(p2)) s exit=1
+"RTN","KBAIPTLK",56,0)
+ . q:exit
+"RTN","KBAIPTLK",57,0)
+ . n qx2 s qx2=+$p(qx,",",6)
+"RTN","KBAIPTLK",58,0)
+ . i $g(@root@(qx2,"siteid"))'=site q  ;
+"RTN","KBAIPTLK",59,0)
+ . i $d(have(qx2)) q  ; already go this one
+"RTN","KBAIPTLK",60,0)
+ . s cnt=cnt+1
+"RTN","KBAIPTLK",61,0)
+ . s have(qx2)=""
+"RTN","KBAIPTLK",62,0)
+ . s rslt(cnt,qx2)="" ; the ien
+"RTN","KBAIPTLK",63,0)
+ . ;w !,qx," ien=",$o(rslt(cnt,""))
+"RTN","KBAIPTLK",64,0)
+ i cnt>0 d BUILDRTN(.rtn,.rslt,$g(filter("format")))
+"RTN","KBAIPTLK",65,0)
+ q
+"RTN","KBAIPTLK",66,0)
+ ;
+"RTN","KBAIPTLK",67,0)
+BUILDRTN(rtn,ary,format) ; build the return json unless format=array
+"RTN","KBAIPTLK",68,0)
+ ; then return a mumps array
+"RTN","KBAIPTLK",69,0)
+ ;
+"RTN","KBAIPTLK",70,0)
+ d ^ZTER
+"RTN","KBAIPTLK",71,0)
+ n root s root=$$setroot^%wd("patient-lookup")
+"RTN","KBAIPTLK",72,0)
+ n groot s groot=$$setroot^%wd("vapals-patients")
+"RTN","KBAIPTLK",73,0)
+ n zi s zi=""
+"RTN","KBAIPTLK",74,0)
+ n r1 s r1=""
+"RTN","KBAIPTLK",75,0)
+ f  s zi=$o(ary(zi)) q:zi=""  d  ;
+"RTN","KBAIPTLK",76,0)
+ . n rx s rx=$o(ary(zi,""))
+"RTN","KBAIPTLK",77,0)
+ . s r1("result",zi,"name")=$g(@root@(rx,"saminame"))
+"RTN","KBAIPTLK",78,0)
+ . s r1("result",zi,"dfn")=$g(@root@(rx,"dfn"))
+"RTN","KBAIPTLK",79,0)
+ . s r1("result",zi,"last5")=$g(@root@(rx,"last5"))
+"RTN","KBAIPTLK",80,0)
+ . s r1("result",zi,"gender")=$g(@root@(rx,"gender"))
+"RTN","KBAIPTLK",81,0)
+ . s r1("result",zi,"dob")=$g(@root@(rx,"sbdob"))
+"RTN","KBAIPTLK",82,0)
+ . s r1("result",zi,"vapals")=0
+"RTN","KBAIPTLK",83,0)
+ . n dfn s dfn=$g(@root@(rx,"dfn"))
+"RTN","KBAIPTLK",84,0)
+ . i $o(@groot@("dfn",dfn,""))'="" d  ;
+"RTN","KBAIPTLK",85,0)
+ . . s r1("result",zi,"vapals")=1
+"RTN","KBAIPTLK",86,0)
+ . . s r1("result",zi,"studyid")=$g(@groot@(dfn,"samistudyid"))
+"RTN","KBAIPTLK",87,0)
+ ;.;
+"RTN","KBAIPTLK",88,0)
+ ;.; ven/lgc 2019-12-17 missing forms
+"RTN","KBAIPTLK",89,0)
+ ;.;
+"RTN","KBAIPTLK",90,0)
+ ;. i '($data(@groot@("graph",@groot@(dfn,"samistudyid")))) d  ;
+"RTN","KBAIPTLK",91,0)
+ ;. . s r1("result",zi,"vapals")=0
+"RTN","KBAIPTLK",92,0)
+ ;
+"RTN","KBAIPTLK",93,0)
+ ;q:'$d(r1)
+"RTN","KBAIPTLK",94,0)
+ i format="array" m rtn=r1 q  ; return a mumps array
+"RTN","KBAIPTLK",95,0)
+ d ENCODE^VPRJSON("r1","rtn")
+"RTN","KBAIPTLK",96,0)
+ q
+"RTN","KBAIPTLK",97,0)
+ ;
+"VER")
+8.0^22.2
+**END**
+**END**
