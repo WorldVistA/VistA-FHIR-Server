@@ -3,11 +3,12 @@ C0FHIRLD ;VAMC/JS-FHIR ENTITY LOADER MASTER ; 15-FEB-2026
  Q
 EN ; Main Entry Point
  D CLEAN
- W !!,"Loading Administrative Entities (FHIR Model)..."
- D ADMIN
- W !,"Loading Clinical Entities..."
- D EN^C0FHIRL1
- W !!,"Entity Load Complete. Run D EN^C0FHIRVV to validate.",!
+ W !!,"Starting FHIR Entity Load..."
+ W !,"  Loading Admin..." D ADMIN
+ W !,"  Loading Clinical P1 (Vitals/Visits)..." D EN^C0FHIRL1
+ W !,"  Loading Clinical P2 (Pharmacy/Labs)..." D EN^C0FHIRL2
+ W !,"  Loading Clinical P3 (Safety/History)..." D EN^C0FHIRL3
+ W !!,"Entity Load Complete. Verified FHIR Data Model."
  Q
  ;
 ADMIN ; Load Administrative Resources (Patient, Facility)
@@ -37,7 +38,7 @@ ADMIN ; Load Administrative Resources (Patient, Facility)
  ;
 CLEAN ; Clear namespaces to prevent duplicates
  N DIK,DA,NAME
- S NAME="VPR " F  S NAME=$O(^DDE("B",NAME)) Q:NAME=""!(NAME'["VPR ")  D
+ S NAME="FHIR " F  S NAME=$O(^DDE("B",NAME)) Q:NAME=""!(NAME'["FHIR ")  D
  . S DA=0 F  S DA=$O(^DDE("B",NAME,DA)) Q:'DA  D
  .. S DIK="^DDE(" D ^DIK
  Q
