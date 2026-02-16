@@ -13,8 +13,8 @@ EN ; Main Entry Point
  ;
 ADMIN ; Load Administrative Resources (Patient, Facility)
  N FDA,IEN,ERR,MSG
- ; --- Entity #1: VPR PATIENT ID ---
- S FDA(1.1,"+1,",.01)="VPR PATIENT ID"
+ ; --- Entity #1: FHIR PATIENT ID ---
+ S FDA(1.1,"+1,",.01)="FHIR PATIENT ID"
  S FDA(1.1,"+1,",.02)=2 ; File #2
  S FDA(1.1,"+1,",.04)="PatientID"
  S FDA(1.1,"+1,",1)="FHIR" ; Updated Data Model
@@ -28,8 +28,8 @@ ADMIN ; Load Administrative Resources (Patient, Facility)
  . S FDA(1.11,"+2,"_IEN(1)_",",1.2)="S VALUE=VALUE_""^SSN^^SSA"""
  . D UPDATE^DIE("","FDA")
  ;
- ; --- Entity #7: VPR FACILITY ---
- K FDA,IEN S FDA(1.1,"+1,",.01)="VPR FACILITY"
+ ; --- Entity #7: FHIR FACILITY ---
+ K FDA,IEN S FDA(1.1,"+1,",.01)="FHIR FACILITY"
  S FDA(1.1,"+1,",.02)=4 ; File #4
  S FDA(1.1,"+1,",.04)="Organization"
  S FDA(1.1,"+1,",1)="FHIR"

@@ -4,8 +4,8 @@ C0FHIRL2 ;VAMC/JS-FHIR ENTITY LOADER PHARMACY & LAB ; 15-FEB-2026
 EN ; Entry point called by Master Loader
  N FDA,IEN,ERR
  ;
- ; --- Entity #56: VPR MEDICATION ---
- S FDA(1.1,"+1,",.01)="VPR MEDICATION"
+ ; --- Entity #56: FHIR MEDICATION ---
+ S FDA(1.1,"+1,",.01)="FHIR MEDICATION"
  S FDA(1.1,"+1,",.02)=100 ; File #100 (Orders)
  S FDA(1.1,"+1,",.04)="Medication"
  S FDA(1.1,"+1,",1)="FHIR"
@@ -16,8 +16,8 @@ EN ; Entry point called by Master Loader
  . S FDA(1.11,"+2,"_IEN(1)_",",1.2)="N X S X=VALUE,VALUE=$S(X=""dc"":""D"",X=""canc"":""C"",1:""IP"")"
  . D UPDATE^DIE("","FDA")
  ;
- ; --- Entity #13: VPR LAB ORDER ---
- K FDA,IEN S FDA(1.1,"+1,",.01)="VPR LAB ORDER"
+ ; --- Entity #13: FHIR LAB ORDER ---
+ K FDA,IEN S FDA(1.1,"+1,",.01)="FHIR LAB ORDER"
  S FDA(1.1,"+1,",.02)=100
  S FDA(1.1,"+1,",.04)="LabOrder"
  S FDA(1.1,"+1,",1)="FHIR"
@@ -25,8 +25,8 @@ EN ; Entry point called by Master Loader
  S FDA(1.1,IEN(1)_",",1.1)="S:'DFN&ID DFN=+$P($G(^OR(100,ID,0)),U,2) S LRDFN=+$G(^DPT(DFN,""LR""))"
  D UPDATE^DIE("","FDA","IEN")
  ;
- ; --- Entity #17: VPR LRCH RESULT ---
- K FDA,IEN S FDA(1.1,"+1,",.01)="VPR LRCH RESULT"
+ ; --- Entity #17: FHIR LRCH RESULT ---
+ K FDA,IEN S FDA(1.1,"+1,",.01)="FHIR LRCH RESULT"
  S FDA(1.1,"+1,",.02)=63.04 ; Chemistry sub-file
  S FDA(1.1,"+1,",.04)="Result"
  S FDA(1.1,"+1,",1)="FHIR"

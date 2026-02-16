@@ -3,8 +3,8 @@ C0FHIRL1 ;VAMC/JS-FHIR ENTITY LOADER CLINICAL ; 15-FEB-2026
  Q
 EN ;
  N FDA,IEN
- ; --- Entity #41: VPR VITAL MEASUREMENT ---
- S FDA(1.1,"+1,",.01)="VPR VITAL MEASUREMENT"
+ ; --- Entity #41: FHIR VITAL MEASUREMENT ---
+ S FDA(1.1,"+1,",.01)="FHIR VITAL MEASUREMENT"
  S FDA(1.1,"+1,",.02)=120.5
  S FDA(1.1,"+1,",.04)="Observation"
  S FDA(1.1,"+1,",1)="FHIR"
@@ -15,8 +15,8 @@ EN ;
  . S FDA(1.11,"+2,"_IEN(1)_",",1.1)="S VALUE=$P($G(VPRGMV),U) S:VALUE="""" DDEOUT=1"
  . D UPDATE^DIE("","FDA")
  ;
- ; --- Entity #29: VPR VISIT ---
- K FDA,IEN S FDA(1.1,"+1,",.01)="VPR VISIT"
+ ; --- Entity #29: FHIR VISIT ---
+ K FDA,IEN S FDA(1.1,"+1,",.01)="FHIR VISIT"
  S FDA(1.1,"+1,",.02)=9000010
  S FDA(1.1,"+1,",.04)="Encounter"
  S FDA(1.1,"+1,",1)="FHIR"
