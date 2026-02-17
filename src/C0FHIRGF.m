@@ -31,7 +31,7 @@ PROC(IE,BNDL,CNT,DFN,LRDFN) ; Process clinical data for one encounter
  S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Encounter"
  S BNDL("entry",CNT,"resource","id")=ENCID
  S BNDL("entry",CNT,"resource","subject","reference")="Patient/"_DFN
- D GETLAB^C0FHIRLM(.BNDL,.CNT,LRDFN,VISIT,ENCID)
+ D GETLABS^C0FHIRLM(.BNDL,.CNT,LRDFN,VISIT,ENCID)
  D GETIMM^C0FHIRIM(.BNDL,.CNT,IE,ENCID)
  D GETVIT^C0FHIRVM(.BNDL,.CNT,DFN,VDT,ENCID)
  D GETMEDS^C0FHIRMX(.BNDL,.CNT,DFN,ENCID)
