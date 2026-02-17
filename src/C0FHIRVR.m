@@ -8,8 +8,8 @@ EN ; Main entry point
  W !,"ID",?6,"Entity Name",?35,"File",?45,"Model",?55,"Display Name"
  W !,"--------------------------------------------------------------------------------",!
  ;
- S ENAME="VPR" ; Start with VPR namespace established in Build 2
- F  S ENAME=$O(^DDE("B",ENAME)) Q:ENAME=""!(ENAME'["VPR")  D
+ S ENAME="FHIR " ; Start with FHIR namespace established in Build 2
+ F  S ENAME=$O(^DDE("B",ENAME)) Q:ENAME=""!(ENAME'["FHIR")  D
  . S EIEN=0 F  S EIEN=$O(^DDE("B",ENAME,EIEN)) Q:'EIEN  D
  .. S CNT=CNT+1
  .. S DFILE=$$GET1^DIQ(1.1,EIEN_",",.02)
