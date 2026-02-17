@@ -1,7 +1,12 @@
-C0FHIRUTL ;VAMC/JS-FHIR UTILITY HELPERS ; 30-JAN-2026
- ;;1.1;C0FHIR PROJECT;;Jan 30, 2026;Build 2
+C0FHIRUTL ;VAMC/JS-FHIR UTILITIES ; 16-FEB-2026
+ ;;1.2;C0FHIR PROJECT;;Feb 16, 2026;Build 2
  Q
-ISO8601(FDT) ;FileMan to ISO Date
- Q:FDT="" ""
- N ISO S ISO=$$FMTHL7^XLFDT(FDT)
- Q $E(ISO,1,4)_"-"_$E(ISO,5,6)_"-"_$E(ISO,7,8)_"T"_$E(ISO,9,10)_":"_$E(ISO,11,12)_":"_$E(ISO,13,14)_"Z"
+UCUM(VAL) ; Map VistA units to UCUM codes
+ S VAL=$G(VAL) Q:VAL=""
+ N U S U=$$UP^XLFSTR(VAL)
+ ; Simple mapping table for common Vitals
+ S VAL=$S(U="LB":"[lb_av]",U="KG":"kg",U="IN":"[in_i]",U="CM":"cm",U="F":"[degF]",U="C":"[degC]",U="MMHG":"mm[Hg]",U="BPM":"/min",1:VAL)
+ Q
+ ;
+DATE(VDT) ; Convert VistA date to ISO8601
+ Q $$DATE^VPRD(VDT) ; Utilize VPR date utility if available

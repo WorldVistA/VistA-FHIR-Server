@@ -1,39 +1,36 @@
-C0FHIRTS ;VAMC/JS-FHIR SUITE TESTER ; 07-FEB-2026
- ;;1.2;C0FHIR PROJECT;;Feb 7, 2026;Build 2
+C0FHIRTS ;VAMC/JS-FHIR SUITE TESTER ; 17-FEB-2026
+ ;;1.2;C0FHIR PROJECT;;Feb 17, 2026;Build 2
  Q
-EN ; Main entry point
- N DFN,DIC,Y,ENCPTR,RTN,I,SDT,EDT,DIR,MODE,FILTER
- S (SDT,EDT)=""
+EN ; Main Test Entry
+ N DFN,RES,BNDL,ERR
+ W !!,"--- C0FHIR Suite Build 2 Diagnostic Tester ---",!
  ;
- W !!,"--- C0FHIR Suite Tester v1.3 ---",!
- S DIR(0)="S^1:JSON Extraction (by DFN);2:HTML Search Preview (by Name)"
- S DIR("A")="Select Test Mode",DIR("B")="1"
- D ^DIR Q:$D(DIRUT)  S MODE=Y
+ ; 1. Check for Static Global
+ W !,"Checking Metadata Seal (^C0FHIR(1.5))..."
+ I '$D(^C0FHIR(1.5)) D  Q
+ . W " [FAIL]",!," >>> ERROR: Static global missing. Run D SEAL^C0FHIRSL."
+ W " [OK]"
  ;
- I MODE=1 D  G EXIT
- . ; Mode 1: Standard FHIR Extraction
- . S DIC="^DPT(",DIC(0)="AEMQ",DIC("A")="Select Patient: "
- . D ^DIC Q:Y<0  S DFN=+Y
- . S DIC="^SCE(",DIC(0)="AEMQ",DIC("A")="Select Encounter (Optional): "
- . S DIC("S")="I $P(^(0),U,2)=DFN"
- . D ^DIC S ENCPTR=$S(Y>0:+Y,1:"")
- . W !!,"Generating FHIR Bundle..."
- . D GENFULL^C0FHIRGF(.RTN,DFN,ENCPTR,SDT,EDT)
- . D DISP(.RTN)
+ ; 2. Select Test Patient
+ S DFN=$$GETDFN I 'DFN Q
  ;
- I MODE=2 D  G EXIT
- . ; Mode 2: HTML Discovery Search
- . R !,"Enter Patient Name for Search: ",NAME:DTIME Q:NAME=""
- . S FILTER("name")=NAME
- . W !!,"Generating HTML Discovery Page..."
- . D WEB^C0FHIRWS(.RTN,.FILTER)
- . D DISP(.RTN)
+ ; 3. Run Aggregator
+ W !!,"Executing C0FHIRGF Aggregator for DFN: ",DFN,"..."
+ D GENFULL^C0FHIRGF(.RES,DFN)
  ;
-EXIT Q
+ ; 4. Analyze Results
+ I '$D(RES) W " [FAIL]",!," >>> ERROR: Aggregator returned no data." Q
  ;
-DISP(ARY) ; Display first 20 lines of output
- W !!,"--- Output Preview ---",!
- N J S J="" F  S J=$O(ARY(J)) Q:J=""!(J>20)  D
- . W ARY(J),!
- W !,"... [Output Truncated] ...",!
+ N I,LN S (LN,I)=0 F  S I=$O(RES(I)) Q:'I  S LN=LN+1
+ W " [OK]",!," >>> Generated ",LN," nodes of JSON data."
+ ;
+ ; 5. Sample Output Check
+ W !!,"Sample of FHIR Bundle (First 10 lines):",!
+ F I=1:1:10 Q:'$D(RES(I))  W !,RES(I)
+ W !, "...", !!
  Q
+ ;
+GETDFN() ; Simple DFN selector
+ N DIC,X,Y S DIC=2,DIC(0)="AEMQ",DIC("A")="Select Test Patient: "
+ D ^DIC
+ Q +Y
