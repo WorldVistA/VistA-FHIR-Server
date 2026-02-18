@@ -7,7 +7,7 @@ EN ;
  S LN="N W,S S S=$O(^LAB(60,ID,1,0)),W=$$GET1^DIQ(60.01,S_"",""_ID_"","",2,""I""),VALUE=$$GET1^DIQ(64,W,25)"
  ;
  K FDA,ERR S FDA(1.51,"+1,"_EIEN_",",.01)="code.coding.0.code"
- S FDA(1.51,"+1,"_EIEN_",",1.2)=LN
+ S FDA(1.51,"+1,"_EIEN_",",2)=LN ; Using Field #2
  D UPDATE^DIE("","FDA","IEN","ERR")
- I $D(ERR) W !,"[FAIL] Lab LOINC: ",$G(ERR("DIERR",1,"TEXT",1))
+ I $D(ERR) W !,"[FAIL] Lab Transform (Fld 2): ",$G(ERR("DIERR",1,"TEXT",1))
  Q
