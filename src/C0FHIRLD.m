@@ -11,7 +11,7 @@ EN ; Main Entry Point
  W !!,"Registry Load Complete. Use D EN^C0FHIRVR to verify.",!
  Q
  ;
- ADMIN ; Core Patient/Organization Metadata
+ADMIN ; Core Patient/Organization Metadata
  N FDA,IEN,ERR ; Added ERR for safety
  ; 
  ; --- Entity: C0FHIR PATIENT ID ---
