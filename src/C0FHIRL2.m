@@ -2,12 +2,10 @@ C0FHIRL2 ;VAMC/JS-FHIR ENTITY LOADER LABS ; 17-FEB-2026
  ;;1.2;C0FHIR PROJECT;;Feb 17, 2026;Build 2
  Q
 EN ;
- N FDA,IEN,ERR,EIEN,LN
- S EIEN=$O(^DDE("B","C0FHIR LAB RESULT",0)) Q:'EIEN
+ N EIEN,IIEN,LN S EIEN=$O(^DDE("B","C0FHIR LAB RESULT",0)) Q:'EIEN
  S LN="N W,S S S=$O(^LAB(60,ID,1,0)),W=$$GET1^DIQ(60.01,S_"",""_ID_"","",2,""I""),VALUE=$$GET1^DIQ(64,W,25)"
- ;
- K FDA,ERR S FDA(1.51,"+1,"_EIEN_",",.01)="code.coding.0.code"
- S FDA(1.51,"+1,"_EIEN_",",2)=LN ; Using Field #2
- D UPDATE^DIE("","FDA","IEN","ERR")
- I $D(ERR) W !,"[FAIL] Lab Transform (Fld 2): ",$G(ERR("DIERR",1,"TEXT",1))
+ S IIEN=$O(^DDE(EIEN,1," "),-1)+1
+ S ^DDE(EIEN,1,IIEN,0)="code.coding.0.code"
+ S ^DDE(EIEN,1,IIEN,1.2)=LN
+ S ^DDE(EIEN,1,0)="^1.51A^"_IIEN_U_IIEN
  Q
