@@ -2,6 +2,7 @@ C0FHIRLD ;VAMC/JS-FHIR ENTITY LOADER MASTER ; 17-FEB-2026
  ;;1.2;C0FHIR PROJECT;;Feb 17, 2026;Build 2
  Q
 EN ;
+Q  ; DO NOT USE DEPRECATED
  D CLEAN
  W !!,"--- Initializing C0FHIR Metadata Registry (Direct Mode) ---"
  D SHELLS

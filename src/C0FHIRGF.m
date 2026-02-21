@@ -1,35 +1,38 @@
-C0FHIRGF ;VAMC/JS-FHIR METADATA AGGREGATOR ; 17-FEB-2026
- ;;1.2;C0FHIR PROJECT;;Feb 17, 2026;Build 2
- Q
-GENFULL(RESULT,DFN,ENCPTR,SDT,EDT) ;RPC Entry
- N BNDL,CNT,GLB S CNT=0,GLB=$NA(^TMP("C0FHIRGF",$J)) K @GLB,RESULT
- S BNDL("resourceType")="Bundle",BNDL("type")="collection"
- ;
- ; Use the static global crawler
- D CRAWL("C0FHIR PATIENT ID",DFN,.BNDL,.CNT)
- D CRAWL("C0FHIR VITAL MEASUREMENT",DFN,.BNDL,.CNT)
- D CRAWL("C0FHIR LAB RESULT",DFN,.BNDL,.CNT)
- ;
- S BNDL("total")=CNT
- D ENCODE^XLFJSON("BNDL",GLB)
- M RESULT=@GLB K @GLB
+C0FHIRGF ;VAMC/JS-FHIR NATIVE DDE WRAPPER ; 21-FEB-2026
+ ;;1.2;C0FHIR PROJECT;;Feb 21, 2026;Build 2
  Q
  ;
-CRAWL(ENAME,ID,BNDL,CNT) ; Static Crawler
- N IIEN,RES,MAP,NODE,TAG,FILE,FLD,X11,X12,VAL,VALUE
- S RES=$G(^C0FHIR(1.5,ENAME,"RES")) Q:RES=""
+GENFULL(RESULT,DFN) ; Generate a full FHIR Patient Bundle using native DDE
+ ; Input: DFN - Patient IEN (File #2)
+ ; Output: RESULT - Global/Local array containing JSON
  ;
- S IIEN=0 F  S IIEN=$O(^C0FHIR(1.5,ENAME,"ITEMS",IIEN)) Q:'IIEN  D
- . S NODE=^C0FHIR(1.5,ENAME,"ITEMS",IIEN)
- . S TAG=$P(NODE,U),FILE=$P(NODE,U,2),FLD=$P(NODE,U,3)
- . S X11=$G(^C0FHIR(1.5,ENAME,"ITEMS",IIEN,1.1))
- . S X12=$G(^C0FHIR(1.5,ENAME,"ITEMS",IIEN,1.2))
- . ;
- . I X11'="" X X11
- . S VAL="" I FILE,FLD S VAL=$$GET1^DIQ(FILE,ID_",",FLD,"I")
- . I X12'="" S VALUE=VAL X X12 S VAL=VALUE
- . ;
- . I VAL'="" D SETPATH^C0FHIRUTL(.MAP,TAG,VAL)
+ N ENTITY,ERR,ID,DIQUIET
+ S ENTITY="C0FHIR PATIENT"
+ S ID=DFN
+ S DIQUIET=1 ; Suppress FileMan noise
  ;
- I $D(MAP) S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")=RES M BNDL("entry",CNT,"resource")=MAP
+ ; 1. Initialize VistA environment for extraction
+ D DT^DICRW ; Ensure DT and other FileMan vars are set
+ ;
+ ; 2. Call Native DDE Extraction Engine
+ ; The native engine reads metadata directly from File #1.5
+ ; and branches to FHIR logic if the DATA MODEL field = "FHIR"
+ D EXTRACT^DDEOBJ(ENTITY,ID,.RESULT,.ERR)
+ ;
+ ; 3. Error Handling
+ I $D(ERR) D  Q
+ . S RESULT(1)="{""error"": ""DDE Extraction Failed"", ""message"": """_$G(ERR)_"""}"
+ ;
+ Q
+ ;
+TEST(DFN) ; Manual Test Entry Point
+ N RES,I S DFN=$G(DFN) I 'DFN Q
+ W !!,"Requesting Native DDE Extraction for DFN: ",DFN
+ D GENFULL(.RES,DFN)
+ ;
+ I '$D(RES) W !,"No data returned from Native DDE." Q
+ ;
+ W !!,"--- Native DDE FHIR Output ---",!
+ S I=0 F  S I=$O(RES(I)) Q:'I  W !,RES(I)
+ W !,"------------------------------",!
  Q
