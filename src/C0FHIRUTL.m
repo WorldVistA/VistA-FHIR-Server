@@ -10,3 +10,12 @@ UCUM(VAL) ; Map VistA units to UCUM codes
  ;
 DATE(VDT) ; Convert VistA date to ISO8601
  Q $$DATE^VPRD(VDT) ; Utilize VPR date utility if available
+ ;
+SETPATH(ARR,PATH,VAL) ; Build nested structure from dot-notation (e.g. code.coding.0.display)
+ N I,P,REF
+ S REF="ARR"
+ F I=1:1:$L(PATH,".") S P=$P(PATH,".",I) D
+ . I P=+P S REF=REF_"("_P_")"
+ . E  S REF=REF_"("""_P_""")"
+ S @REF=VAL
+ Q
