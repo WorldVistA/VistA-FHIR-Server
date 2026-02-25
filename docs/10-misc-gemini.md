@@ -1,4 +1,4 @@
-This **Project Context Document** serves as the authoritative technical record for the **C0FHIR Suite v1.2**. It consolidates the architecture, logic flow, and deployment instructions we have refined, specifically incorporating the corrected functional signatures and the Build 2 synchronization.
+﻿This **Project Context Document** serves as the authoritative technical record for the **C0FHIR Suite v1.2**. It consolidates the architecture, logic flow, and deployment instructions we have refined, specifically incorporating the corrected functional signatures and the Build 2 synchronization.
 
 ---
 
