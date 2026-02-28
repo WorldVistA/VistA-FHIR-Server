@@ -15,7 +15,7 @@ EN ; Main entry point
  . S IIEN=0 F  S IIEN=$O(^DDE(EIEN,1,IIEN)) Q:'IIEN  D
  .. S NODE=$G(^DDE(EIEN,1,IIEN,0))
  .. S INAME=$P(NODE,U),ITYPE=$P(NODE,U,4),LINK=$P(NODE,U,11)
- .. S TRANS=$G(^DDE(EIEN,1,IIEN,1.2)) ; The M code transform
+ .. S TRANS=$G(^DDE(EIEN,1,IIEN,1.2)) I TRANS="" S TRANS=$G(^DDE(EIEN,1,IIEN,4))
  .. ;
  .. ; Rule: If Item is an ENTITY, it MUST have a Pointer Linkup or a GET Action
  .. I ITYPE=2 D

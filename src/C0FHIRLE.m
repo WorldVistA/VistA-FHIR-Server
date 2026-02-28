@@ -41,28 +41,29 @@ CLEANITEMS(EIEN) ; Remove existing items from entity (for clean reload)
  K ^DDE(EIEN,1,0)
  Q
  ;
-LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan
+LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan FDA
  ; Source: File #9000010 (Visit), ID = Visit IEN
+ ; Uses field 4 for Data Transform (VistA DDE storage; 1.2 maps to different subscript)
  ;
  N FDA,IEN,ERR
  ;
  ; identifier.0.value - Visit IEN as encounter identifier (ID in CRAWL context)
  K FDA,IEN,ERR
  S FDA(1.51,"+1,"_EIEN_",",.01)="identifier.0.value"
- S FDA(1.51,"+1,"_EIEN_",",1.2)="S VALUE=ID"
+ S FDA(1.51,"+1,"_EIEN_",",4)="S VALUE=ID"
  D UPDATE^DIE("","FDA","IEN","ERR")
  I $D(ERR) W !,"  [WARN] identifier.0.value: ",$G(ERR("DIERR",1,"TEXT",1))
  ;
  ; identifier.0.system
  K FDA,IEN,ERR
  S FDA(1.51,"+1,"_EIEN_",",.01)="identifier.0.system"
- S FDA(1.51,"+1,"_EIEN_",",1.2)="S VALUE=""urn:oid:2.16.840.1.113883.4.349""" ; VistA namespace
+ S FDA(1.51,"+1,"_EIEN_",",4)="S VALUE=""urn:oid:2.16.840.1.113883.4.349"""
  D UPDATE^DIE("","FDA","IEN","ERR")
  ;
  ; status
  K FDA,IEN,ERR
  S FDA(1.51,"+1,"_EIEN_",",.01)="status"
- S FDA(1.51,"+1,"_EIEN_",",1.2)="S VALUE=""finished"""
+ S FDA(1.51,"+1,"_EIEN_",",4)="S VALUE=""finished"""
  D UPDATE^DIE("","FDA","IEN","ERR")
  ;
  ; class.code - ActCode from Visit Type (.07)
@@ -70,13 +71,13 @@ LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan
  S FDA(1.51,"+1,"_EIEN_",",.01)="class.code"
  S FDA(1.51,"+1,"_EIEN_",",.04)=9000010
  S FDA(1.51,"+1,"_EIEN_",",.05)=.07
- S FDA(1.51,"+1,"_EIEN_",",1.2)="N VTYPE S VTYPE=VAL S VALUE=$S(VTYPE=""A"":""AMB"",VTYPE=""I"":""IMP"",VTYPE=""E"":""EMER"",1:""NONAC"")"
+ S FDA(1.51,"+1,"_EIEN_",",4)="N VTYPE S VTYPE=VAL S VALUE=$S(VTYPE=""A"":""AMB"",VTYPE=""I"":""IMP"",VTYPE=""E"":""EMER"",1:""NONAC"")"
  D UPDATE^DIE("","FDA","IEN","ERR")
  ;
  ; class.system
  K FDA,IEN,ERR
  S FDA(1.51,"+1,"_EIEN_",",.01)="class.system"
- S FDA(1.51,"+1,"_EIEN_",",1.2)="S VALUE=""http://terminology.hl7.org/CodeSystem/v3-ActCode"""
+ S FDA(1.51,"+1,"_EIEN_",",4)="S VALUE=""http://terminology.hl7.org/CodeSystem/v3-ActCode"""
  D UPDATE^DIE("","FDA","IEN","ERR")
  ;
  ; type.0.text - Visit type display
@@ -84,7 +85,7 @@ LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan
  S FDA(1.51,"+1,"_EIEN_",",.01)="type.0.text"
  S FDA(1.51,"+1,"_EIEN_",",.04)=9000010
  S FDA(1.51,"+1,"_EIEN_",",.05)=.07
- S FDA(1.51,"+1,"_EIEN_",",1.2)="S VALUE=$$GET1^DIQ(9000010,ID_"","",.07,""E"")"
+ S FDA(1.51,"+1,"_EIEN_",",4)="S VALUE=$$GET1^DIQ(9000010,ID_"","",.07,""E"")"
  D UPDATE^DIE("","FDA","IEN","ERR")
  ;
  ; subject.reference
@@ -92,7 +93,7 @@ LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan
  S FDA(1.51,"+1,"_EIEN_",",.01)="subject.reference"
  S FDA(1.51,"+1,"_EIEN_",",.04)=9000010
  S FDA(1.51,"+1,"_EIEN_",",.05)=.05
- S FDA(1.51,"+1,"_EIEN_",",1.2)="S VALUE=""Patient/""_VAL"
+ S FDA(1.51,"+1,"_EIEN_",",4)="S VALUE=""Patient/""_VAL"
  D UPDATE^DIE("","FDA","IEN","ERR")
  ;
  ; period.start
@@ -100,7 +101,7 @@ LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan
  S FDA(1.51,"+1,"_EIEN_",",.01)="period.start"
  S FDA(1.51,"+1,"_EIEN_",",.04)=9000010
  S FDA(1.51,"+1,"_EIEN_",",.05)=.01
- S FDA(1.51,"+1,"_EIEN_",",1.2)="S VALUE=$$DATE^VPRSDA(VAL)"
+ S FDA(1.51,"+1,"_EIEN_",",4)="S VALUE=$$DATE^VPRSDA(VAL)"
  D UPDATE^DIE("","FDA","IEN","ERR")
  ;
  ; period.end
@@ -108,7 +109,7 @@ LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan
  S FDA(1.51,"+1,"_EIEN_",",.01)="period.end"
  S FDA(1.51,"+1,"_EIEN_",",.04)=9000010
  S FDA(1.51,"+1,"_EIEN_",",.05)=.18
- S FDA(1.51,"+1,"_EIEN_",",1.2)="N EDT S EDT=VAL S VALUE=$S(EDT:$$DATE^VPRSDA(EDT),1:"""")"
+ S FDA(1.51,"+1,"_EIEN_",",4)="N EDT S EDT=VAL S VALUE=$S(EDT:$$DATE^VPRSDA(EDT),1:"""")"
  D UPDATE^DIE("","FDA","IEN","ERR")
  ;
  ; location.0.location.reference
@@ -116,7 +117,7 @@ LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan
  S FDA(1.51,"+1,"_EIEN_",",.01)="location.0.location.reference"
  S FDA(1.51,"+1,"_EIEN_",",.04)=9000010
  S FDA(1.51,"+1,"_EIEN_",",.05)=.22
- S FDA(1.51,"+1,"_EIEN_",",1.2)="S VALUE=$S(VAL:""Location/""_VAL,1:"""")"
+ S FDA(1.51,"+1,"_EIEN_",",4)="S VALUE=$S(VAL:""Location/""_VAL,1:"""")"
  D UPDATE^DIE("","FDA","IEN","ERR")
  ;
  W !,"  Loaded 10 FHIR Encounter items."

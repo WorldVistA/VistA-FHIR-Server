@@ -55,8 +55,9 @@ CRAWL(ENAME,ID,BNDL,CNT) ; Crawl ^DDE entity metadata and build FHIR resource
  . S VAL=""
  . I FILE,FLD S VAL=$$GET1^DIQ(FILE,ID_",",FLD,"I")
  . ;
- . ; C. Execute DATA TRANSFORM (Field 1.2)
+ . ; C. Execute DATA TRANSFORM (Field 1.2 or 4 - DDE varies by site)
  . S X12=$G(^DDE(EIEN,1,IIEN,1.2))
+ . I X12="" S X12=$G(^DDE(EIEN,1,IIEN,4))
  . I X12'="" S VALUE=VAL X X12 S VAL=VALUE
  . ;
  . ; D. Map into JSON structure
