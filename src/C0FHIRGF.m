@@ -30,7 +30,7 @@ CRAWL(ENAME,ID,BNDL,CNT) ; Crawl ^DDE entity metadata and build FHIR resource
  ; Reads entity definitions from ^DDE (File #1.5 / DDE registry)
  ; Executes GET ACTION (1.1), fetches data, runs DATA TRANSFORM (1.2)
  ;
- N EIEN,IIEN,TAG,FILE,FLD,X11,X12,VAL,VALUE,RES,MAP,ITEM,DIEN
+ N EIEN,IIEN,TAG,FILE,FLD,X6,X4,VAL,VALUE,RES,MAP,ITEM,DIEN
  S DIEN=ID
  S EIEN=$O(^DDE("B",ENAME,0)) Q:'EIEN
  ;
@@ -42,26 +42,26 @@ CRAWL(ENAME,ID,BNDL,CNT) ; Crawl ^DDE entity metadata and build FHIR resource
  ; Fallback: C0FHIR PATIENT ID has no items in loader - use C0FHIRPT
  I ENAME="C0FHIR PATIENT ID",'$O(^DDE(EIEN,1,0)) D GETPT^C0FHIRPT(.BNDL,.CNT,ID) Q
  ;
- ; Loop through ITEM multiple (#1.51)
+ ; Loop through ITEM multiple (#1.51). DDE: 6=GET ACTION, 4=OUTPUT TRANSFORM
  S IIEN=0 F  S IIEN=$O(^DDE(EIEN,1,IIEN)) Q:'IIEN  D
  . S ITEM=$G(^DDE(EIEN,1,IIEN,0))
  . S TAG=$P(ITEM,U)
  . S FILE=+$P(ITEM,U,4),FLD=$P(ITEM,U,5)
  . ;
- . ; A. Execute GET ACTION (Field 1.1) - init context
- . S X11=$G(^DDE(EIEN,1,IIEN,1)) I X11'="" X X11
+ . ; A. Execute GET ACTION (field 6) - can set VALUE for transform-only items
+ . S X6=$G(^DDE(EIEN,1,IIEN,6)) I X6'="" X X6
  . ;
- . ; B. Fetch value from FileMan
- . S VAL=""
- . I FILE,FLD S VAL=$$GET1^DIQ(FILE,ID_",",FLD,"I")
+ . ; B. Fetch value from FileMan if not set by GET ACTION
+ . I $G(VALUE)="" S VAL=""
+ . I $G(VALUE)="",FILE,FLD S VAL=$$GET1^DIQ(FILE,ID_",",FLD,"I")
+ . I $G(VALUE)'="" S VAL=VALUE
  . ;
- . ; C. Execute DATA TRANSFORM (Field 1.2 or 4 - DDE varies by site)
- . S X12=$G(^DDE(EIEN,1,IIEN,1.2))
- . I X12="" S X12=$G(^DDE(EIEN,1,IIEN,4))
- . I X12'="" S VALUE=VAL X X12 S VAL=VALUE
+ . ; C. Execute OUTPUT TRANSFORM (field 4)
+ . S X4=$G(^DDE(EIEN,1,IIEN,4)) I X4'="" S VALUE=VAL X X4 S VAL=VALUE
  . ;
  . ; D. Map into JSON structure
  . I $G(VAL)'="" D SETPATH^C0FHIRUTL(.MAP,TAG,VAL)
+ . K VALUE
  ;
  ; Add resource to bundle
  I $D(MAP) D

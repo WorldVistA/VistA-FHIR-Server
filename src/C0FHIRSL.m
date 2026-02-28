@@ -16,8 +16,8 @@ SEAL ; Main Entry Point: Move File 1.5 -> ^C0FHIR(1.5)
  . S IIEN=0 F  S IIEN=$O(^DDE(EIEN,1,IIEN)) Q:'IIEN  D
  .. S ITEM=$G(^DDE(EIEN,1,IIEN,0))
  .. S TAG=$P(ITEM,U) ; FHIR Path
- .. S X11=$G(^DDE(EIEN,1,IIEN,1)) ; Get Action
- .. S X12=$G(^DDE(EIEN,1,IIEN,1.2)) I X12="" S X12=$G(^DDE(EIEN,1,IIEN,4)) ; Data Transform (4 = VistA DDE)
+ .. S X11=$G(^DDE(EIEN,1,IIEN,6)) I X11="" S X11=$G(^DDE(EIEN,1,IIEN,1)) ; GET ACTION (6) or legacy 1
+ .. S X12=$G(^DDE(EIEN,1,IIEN,4)) I X12="" S X12=$G(^DDE(EIEN,1,IIEN,1.2)) ; OUTPUT TRANSFORM (4) or legacy 1.2
  .. ; Store in static global
  .. S ^C0FHIR(1.5,ENAME,"ITEMS",IIEN)=TAG_U_$P(ITEM,U,4,5)
  .. S:X11'="" ^C0FHIR(1.5,ENAME,"ITEMS",IIEN,1.1)=X11
