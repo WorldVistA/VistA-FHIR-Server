@@ -35,10 +35,13 @@ ENTITY() ; Return IEN of C0FHIR ENCOUNTER, create if missing
  Q IEN
  ;
 CLEANITEMS(EIEN) ; Remove existing items from entity (for clean reload)
- N IIEN
+ N IIEN,SUB
  S IIEN=0
  F  S IIEN=$O(^DDE(EIEN,1,IIEN)) Q:'IIEN  K ^DDE(EIEN,1,IIEN)
  K ^DDE(EIEN,1,0)
+ ; Kill orphaned B and SEQ cross-references
+ K ^DDE(EIEN,1,"B")
+ K ^DDE(EIEN,1,"SEQ")
  Q
  ;
 LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan FDA
@@ -131,5 +134,76 @@ LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan FDA
  S FDA(1.51,"+1,"_EIEN_",",4)="S VALUE=$S(VAL:""Location/""_VAL,1:"""")"
  D UPDATE^DIE("","FDA","IEN","ERR")
  ;
- W !,"  Loaded 10 FHIR Encounter items."
+ ; identifier.0.use - transform-only
+ K FDA,IEN,ERR
+ S FDA(1.51,"+1,"_EIEN_",",.01)="identifier.0.use"
+ S FDA(1.51,"+1,"_EIEN_",",.03)="S"
+ S FDA(1.51,"+1,"_EIEN_",",6)="S VALUE=""official"""
+ D UPDATE^DIE("","FDA","IEN","ERR")
+ ;
+ ; id - resource id (Encounter-VisitIEN)
+ K FDA,IEN,ERR
+ S FDA(1.51,"+1,"_EIEN_",",.01)="id"
+ S FDA(1.51,"+1,"_EIEN_",",.03)="S"
+ S FDA(1.51,"+1,"_EIEN_",",6)="S VALUE=""Encounter-""_ID"
+ D UPDATE^DIE("","FDA","IEN","ERR")
+ ;
+ ; type.0.coding.0.code - Visit type internal; OUTPUT TRANSFORM
+ K FDA,IEN,ERR
+ S FDA(1.51,"+1,"_EIEN_",",.01)="type.0.coding.0.code"
+ S FDA(1.51,"+1,"_EIEN_",",.03)="S"
+ S FDA(1.51,"+1,"_EIEN_",",.04)=9000010
+ S FDA(1.51,"+1,"_EIEN_",",.05)=.07
+ S FDA(1.51,"+1,"_EIEN_",",4)="S VALUE=VAL"
+ D UPDATE^DIE("","FDA","IEN","ERR")
+ ;
+ ; type.0.coding.0.system - transform-only
+ K FDA,IEN,ERR
+ S FDA(1.51,"+1,"_EIEN_",",.01)="type.0.coding.0.system"
+ S FDA(1.51,"+1,"_EIEN_",",.03)="S"
+ S FDA(1.51,"+1,"_EIEN_",",6)="S VALUE=""http://terminology.hl7.org/CodeSystem/v3-ActCode"""
+ D UPDATE^DIE("","FDA","IEN","ERR")
+ ;
+ ; location.0.location.display - location name; OUTPUT TRANSFORM
+ K FDA,IEN,ERR
+ S FDA(1.51,"+1,"_EIEN_",",.01)="location.0.location.display"
+ S FDA(1.51,"+1,"_EIEN_",",.03)="S"
+ S FDA(1.51,"+1,"_EIEN_",",.04)=9000010
+ S FDA(1.51,"+1,"_EIEN_",",.05)=.22
+ S FDA(1.51,"+1,"_EIEN_",",4)="S VALUE=$S(VAL:$$GET1^DIQ(44,VAL,.01,""E""),1:"""")"
+ D UPDATE^DIE("","FDA","IEN","ERR")
+ ;
+ ; serviceProvider.reference - Institution (File 4); OUTPUT TRANSFORM
+ ; Visit .21 = HOSPITAL LOCATION, .22 = LOCATION; use .22's parent org if available
+ K FDA,IEN,ERR
+ S FDA(1.51,"+1,"_EIEN_",",.01)="serviceProvider.reference"
+ S FDA(1.51,"+1,"_EIEN_",",.03)="S"
+ S FDA(1.51,"+1,"_EIEN_",",.04)=9000010
+ S FDA(1.51,"+1,"_EIEN_",",.05)=.21
+ S FDA(1.51,"+1,"_EIEN_",",4)="N ORG S ORG=VAL S VALUE=$S(ORG:""Organization/""_ORG,1:"""")"
+ D UPDATE^DIE("","FDA","IEN","ERR")
+ ;
+ ; reasonCode.0.text - Purpose of Visit from POV subfile 9000010.07
+ K FDA,IEN,ERR
+ S FDA(1.51,"+1,"_EIEN_",",.01)="reasonCode.0.text"
+ S FDA(1.51,"+1,"_EIEN_",",.03)="S"
+ S FDA(1.51,"+1,"_EIEN_",",6)="N POV S POV=$O(^AUPNVPOV(""C"",ID,0)) S VALUE=$S(POV:$$GET1^DIQ(9000010.07,POV_"",""_ID,.01,""E""),1:"""")"
+ D UPDATE^DIE("","FDA","IEN","ERR")
+ ;
+ ; length.value - duration in minutes; OUTPUT TRANSFORM
+ ; .18-.01 in minutes if both present
+ K FDA,IEN,ERR
+ S FDA(1.51,"+1,"_EIEN_",",.01)="length.value"
+ S FDA(1.51,"+1,"_EIEN_",",.03)="S"
+ S FDA(1.51,"+1,"_EIEN_",",6)="N SDT,EDT S SDT=$$GET1^DIQ(9000010,ID_"","",.01,""I""),EDT=$$GET1^DIQ(9000010,ID_"","",.18,""I"") S VALUE=$S(SDT,EDT:$$FMDIFF^XLFDT(EDT,SDT,2),1:"""")"
+ D UPDATE^DIE("","FDA","IEN","ERR")
+ ;
+ ; length.unit - transform-only
+ K FDA,IEN,ERR
+ S FDA(1.51,"+1,"_EIEN_",",.01)="length.unit"
+ S FDA(1.51,"+1,"_EIEN_",",.03)="S"
+ S FDA(1.51,"+1,"_EIEN_",",6)="S VALUE=""min"""
+ D UPDATE^DIE("","FDA","IEN","ERR")
+ ;
+ W !,"  Loaded 17 FHIR Encounter items."
  Q
