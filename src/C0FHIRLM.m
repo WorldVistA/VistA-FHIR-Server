@@ -1,7 +1,29 @@
 C0FHIRLM ;VAMC/JS-FHIR LAB DATA RESOURCE WITH LOINC ; 15-FEB-2026
  ;;1.2;C0FHIR PROJECT;;Feb 15, 2026;Build 2
  Q
-GETLABS(BNDL,CNT,DFN,ENCPTR) ; Extract Labs with LOINC Mapping
+ ;
+GETLAB(BNDL,CNT,LRDFN,VISIT,ENCID) ; Pull labs for one encounter (used by GENFULL PROC)
+ ; LRDFN=File #63 ptr, VISIT=File #9000010 ptr, ENCID=Encounter reference id
+ Q:'LRDFN!'VISIT
+ N LBDT,LRIDT,LRI,TESTIEN,DATA,RESULT,UNIT,TESTNM,LABERR
+ S LBDT=$$GET1^DIQ(9000010,VISIT_",",.01,"I") Q:'LBDT
+ S LRIDT=9999999-LBDT,LRI=LRIDT
+ F  S LRI=$O(^LR(LRDFN,"CH",LRI)) Q:'LRI!(LRI>(LRIDT_".9999"))  D
+ . S TESTIEN=1 F  S TESTIEN=$O(^LR(LRDFN,"CH",LRI,TESTIEN)) Q:'TESTIEN  D
+ .. S DATA=$G(^LR(LRDFN,"CH",LRI,TESTIEN))
+ .. S RESULT=$P(DATA,U),UNIT=$P($P(DATA,U,2),"!",7)
+ .. S TESTNM=$$GET1^DIQ(60,TESTIEN_",",.01,"","","LABERR")
+ .. Q:$D(LABERR)!(TESTNM="")
+ .. S CNT=CNT+1,BNDL("entry",CNT,"resource","resourceType")="Observation"
+ .. S BNDL("entry",CNT,"resource","category",1,"coding",1,"code")="laboratory"
+ .. S BNDL("entry",CNT,"resource","code","text")=TESTNM
+ .. S BNDL("entry",CNT,"resource","valueQuantity","value")=RESULT
+ .. S BNDL("entry",CNT,"resource","valueQuantity","unit")=UNIT
+ .. S BNDL("entry",CNT,"resource","effectiveDateTime")=$$ISO8601^C0FHIRUTL(9999999-LRI)
+ .. S BNDL("entry",CNT,"resource","encounter","reference")="Encounter/"_ENCID
+ Q
+ ;
+GETLABS(BNDL,CNT,DFN,ENCPTR) ; Extract Labs with LOINC Mapping (RPC-style)
  N LRDFN,IDT,LR0,RES,VAL,TST,LOINC,LTEST,LNCPTR
  ;
  ; 1. Establish the LRDFN gateway (Ref: Entity #13)

@@ -18,7 +18,7 @@ EN ; Main entry - Create/update C0FHIR ENCOUNTER entity with FHIR R4 items
  W !,"Loading C0FHIR ENCOUNTER items..."
  D LOADITEMS(EIEN)
  ;
- W !,"C0FHIR ENCOUNTER entity updated. Run D SEAL^C0FHIRSL to reseal metadata."
+ W !,"C0FHIR ENCOUNTER entity updated. Crawler uses ^DDE directly (no sealing)."
  Q
  ;
 ENTITY() ; Return IEN of C0FHIR ENCOUNTER, create if missing
