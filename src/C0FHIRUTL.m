@@ -58,3 +58,12 @@ REF(TYPE,IEN) ; Generate a FHIR Resource Reference string
  ;        IEN  - VistA internal entry number
  Q:IEN="" ""
  Q TYPE_"/"_IEN
+ ;
+MERGEPART(TARGET,TAG,PIDX,SUBMAP) ; Merge child resource into parent at TAG.PIDX
+ ; Input: TARGET - Parent MAP array (by ref)
+ ;        TAG    - FHIR path segment (e.g., "participant")
+ ;        PIDX   - 0-based array index
+ ;        SUBMAP - Child bundle from CRAWL (has "entry",1,"resource")
+ Q:'$D(SUBMAP("entry",1,"resource"))
+ M TARGET(TAG,PIDX)=SUBMAP("entry",1,"resource")
+ Q

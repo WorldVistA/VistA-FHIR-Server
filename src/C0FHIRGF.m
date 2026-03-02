@@ -59,7 +59,7 @@ PROC(IE,BNDL,CNT,DFN,LRDFN) ; Process one encounter + related resources
  Q
  ;
 CRAWL(ENAME,ID,BNDL,CNT) ; Crawl ^DDE entity metadata and build FHIR resource
- N EIEN,IIEN,TAG,FILE,FLD,X6,X4,VAL,VALUE,RES,MAP,ITEM,DIEN
+ N EIEN,IIEN,TAG,FILE,FLD,X6,X4,VAL,VALUE,RES,MAP,ITEM,DIEN,TYPE,CHILD,PIDX
  S DIEN=ID
  S EIEN=$O(^DDE("B",ENAME,0)) Q:'EIEN
  ;
@@ -70,9 +70,20 @@ CRAWL(ENAME,ID,BNDL,CNT) ; Crawl ^DDE entity metadata and build FHIR resource
  I ENAME="C0FHIR PATIENT ID",'$O(^DDE(EIEN,1,0)) D GETPT^C0FHIRPT(.BNDL,.CNT,ID) Q
  ;
  S IIEN=0 F  S IIEN=$O(^DDE(EIEN,1,IIEN)) Q:'IIEN  D
+ . I +IIEN'=IIEN Q
  . S ITEM=$G(^DDE(EIEN,1,IIEN,0))
  . S TAG=$P(ITEM,U)
- . S FILE=+$P(ITEM,U,4),FLD=$P(ITEM,U,5)
+ . S FILE=+$P(ITEM,U,4)
+ . S TYPE=$G(^DDE(EIEN,1,IIEN,.03)) I TYPE="" S TYPE=$P(ITEM,U,3)
+ . ;
+ . ; ENTITY type: recurse into child entity (e.g., participant)
+ . I TYPE="E"!(TYPE=2) D  Q
+ .. S CHILD=$G(^DDE(EIEN,1,IIEN,"E"))
+ .. I CHILD="" Q
+ .. D CRAWLENTITY(EIEN,IIEN,TAG,CHILD,FILE,ID,.MAP)
+ . ;
+ . ; Simple/transform items
+ . S FLD=$P(ITEM,U,5)
  . S X6=$G(^DDE(EIEN,1,IIEN,6)) I X6'="" X X6
  . I $G(VALUE)="" S VAL=""
  . I $G(VALUE)="",FILE,FLD S VAL=$$GET1^DIQ(FILE,ID_",",FLD,"I")
@@ -85,6 +96,30 @@ CRAWL(ENAME,ID,BNDL,CNT) ; Crawl ^DDE entity metadata and build FHIR resource
  . S CNT=CNT+1
  . S BNDL("entry",CNT,"resource","resourceType")=RES
  . M BNDL("entry",CNT,"resource")=MAP
+ Q
+ ;
+CRAWLENTITY(PARENT,IIEN,TAG,CHILD,FILE,PID,.MAP) ; Handle ENTITY-type item: iterate and recurse
+ ; TAG=e.g. participant, CHILD=entity name, FILE=source file, PID=parent ID (e.g. VisitIEN)
+ N SUBID,PIDX,SUBMAP,CEIEN
+ ;
+ ; participant: iterate 9000010.06 (V-Provider), ID=VisitIEN,ProviderIEN
+ ; ^AUPNVPOV = 9000010; subfile 6 = V-Provider (9000010.06)
+ I TAG="participant",FILE=9000010.06 D
+ . S PIDX=-1
+ . S SUBID=0 F  S SUBID=$O(^AUPNVPOV(PID,6,SUBID)) Q:'SUBID  D
+ .. S PIDX=PIDX+1
+ .. K SUBMAP
+ .. S CEIEN=0
+ .. D CRAWL(CHILD,PID_","_SUBID,.SUBMAP,.CEIEN)
+ .. I $D(SUBMAP) D MERGEPART^C0FHIRUTL(.MAP,TAG,PIDX,.SUBMAP)
+ . Q
+ ;
+ ; Generic: single child call (ID passed through)
+ I FILE D
+ . K SUBMAP
+ . S CEIEN=0
+ . D CRAWL(CHILD,PID,.SUBMAP,.CEIEN)
+ . I $D(SUBMAP) D MERGEPART^C0FHIRUTL(.MAP,TAG,0,.SUBMAP)
  Q
  ;
 LOGERR(MSG,ERR,BNDL,CNT) ; Log FileMan errors as FHIR OperationOutcome

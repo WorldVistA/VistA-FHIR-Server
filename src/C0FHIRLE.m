@@ -205,5 +205,17 @@ LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan FDA
  S FDA(1.51,"+1,"_EIEN_",",6)="S VALUE=""min"""
  D UPDATE^DIE("","FDA","IEN","ERR")
  ;
- W !,"  Loaded 17 FHIR Encounter items."
+ ; participant - ENTITY link to C0FHIR ENCOUNTER PARTICIPANT
+ ; Source: 9000010.06 (V-Provider). Parent must iterate; ID=VisitIEN,ProviderIEN
+ K FDA,IEN,ERR
+ S FDA(1.51,"+1,"_EIEN_",",.01)="participant"
+ S FDA(1.51,"+1,"_EIEN_",",.03)="E"
+ S FDA(1.51,"+1,"_EIEN_",",.04)=9000010.06
+ S FDA(1.51,"+1,"_EIEN_",",6)="D VPRV^VPRSDAV(ID)"
+ D UPDATE^DIE("","FDA","IEN","ERR")
+ I $D(ERR) W !,"  [WARN] participant: ",$G(ERR("DIERR",1,"TEXT",1))
+ ; Set entity pointer for participant item (DDE "E" subscript = entity name)
+ S IIEN=0 F  S IIEN=$O(^DDE(EIEN,1,IIEN)) Q:'IIEN  I +IIEN'=IIEN Q  I $P($G(^DDE(EIEN,1,IIEN,0)),U)="participant" S ^DDE(EIEN,1,IIEN,"E")="C0FHIR ENCOUNTER PARTICIPANT" Q
+ ;
+ W !,"  Loaded 18 FHIR Encounter items (incl. participant link)."
  Q
