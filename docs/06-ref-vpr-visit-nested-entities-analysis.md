@@ -12,7 +12,7 @@ VPR VISIT maps to the FHIR Encounter resource. It may nest child entities for:
 |----------------|-----------|----------------------|--------|
 | **HealthCareFacility** | `location.0.location` | VPR LOCATION | Visit .22 → File #44 |
 | **ConsultingClinicians** | `participant` | Provider entity | Visit 9000010.06 (V-Provider) |
-| *(implicit)* | `serviceProvider` | VPR FACILITY | Visit .21 → File #4 |
+| *(implicit)* | `serviceProvider` | *(omitted)* | Visit .21 = Eligibility (#8); .22 = Hospital Location (#44). No direct source. |
 
 The decision to **reuse** or **duplicate** depends on:
 
@@ -56,7 +56,7 @@ The decision to **reuse** or **duplicate** depends on:
 | **Display Name** | `Organization` |
 | **FHIR Alignment** | ✓ Matches FHIR `Organization` resource |
 | **Item Names** | Likely SDA (e.g., `StationNumber`, `Name`) |
-| **Used By** | Visit .21 (Hospital Location) |
+| **Used By** | *(Visit .21 is NOT Hospital Location; correct source TBD)* |
 
 **Recommendation: REUSE**
 
@@ -154,7 +154,7 @@ If you need **full** Location or Organization resources inline (vs. references):
 1. Add item `location.0.location` with ITEM TYPE=ENTITY, Entity=**VPR LOCATION**.
 2. GET ACTION or pointer: set ID = Visit .22 (Location IEN).
 3. Add item `serviceProvider` with ITEM TYPE=ENTITY, Entity=**VPR FACILITY**.
-4. GET ACTION: set ID = Visit .21 (Hospital Location IEN).
+4. GET ACTION: *(Visit .21 = Eligibility; .22 = Hospital Location. serviceProvider source TBD.)*
 5. **Verify** VPR LOCATION and VPR FACILITY item names produce valid FHIR. If not, duplicate as C0FHIR LOCATION / C0FHIR ORGANIZATION.
 
 ---

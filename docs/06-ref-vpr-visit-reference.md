@@ -73,7 +73,7 @@ From the B index on a typical VPR VISIT entity:
 | `period.end` | .18 | OUTPUT TRANSFORM (4) |
 | `location.0.location.reference` | .22 | OUTPUT TRANSFORM (4) |
 | `location.0.location.display` | .22 | OUTPUT TRANSFORM (4) |
-| `serviceProvider.reference` | .21 | OUTPUT TRANSFORM (4) |
+| `serviceProvider.reference` | *(omitted)* | Visit .21 = Eligibility (#8); .22 = Hospital Location (#44). No direct serviceProvider source. |
 | `reasonCode.0.text` | POV 9000010.07 | GET ACTION (6) |
 | `length.value` | .01,.18 | GET ACTION (6) |
 | `length.unit` | Constant | GET ACTION (6) |
@@ -109,17 +109,30 @@ From the B index on a typical VPR VISIT entity:
 
 ## 7. File #9000010 (Visit) Key Fields
 
-| Field | Description |
-|-------|-------------|
-| .01 | Visit Date/Time (period.start) |
-| .05 | Patient (subject.reference) |
-| .07 | Visit Type (class.code, type) |
-| .18 | Check-out Date/Time (period.end) |
-| .21 | Hospital Location (serviceProvider) |
-| .22 | Location (location.reference) |
-| 9000010.06 | V-Provider subfile (participant) |
-| 9000010.07 | POV subfile (reasonCode) |
+Per VistA Data Dictionary (stored in `^AUPNVSIT`):
+
+| Field | Name | Description |
+|-------|------|-------------|
+| .01 | VISIT/ADMIT DATE&TIME | Visit date/time (period.start) |
+| .02 | DATE VISIT CREATED | When visit was added |
+| .03 | TYPE | IHS/VA/Contract/Tribal/etc. |
+| .05 | PATIENT NAME | Pointer to Patient file #9000001 (subject.reference) |
+| .06 | LOC. OF ENCOUNTER | Pointer to Location #9999999.06 (institution) |
+| .07 | SERVICE CATEGORY | A=Ambulatory, H=Hospitalization, I=In Hospital, E=Event, etc. (class.code, type) |
+| .08 | DSS ID | Pointer to Clinic Stop #40.7 |
+| .09 | DEPENDENT ENTRY COUNT | Count of V-file entries pointing to this visit |
+| .11 | DELETE FLAG | 0=Active, 1=Deleted |
+| .12 | PARENT VISIT LINK | Pointer to parent Visit #9000010 |
+| .13 | DATE LAST MODIFIED | Last modification date/time |
+| .18 | CHECK OUT DATE&TIME | Check-out date/time (period.end) |
+| .21 | ELIGIBILITY | Pointer to Eligibility Code #8 (patient entitlement for this visit) |
+| .22 | HOSPITAL LOCATION | Pointer to Hospital Location #44 (location.reference) |
+| .23 | CREATED BY USER | Pointer to New Person #200 |
+| 9000010.06 | V-Provider | Subfile (participant) |
+| 9000010.07 | V POV | Subfile (reasonCode) |
+
+**IDENTIFIED BY:** Patient Name (.05), Hospital Location (.22), Visit ID (15001)
 
 ---
 
-*Reference compiled from entity registry, 01-spec-encounter*.md, and VPR VISIT B-index dump.*
+*Reference compiled from VistA Data Dictionary #9000010, entity registry, and 01-spec-encounter.md.*

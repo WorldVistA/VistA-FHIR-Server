@@ -172,16 +172,7 @@ LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan FDA
  S FDA(1.51,"+1,"_EIEN_",",.05)=.22
  S FDA(1.51,"+1,"_EIEN_",",4)="S VALUE=$S(VAL:$$GET1^DIQ(44,VAL,.01,""E""),1:"""")"
  D UPDATE^DIE("","FDA","IEN","ERR")
- ;
- ; serviceProvider.reference - Institution (File 4); OUTPUT TRANSFORM
- ; Visit .21 = HOSPITAL LOCATION, .22 = LOCATION; use .22's parent org if available
- K FDA,IEN,ERR
- S FDA(1.51,"+1,"_EIEN_",",.01)="serviceProvider.reference"
- S FDA(1.51,"+1,"_EIEN_",",.03)="S"
- S FDA(1.51,"+1,"_EIEN_",",.04)=9000010
- S FDA(1.51,"+1,"_EIEN_",",.05)=.21
- S FDA(1.51,"+1,"_EIEN_",",4)="N ORG S ORG=VAL S VALUE=$S(ORG:""Organization/""_ORG,1:"""")"
- D UPDATE^DIE("","FDA","IEN","ERR")
+ ; NOTE: Visit .21 = Eligibility (File #8); .22 = Hospital Location (File #44). No direct serviceProvider source.
  ;
  ; reasonCode.0.text - Purpose of Visit from POV subfile 9000010.07
  K FDA,IEN,ERR
@@ -217,5 +208,5 @@ LOADITEMS(EIEN) ; Add FHIR R4 items via FileMan FDA
  ; Set entity pointer for participant item (DDE "E" subscript = entity name)
  S IIEN=0 F  S IIEN=$O(^DDE(EIEN,1,IIEN)) Q:'IIEN  I +IIEN'=IIEN Q  I $P($G(^DDE(EIEN,1,IIEN,0)),U)="participant" S ^DDE(EIEN,1,IIEN,"E")="C0FHIR ENCOUNTER PARTICIPANT" Q
  ;
- W !,"  Loaded 18 FHIR Encounter items (incl. participant link)."
+ W !,"  Loaded 17 FHIR Encounter items (incl. participant link)."
  Q
