@@ -8,38 +8,54 @@ EN ; Correct C0FHIR ENCOUNTER PARTICIPANT entity for FHIR R4
  ;
  N EIEN,FDA,IEN,ERR
  ;
- S EIEN=$O(^DDE("B","C0FHIR ENCOUNTER PARTICIPANT",0))
- I 'EIEN W !,"[FAIL] C0FHIR ENCOUNTER PARTICIPANT entity not found." Q
+ ; 1. Ensure entity exists (create if missing, like C0FHIRLE)
+ S EIEN=$$ENTITY
+ I 'EIEN W !,"[FAIL] Could not create/find C0FHIR ENCOUNTER PARTICIPANT entity." Q
  ;
  W !,"Correcting C0FHIR ENCOUNTER PARTICIPANT (IEN "_EIEN_")..."
  ;
- ; 1. Update entity: default file 9000010.06, display name Participant
- D ENTITY(EIEN)
+ ; 2. Update entity: default file 9000010.06, display name Participant
+ D ENTITYUPD(EIEN)
  ;
- ; 2. Clear existing SDA-style items
+ ; 3. Clear existing SDA-style items
  D CLEANITEMS(EIEN)
  ;
- ; 3. Add FHIR participant items
+ ; 4. Add FHIR participant items
  D LOADITEMS(EIEN)
  ;
  W !,"C0FHIR ENCOUNTER PARTICIPANT corrected."
  Q
  ;
-ENTITY(EIEN) ; Update entity record
+ENTITY() ; Return IEN of C0FHIR ENCOUNTER PARTICIPANT, create if missing
+ N FDA,IEN,ERR
+ S IEN=$O(^DDE("B","C0FHIR ENCOUNTER PARTICIPANT",0))
+ I IEN Q IEN
+ ;
+ ; Create entity via FileMan FDA (File 1.5)
+ K FDA,ERR
+ S FDA(1.5,"+1,",.01)="C0FHIR ENCOUNTER PARTICIPANT"
+ S FDA(1.5,"+1,",.02)=9000010.06
+ S FDA(1.5,"+1,",.04)="Participant"
+ S FDA(1.5,"+1,",1)="FHIR"
+ D UPDATE^DIE("","FDA","IEN","ERR")
+ I $D(ERR) Q 0
+ Q $G(IEN(1))
+ ;
+ENTITYUPD(EIEN) ; Update entity record via FileMan FDA
  ; Default file 9000010.06 (V-Provider), Display name Participant
- ; Uses ^DDE structure (0 node piece 2 = default file)
- S $P(^DDE(EIEN,0),U,2)=9000010.06
- S ^DDE(EIEN,.1)="Participant"
- S ^DDE(EIEN,1)="FHIR"
+ K FDA,ERR
+ S FDA(1.5,EIEN_",",.02)=9000010.06
+ S FDA(1.5,EIEN_",",.04)="Participant"
+ S FDA(1.5,EIEN_",",1)="FHIR"
+ D UPDATE^DIE("","FDA","IEN","ERR")
  Q
  ;
-CLEANITEMS(EIEN) ; Remove existing items
- N IIEN
+CLEANITEMS(EIEN) ; Remove existing items via FileMan FDA
+ N IIEN,FDA,ERR
+ K FDA,ERR
  S IIEN=0
- F  S IIEN=$O(^DDE(EIEN,1,IIEN)) Q:'IIEN  K ^DDE(EIEN,1,IIEN)
- K ^DDE(EIEN,1,0)
- K ^DDE(EIEN,1,"B")
- K ^DDE(EIEN,1,"SEQ")
+ F  S IIEN=$O(^DDE(EIEN,1,IIEN)) Q:'IIEN  I +IIEN=IIEN S FDA(1.51,EIEN_","_IIEN_",",.01)="@"
+ I $D(FDA) D FILE^DIE("","FDA","ERR")
  Q
  ;
 LOADITEMS(EIEN) ; Add FHIR participant items
